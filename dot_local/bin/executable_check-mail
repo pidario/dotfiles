@@ -1,0 +1,22 @@
+#!/bin/sh
+
+set -eu
+
+MBS="$(check-dep mbsync)"
+NM="$(check-dep notmuch)"
+NOT="$(command -v notify-send)"
+
+count () {
+  $NM count 'path:gmail/** AND NOT folder:"gmail/[Gmail]/All Mail" AND NOT folder:gmail/[Gmail]/Drafts AND NOT folder:"gmail/[Gmail]/Sent Mail" AND NOT folder:gmail/[Gmail]/Spam AND NOT folder:gmail/[Gmail]/Trash'
+}
+
+PREV=$(count)
+echo "Previous E-Mail count: $PREV"
+"$MBS" --quiet --all
+"$NM" new --quiet 2> /dev/null
+NOW=$(count)
+echo "Current E-Mail count: $NOW"
+DIFF=$((NOW-PREV))
+if [ -n "$NOT" ] && [ "$DIFF" -gt 0 ]; then
+  "$NOT" --app-name "Mutt" "New Mail" "$DIFF unread email(s)"
+fi

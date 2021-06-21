@@ -1,0 +1,60 @@
+# nvim plugins
+[".local/share/nvim/site/pack/my-plugins/start/ale"]
+type = "git-repo"
+url = "https://github.com/dense-analysis/ale"
+
+[".local/share/nvim/site/pack/my-plugins/start/auto-session"]
+type = "git-repo"
+url = "https://github.com/rmagatti/auto-session"
+
+[".local/share/nvim/site/pack/my-plugins/start/coq.artifacts"]
+type = "git-repo"
+url = "https://github.com/ms-jpq/coq.artifacts"
+
+[".local/share/nvim/site/pack/my-plugins/start/coq_nvim"]
+type = "git-repo"
+url = "https://github.com/ms-jpq/coq_nvim"
+
+[".local/share/nvim/site/pack/my-plugins/start/fzf"]
+type = "git-repo"
+url = "https://github.com/junegunn/fzf"
+
+[".local/share/nvim/site/pack/my-plugins/start/fzf.vim"]
+type = "git-repo"
+url = "https://github.com/junegunn/fzf.vim"
+
+[".local/share/nvim/site/pack/my-plugins/start/nvim-dap"]
+type = "git-repo"
+url = "https://github.com/mfussenegger/nvim-dap"
+
+[".local/share/nvim/site/pack/my-plugins/start/nvim-lspconfig"]
+type = "git-repo"
+url = "https://github.com/neovim/nvim-lspconfig"
+
+[".local/share/nvim/site/pack/my-plugins/start/nvim-treesitter"]
+type = "git-repo"
+url = "https://github.com/nvim-treesitter/nvim-treesitter"
+
+[".local/share/nvim/site/pack/my-plugins/start/vim-airline"]
+type = "git-repo"
+url = "https://github.com/vim-airline/vim-airline"
+
+[".local/share/nvim/site/pack/my-plugins/start/vim-fugitive"]
+type = "git-repo"
+url = "https://github.com/tpope/vim-fugitive"
+
+[".local/share/nvim/site/pack/my-plugins/start/vim-gitgutter"]
+type = "git-repo"
+url = "https://github.com/airblade/vim-gitgutter"
+
+[".local/share/nvim/site/pack/my-plugins/start/vim-sleuth"]
+type = "git-repo"
+url = "https://github.com/tpope/vim-sleuth"
+
+[".local/share/nvim/site/pack/my-plugins/start/vim-test"]
+type = "git-repo"
+url = "https://github.com/vim-test/vim-test"
+
+[".local/share/nvim/site/pack/my-plugins/start/vimux"]
+type = "git-repo"
+url = "https://github.com/preservim/vimux"

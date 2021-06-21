@@ -1,0 +1,273 @@
+{
+  "policies": {
+    "Certificates": {
+      "ImportEnterpriseRoots": true
+    },
+    "Cookies": {
+      "Allow": [
+        "https://microsoft.com",
+        "https://microsoftonline.com",
+        "https://teams.skype.com",
+        "https://teams.microsoft.com",
+        "https://sfbassets.com",
+        "https://skypeforbusiness.com"
+      ],
+      "AcceptThirdParty": "never",
+      "Default": true,
+      "ExpireAtSessionEnd": false,
+      "RejectTracker": true
+    },
+    "DefaultDownloadDirectory": "${home}",
+    "DisableAppUpdate": true,
+    "DisableDefaultBrowserAgent": true,
+    "DisableFeedbackCommands": true,
+    "DisableFirefoxStudies": true,
+    "DisableMasterPasswordCreation": true,
+    "DisablePasswordReveal": true,
+    "DisableProfileImport": true,
+    "DisableProfileRefresh": true,
+    "DisablePocket": true,
+    "DisableSetDesktopBackground": true,
+    "DisableSystemAddonUpdate": true,
+    "DisableTelemetry": true,
+    "DontCheckDefaultBrowser": true,
+    "DownloadDirectory": "${home}",
+    "DNSOverHTTPS": {
+      "Enabled": false,
+      "Locked": true
+    },
+    "EnableTrackingProtection": {
+      "Cryptomining": true,
+      "Fingerprinting": true,
+      "Value": true,
+      "Locked": true
+    },
+    "ExtensionSettings": {
+      "*": {
+        "blocked_install_message": "Forbidden",
+        "installation_mode": "blocked",
+        "allowed_types": ["extension"]
+      },
+      "idcac-pub@guus.ninja": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/istilldontcareaboutcookies/latest.xpi"
+      },
+      "uBlock0@raymondhill.net": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+      },
+      "7esoorv3@alefvanoon.anonaddy.me": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/libredirect/latest.xpi"
+      },
+      "keepassxc-browser@keepassxc.org": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi"
+      },
+      "amazon@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "amazondotcom@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "bing@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "google@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "wikipedia@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "ddg@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "addons-search-detection@mozilla.com": {
+        "installation_mode": "blocked"
+      }
+    },
+    "FirefoxHome": {
+      "Search": true,
+      "TopSites": true,
+      "Highlights": false,
+      "Pocket": false,
+      "Snippets": false,
+      "Locked": true
+    },
+    "FlashPlugin": {
+      "Default": false,
+      "Locked": true
+    },
+    "Homepage": {
+      "StartPage": "previous-session"
+    },
+    "NetworkPrediction": false,
+    "NoDefaultBookmarks": true,
+    "OfferToSaveLogins": false,
+    "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
+    "PasswordManagerEnabled": false,
+    "Permissions": {
+      "Location": {
+        "BlockNewRequests": true,
+        "Locked": true
+      },
+      "Autoplay": {
+        "Default": "block-audio-video",
+        "Locked": true
+      }
+    },
+    "PictureInPicture": {
+      "Enabled": false,
+      "Locked": true
+    },
+    "PopupBlocking": {
+      "Default": true
+    },
+    "Preferences": {
+      "accessibility.browsewithcaret": { "Status": "locked", "Value": false },
+      "accessibility.typeaheadfind": { "Status": "locked", "Value": false },
+      "browser.compactmode.show": { "Status": "locked", "Value": true },
+      "browser.crashReports.unsubmittedCheck.autoSubmit2": { "Status": "locked", "Value": false },
+      "browser.ctrlTab.recentlyUsedOrder": { "Status": "locked", "Value": false },
+      "browser.ctrlTab.sortByRecentlyUsed": { "Status": "locked", "Value": false },
+      "browser.formfill.enable": { "Status": "locked", "Value": true },
+      "browser.link.open_newwindow": { "Status": "locked", "Value": 3 },
+      "browser.newtabpage.activity-stream.feeds.section.highlights": { "Status": "locked", "Value": false },
+      "browser.newtabpage.activity-stream.feeds.snippets": { "Status": "locked", "Value": false },
+      "browser.newtabpage.activity-stream.section.feeds.telemetry": { "Status": "locked", "Value": false },
+      "browser.newtabpage.activity-stream.section.highlights.includeBookmarks": { "Status": "locked", "Value": false },
+      "browser.newtabpage.activity-stream.section.highlights.includeDownloads": { "Status": "locked", "Value": false },
+      "browser.newtabpage.activity-stream.section.highlights.includeVisited": { "Status": "locked", "Value": false },
+      "browser.newtabpage.activity-stream.section.highlights.rows": { "Status": "locked", "Value": 1 },
+      "browser.newtabpage.activity-stream.showSponsored": { "Status": "locked", "Value": false },
+      "browser.newtabpage.activity-stream.showSponsoredTopSites": { "Status": "locked", "Value": false },
+      "browser.newtabpage.activity-stream.telemetry": { "Status": "locked", "Value": false },
+      "browser.newtabpage.activity-stream.topSitesRows": { "Status": "locked", "Value": 1 },
+      "browser.newtabpage.enabled": { "Status": "locked", "Value": true },
+      "browser.ping-centre.telemetry": { "Status": "locked", "Value": false },
+      "browser.safebrowsing.downloads.remote.block_dangerous": { "Status": "default", "Value": true },
+      "browser.safebrowsing.downloads.remote.block_dangerous_host": { "Status": "default", "Value": true },
+      "browser.safebrowsing.downloads.remote.block_potentially_unwanted": { "Status": "default", "Value": true },
+      "browser.safebrowsing.downloads.remote.block_uncommon": { "Status": "default", "Value": true },
+      "browser.search.suggest.enabled": { "Status": "locked", "Value": false },
+      "browser.search.widget.inNavBar": { "Status": "locked", "Value": false },
+      "browser.sessionstore.warnOnQuit": { "Status": "locked", "Value": true },
+      "browser.tabs.firefox-view" : { "Status": "locked", "Value": false },
+      "browser.tabs.loadInBackground": { "Status": "locked", "Value": true },
+      "browser.tabs.warnOnClose": { "Status": "locked", "Value": true },
+      "browser.preferences.defaultPerformanceSettings.enabled": { "Status": "default", "Value": false },
+      "browser.search.suggest.enabled.private": { "Status": "locked", "Value": false },
+      "browser.startup.homepage": { "Status": "locked", "Value": "about:home" },
+      "browser.startup.page": { "Status": "locked", "Value": 3 },
+      "browser.uiCustomization.state": { "Status": "locked", "Value": "{\"placements\":{\"widget-overflow-fixed-list\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"home-button\",\"urlbar-container\",\"downloads-button\",\"library-button\",\"add-ons-button\",\"screenshot-button\",\"sidebar-button\",\"fxa-toolbar-menu-button\",\"enterprise-policy-generator_agenedia_com-browser-action\",\"privatebrowsing-button\",\"jid1-kkzogwgsw3ao4q_jetpack-browser-action\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"developer-button\",\"enterprise-policy-generator_agenedia_com-browser-action\",\"jid1-kkzogwgsw3ao4q_jetpack-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"toolbar-menubar\",\"TabsToolbar\",\"PersonalToolbar\"],\"currentVersion\":17,\"newElementCount\":4}" },
+      "browser.uidensity": { "Status": "locked", "Value": 1 },
+      "browser.urlbar.showSearchSuggestionsFirst": { "Status": "locked", "Value": false },
+      "browser.urlbar.suggest.bookmark": { "Status": "locked", "Value": true },
+      "browser.urlbar.suggest.history": { "Status": "locked", "Value": true },
+      "browser.urlbar.suggest.engines": { "Status": "locked", "Value": false },
+      "browser.urlbar.suggest.openpage": { "Status": "locked", "Value": false },
+      "browser.urlbar.suggest.quicksuggest": { "Status": "locked", "Value": false },
+      "browser.urlbar.suggest.searches": { "Status": "locked", "Value": false },
+      "browser.urlbar.suggest.topsites": { "Status": "locked", "Value": false },
+      "browser.warnOnQuit": { "Status": "locked", "Value": true },
+      "browser.warnOnQuitShortcut": { "Status": "locked", "Value": true },
+      "dom.disable_open_during_load": { "Status": "default", "Value": true },
+      "dom.disable_window_flip": { "Status": "locked", "Value": true },
+      "dom.disable_window_move_resize": { "Status": "locked", "Value": false },
+      "dom.event.contextmenu.enabled": { "Status": "locked", "Value": true },
+      "dom.security.https_only_mode": { "Status": "locked", "Value": false },
+      "dom.security.https_only_mode_ever_enabled": { "Status": "locked", "Value": false },
+      "extensions.experiments.enabled": { "Status": "locked", "Value": false },
+      "extensions.getAddons.showPane": { "Status": "locked", "Value": false },
+      "extensions.pictureinpicture.enable_picture_in_picture_overrides": { "Status": "locked", "Value": false },
+      "geo.enabled": { "Status": "locked", "Value": false },
+      "general.autoScroll": { "Status": "locked", "Value": false },
+      "general.smoothScroll": { "Status": "locked", "Value": true },
+      "layout.spellcheckDefault": { "Status": "locked", "Value": 1 },
+      "media.gmp-gmpopenh264.enabled": { "Status": "locked", "Value": true },
+      "media.gmp-widevinecdm.enabled": { "Status": "locked", "Value": true },
+      "media.hardwaremediakeys.enabled": { "Status": "locked", "Value": true },
+      "media.videocontrols.picture-in-picture.video-toggle.enabled": { "Status": "locked", "Value": true },
+      "network.captive-portal-service.enabled": { "Status": "locked", "Value": false },
+      "network.cookie.cookieBehavior": { "Status": "locked", "Value": 5 },
+      "network.cookie.lifetimePolicy": { "Status": "locked", "Value": 0 },
+      "network.proxy.no_proxies_on": { "Status": "locked", "Value" : "" },
+      "network.proxy.socks_remote_dns": { "Status": "locked", "Value": false },
+      "network.proxy.type": { "Status": "locked", "Value": 5 },
+      "network.trr.mode": { "Status": "locked", "Value": 0 },
+      "places.history.enabled": { "Status": "locked", "Value": true },
+      "privacy.clearOnShutdown.history": { "Status": "locked", "Value": false },
+      "privacy.clearOnShutdown.downloads": { "Status": "locked", "Value": false },
+      "privacy.donottrackheader.enabled": { "Status": "locked", "Value": true },
+      "privacy.file_unique_origin": { "Status": "locked", "Value": true },
+      "privacy.sanitize.sanitizeOnShutdown": { "Status": "locked", "Value": false },
+      "security.cert_pinning.enforcement_level": { "Status": "locked", "Value": 1 },
+      "security.ssl.errorReporting.enabled": { "Status": "locked", "Value": false },
+      "security.OCSP.enabled": { "Status": "locked", "Value": true },
+      "signon.autofillForms": { "Status": "locked", "Value": false },
+      "signon.autologin.proxy": { "Status": "locked", "Value": false },
+      "signon.generation.enabled": { "Status": "locked", "Value": false },
+      "signon.management.page.breach-alerts.enabled": { "Status": "locked", "Value": false },
+      "signon.rememberSignons": { "Status": "locked", "Value": false },
+      "toolkit.tabbox.switchByScrolling": { "Status": "locked", "Value": true },
+      "toolkit.telemetry.archive.enabled": { "Status": "locked", "Value": false },
+      "toolkit.telemetry.bhrPing.enabled": { "Status": "locked", "Value": false },
+      "toolkit.telemetry.enabled": { "Status": "locked", "Value": false },
+      "toolkit.telemetry.firstShutdownPing.enabled": { "Status": "locked", "Value": false },
+      "toolkit.telemetry.newProfilePing.enabled": { "Status": "locked", "Value": false },
+      "toolkit.telemetry.pioneer-new-studies-available": { "Status": "locked", "Value": false },
+      "toolkit.telemetry.reportingpolicy.firstRun": { "Status": "locked", "Value": false },
+      "toolkit.telemetry.shutdownPingSender.enabled": { "Status": "locked", "Value": false },
+      "toolkit.telemetry.unified": { "Status": "locked", "Value": false },
+      "toolkit.telemetry.updatePing.enabled": { "Status": "locked", "Value": false },
+      "widget.gtk.overlay-scrollbars.enabled": { "Status": "locked", "Value": true },
+      "xpinstall.whitelist.required": { "Status": "locked", "Value": true }
+    },
+    "Proxy": {
+      "Mode": "system",
+      "Locked": false
+    },
+    "SearchBar": "unified",
+    "SearchEngines": {
+      "Default": "SearXNG",
+      "PreventInstalls": true,
+      "Remove": ["Google", "Amazon.it", "Bing", "Wikipedia (en)", "DuckDuckGo", "DuckDuckGo Lite", "MetaGer", "StartPage", "SearXNG", "Brave"],
+      "Add": [
+        {
+          "Name": "StartPage",
+          "URLTemplate": "https://startpage.com/sp/search",
+          "Method": "POST",
+          "IconURL": "https://www.startpage.com/sp/cdn/favicons/favicon--default.ico",
+          "Alias": "s",
+          "Description": "StartPage",
+          "PostData": "query={searchTerms}"
+        },
+        {
+          "Name": "SearXNG",
+          "URLTemplate": "https://searx.tiekoetter.com",
+          "Method": "POST",
+          "IconURL": "https://searx.tiekoetter.com/static/themes/simple/img/favicon.svg",
+          "Alias": "x",
+          "Description": "SearXNG",
+          "PostData": "q={searchTerms}"
+        },
+        {
+          "Name": "Brave",
+          "URLTemplate": "https://search.brave.com/search?q={searchTerms}",
+          "Method": "GET",
+          "IconURL": "https://brave.com/static-assets/images/brave-favicon.png",
+          "Alias": "b",
+          "Description": "Brave",
+          "PostData": "name=value&q={searchTerms}"
+        }
+      ]
+    },
+    "ShowHomeButton": true,
+    "UserMessaging": {
+      "WhatsNew": false,
+      "UrlbarInterventions": false,
+      "SkipOnboarding": true
+    }
+  }
+}

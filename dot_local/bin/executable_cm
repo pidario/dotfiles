@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -eu
+
+CH="$(check-dep chezmoi)"
+CHEZDIR="$1"
+shift
+
+"$CH" \
+	--config "$XDG_CONFIG_HOME/$CHEZDIR/chezmoi.toml" \
+	--cache "$XDG_CACHE_HOME/$CHEZDIR" \
+	--source "$XDG_DATA_HOME/$CHEZDIR" \
+	"$@"

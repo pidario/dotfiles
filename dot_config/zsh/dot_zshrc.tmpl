@@ -1,0 +1,159 @@
+{{- if eq (env "SHELL") "/bin/zsh" -}}
+if [[ ! -d "$XDG_CACHE_HOME/zsh" ]]; then
+  mkdir --parents "$XDG_CACHE_HOME/zsh"
+fi
+
+fpath=(/usr/share/zsh/site-functions $fpath)
+zmodload zsh/complist
+
+autoload -U compinit; compinit
+autoload -Uz incarg
+autoload -Uz edit-command-line
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+autoload -U colors && colors
+autoload -Uz vcs_info
+autoload -Uz select-bracketed select-quoted
+autoload -Uz surround
+_comp_options+=(globdots) # With hidden files
+
+setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
+setopt AUTO_LIST            # Automatically list choices on ambiguous completion.
+setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
+setopt AUTO_PUSHD           # Push the old directory onto the stack on cd.
+setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
+setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
+
+setopt CORRECT              # Spelling correction
+setopt CDABLE_VARS          # Change directory to a path stored in a variable.
+setopt EXTENDED_GLOB        # Use extended globbing syntax.
+setopt PROMPT_SUBST
+
+setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
+setopt SHARE_HISTORY             # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
+setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
+setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
+setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
+HISTSIZE=10000
+SAVEHIST=10000
+
+precmd() { vcs_info }
+
+# Ztyle pattern
+# :completion:<function>:<completer>:<command>:<argument>:<tag>
+# Define completers
+zstyle ':completion:*' completer _extensions _complete _approximate
+# Use cache for commands using cache
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+# Complete the alias when _expand_alias is used as a function
+zstyle ':completion:*' complete true
+zstyle ':completion:alias-expension:*' completer _expand_alias
+# Allow you to select in a menu
+zstyle ':completion:*' menu select
+# Autocomplete options for cd instead of directory stack
+zstyle ':completion:*' complete-options true
+zstyle ':completion:*' file-sort modification
+zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %D %d --%f'
+zstyle ':completion:*:*:*:*:messages' format ' %F{purple} -- %d --%f'
+zstyle ':completion:*:*:*:*:warnings' format ' %F{red}-- no matches found --%f'
+# Colors for files and directory
+zstyle ':completion:*:*:*:*:default' list-colors ${(s.:.)LS_COLORS}
+# Required for completion to be in good groups (named after the tags)
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions commands
+# See ZSHCOMPWID "completion matching control"
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' keep-prefix true
+zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+# Enable checking for (un)staged changes, enabling use of %u and %c
+zstyle ':vcs_info:*' check-for-changes true
+# Set custom strings for an unstaged vcs repo changes (*) and staged changes (+)
+zstyle ':vcs_info:*' unstagedstr ' *'
+zstyle ':vcs_info:*' stagedstr ' +'
+# Set the format of the Git information for vcs_info
+zstyle ':vcs_info:git:*' formats       ' (%b%u%c)'
+zstyle ':vcs_info:git:*' actionformats ' (%b|%a%u%c)'
+zstyle ':completion:*' rehash true
+
+zle -C alias-expension complete-word _generic
+bindkey '^Xa' alias-expension
+
+# Increment a number
+zle -N incarg
+bindkey -M vicmd '^a' incarg
+
+if [ "$(command -v fzf)" ]; then
+    source /usr/share/fzf/completion.zsh
+    source /usr/share/fzf/key-bindings.zsh
+    # Search with fzf and open selected file with EDITOR
+    search () {
+      F="$(fzf)"
+      if [ -n "$F" ] && [ -f "$F" ]; then
+        if [ -n "$EDITOR" ]; then
+          "$EDITOR" "$F"
+        else
+          echo "EDITOR variable not set"
+        fi
+      fi
+    }
+    bindkey -s '^f' '^qsearch\n'
+fi
+
+# edit current command line with vim (vim-mode, then v)
+zle -N edit-command-line
+bindkey -M vicmd '^v' edit-command-line
+
+bindkey -s '^[OH' '^[[H'  # home
+bindkey -s '^[OF' '^[[F'  # end
+bindkey -s '^[OA' '^[[A'  # up
+bindkey -s '^[OB' '^[[B'  # down
+bindkey -s '^[OD' '^[[D'  # left
+bindkey -s '^[OC' '^[[C'  # right
+# TTY sends different key codes. Translate them to regular.
+bindkey -s '^[[1~' '^[[H'  # home
+bindkey -s '^[[4~' '^[[F'  # end
+
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+bindkey '^?'      backward-delete-char          # bs         delete one char backward
+bindkey '^[[3~'   delete-char                   # delete     delete one char forward
+bindkey '^[[H'    beginning-of-line             # home       go to the beginning of line
+bindkey '^[[F'    end-of-line                   # end        go to the end of line
+bindkey '^[[1;5C' forward-word                  # ctrl+right go forward one word
+bindkey '^[[1;5D' backward-word                 # ctrl+left  go backward one word
+bindkey '^H'      backward-kill-word            # ctrl+bs    delete previous word
+bindkey '^[[D'    backward-char                 # left       move cursor one char backward
+bindkey '^[[C'    forward-char                  # right      move cursor one char forward
+bindkey '^[[A'    up-line-or-beginning-search   # up         prev command in history
+bindkey '^[[B'    down-line-or-beginning-search # down       next command in history
+
+function zle-line-init zle-keymap-select {
+  PWD='%F{green}%~%f'
+  VCS='%F{red}${vcs_info_msg_0_}%f'
+  ROOT='%#'
+  case ${KEYMAP} in
+    (vicmd) ROOT='%F{red}%#%f';;
+  esac
+  PROMPT="${PWD}${VCS} ${ROOT} "
+  zle reset-prompt
+}
+
+RPROMPT='%(?..%F{red}%? ↵%f)'
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+# Vi mode
+bindkey -v
+KEYTIMEOUT=1
+
+{{ template "shell" }}
+
+{{- end -}}

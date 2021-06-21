@@ -1,0 +1,13 @@
+defaults
+auth         oauthbearer
+tls          on
+logfile      {{ env "XDG_DATA_HOME" }}/msmtp/msmtp.log
+
+account      gmail
+host         smtp.gmail.com
+port         587
+from         {{ env "MY_EMAIL" }}
+user         {{ env "MY_EMAIL" }}
+passwordeval oauth2get gmail {{ env "MY_EMAIL" }}
+
+account default : gmail

@@ -1,0 +1,6 @@
+{{- if eq (env "SHELL") "/bin/bash" -}}
+if [[ -f "$HOME/.bashrc" ]]; then
+	source "$HOME/.bashrc"
+fi
+{{ template "profile" }}
+{{- end -}}

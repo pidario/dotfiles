@@ -1,0 +1,157 @@
+# configuration for using neomutt as a maildir viewer
+# complexities are left to other program such as:
+# isync: for synchronizing remote imap server with a local folder (xoauth2 method requires aur package cyrus-sasl-xoauth2-git)
+# oauth2token: for logging in using oauth2 tokens
+# msmtp: for sending mail
+# notmuch: for indexing and searching inside the maildir (package notmuch-runtime is a dependency of neomutt)
+# xdg-utils: for opening attachments (via mailcap)
+# lynx: for viewing html messages
+# urlscan: as a simpler way to parse URL in messages
+# khard: for managing contacts
+# khal: for managing calendar
+# vdirsyncer: for synchronizing contacts and calendar
+# packages to install (example for arch):
+# neomutt isync cyrus-sasl-xoauth2-git msmtp lynx urlscan xdg-utils oauth2token khard khal vdirsyncer
+# dotfiles in repo also contains systemd timer and service to sync maildir
+# enable with systemctl --user enable --now mbsync.timer
+# before logging in it is necessary to obtain a token by using:
+# oauth2create gmail <email-address>
+
+auto_view text/html
+subscribe ".*@lists\\.archlinux\\.org"
+alternative_order text/plain text/html
+set editor=`echo \$EDITOR`
+set mbox_type = Maildir
+set mailcap_path=.config/mutt/mailcap
+set send_charset="utf-8"
+set assumed_charset="utf-8"
+set menu_scroll=yes
+set pager_context=3
+set pager_stop=yes
+set copy=no
+set mail_check=60
+set timeout=10
+set sort="threads"
+set sort_aux="reverse-date-received"
+set sidebar_visible=yes
+set sidebar_width=15
+set sidebar_folder_indent=no
+set sidebar_short_path=yes
+set sidebar_format="%D%?F? [%F]?%* %?N?%N/?%S"
+set sidebar_sort_method="unsorted"
+set sidebar_new_mail_only=no
+set fast_reply=yes
+set include=ask-no
+set forward_quote=yes
+set mail_check_stats
+set crypt_opportunistic_encrypt=yes
+set crypt_autosign=yes
+set query_command= "echo ; khard email --remove-first-line --parsable '%s' 2> /dev/null ; notmuch address --format json --deduplicate address from:/%s/ 2> /dev/null | jq -r '.[] | .address + \"\t\" + .name' 2> /dev/null"
+set query_format="%4c %t %-70.70a %-70.70n %?e?(%e)?"
+set nm_default_uri="notmuch://$HOME/.local/share/mail"
+set count_alternatives=yes
+set delete=ask-yes
+unattachments *
+attachments +A */.*
+attachments +I */.*
+attachments -I text/.*
+attachments -I multipart/.*
+set date_format="%Y-%m-%d %H:%M:%S%Z"
+set index_format="%4C %Z %d %-15.15L %X (%?l?%4l&%4c?) %s"
+set abort_noattach = ask-yes
+set abort_noattach_regex = "\\<(attach[a-z]*)|(alleg([a-z]*))\\>"
+### gpg config previously found in /usr/share/doc/neomutt/samples/gpg.rc
+set pgp_decode_command="gpg --status-fd=2 %?p?--pinentry-mode loopback --passphrase-fd 0? --no-verbose --quiet --batch --output - %f"
+set pgp_verify_command="gpg --status-fd=2 --no-verbose --quiet --batch --output - --verify %s %f"
+set pgp_decrypt_command="gpg --status-fd=2 %?p?--pinentry-mode loopback --passphrase-fd 0? --no-verbose --quiet --batch --output - --decrypt %f"
+set pgp_sign_command="gpg %?p?--pinentry-mode loopback --passphrase-fd 0? --no-verbose --batch --quiet --output - --armor --textmode %?a?--local-user %a? --detach-sign %f"
+set pgp_clear_sign_command="gpg %?p?--pinentry-mode loopback --passphrase-fd 0? --no-verbose --batch --quiet --output - --armor --textmode %?a?--local-user %a? --clearsign %f"
+set pgp_encrypt_only_command="/usr/libexec/neomutt/pgpewrap gpg --batch --quiet --no-verbose --output - --textmode --armor --encrypt -- --recipient %r -- %f"
+set pgp_encrypt_sign_command="/usr/libexec/neomutt/pgpewrap gpg %?p?--pinentry-mode loopback --passphrase-fd 0? --batch --quiet --no-verbose --textmode --output - %?a?--local-user %a? --armor --sign --encrypt -- --recipient %r -- %f"
+set pgp_import_command="gpg --no-verbose --import %f"
+set pgp_export_command="gpg --no-verbose --armor --export %r"
+set pgp_verify_key_command="gpg --verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command="gpg --no-verbose --batch --quiet --with-colons --with-fingerprint --with-fingerprint --list-keys %r"
+set pgp_list_secring_command="gpg --no-verbose --batch --quiet --with-colons --with-fingerprint --with-fingerprint --list-secret-keys %r"
+set pgp_good_sign="^\\[GNUPG:\\] GOODSIG"
+set pgp_check_gpg_decrypt_status_fd
+### end gpg config
+bind editor <space> noop
+bind index,pager <C-Up> sidebar-prev
+bind index,pager <C-Down> sidebar-next
+bind index,pager <C-Right> sidebar-open
+bind index,pager B sidebar-toggle-visible
+bind editor <Tab> complete-query
+macro index \Cf "<vfolder-from-query>"
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro index,pager a "<pipe-message>khard add-email<return>" "Add this sender to Khard"
+# Default index colors:
+color index yellow default '.*'
+color index_author red default '.*'
+color index_number blue default
+color index_subject cyan default '.*'
+# New mail is boldened:
+color index brightyellow black "~N"
+color index_author brightred black "~N"
+color index_subject brightcyan black "~N"
+# Tagged mail is highlighted:
+color index brightyellow blue "~T"
+color index_author brightred blue "~T"
+color index_subject brightcyan blue "~T"
+# Other colors and aesthetic settings:
+mono bold bold
+mono underline underline
+mono indicator reverse
+mono error bold
+color normal default default
+color indicator brightblack white
+color sidebar_indicator brightyellow red
+color sidebar_highlight black brightyellow
+color sidebar_divider white black
+color sidebar_flagged red black
+color sidebar_new green black
+color sidebar_spoolfile white default
+color normal brightyellow default
+color error red default
+color tilde black default
+color message cyan default
+color markers red white
+color attachment white default
+color search brightmagenta default
+color status brightyellow black
+color hdrdefault brightgreen default
+color quoted green default
+color quoted1 blue default
+color quoted2 cyan default
+color quoted3 yellow default
+color quoted4 red default
+color quoted5 brightred default
+color signature brightgreen default
+color bold black default
+color underline black default
+color normal default default
+# Regex highlighting:
+color header blue default ".*"
+color header brightmagenta default "^(From)"
+color header brightcyan default "^(Subject)"
+color header brightwhite default "^(CC|BCC)"
+color body brightred default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # Email addresses
+color body brightblue default "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+" # URL
+color body green default "\`[^\`]*\`" # Green text between ` and `
+color body brightblue default "^# \.*" # Headings as bold blue
+color body brightcyan default "^## \.*" # Subheadings as bold cyan
+color body brightgreen default "^### \.*" # Subsubheadings as bold green
+color body brightcyan default "[;:][-o][)/(|]" # emoticons
+color body brightcyan default "[;:][)(|]" # emoticons
+color body brightcyan default "[ ][*][^*]*[*][ ]?" # more emoticon?
+color body brightcyan default "[ ]?[*][^*]*[*][ ]" # more emoticon?
+color body red default "(BAD signature)"
+color body cyan default "(Good signature)"
+color body brightblack default "^gpg: Good signature .*"
+color body brightyellow default "^gpg: "
+color body brightyellow red "^gpg: BAD signature from.*"
+mono body bold "^gpg: Good signature"
+mono body bold "^gpg: BAD signature from.*"
+# gmail
+source ~/.config/mutt/gmail

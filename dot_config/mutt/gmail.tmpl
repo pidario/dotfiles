@@ -1,0 +1,19 @@
+unmailboxes *
+unvirtual-mailboxes *
+set folder = "{{ env "XDG_DATA_HOME" }}/mail/gmail"
+set realname="{{ env "MY_NAME" }}"
+set from="{{ env "MY_EMAIL" }}"
+set pgp_default_key="{{ env "MY_EMAIL_PGP_KEY" }}"
+macro index S "<shell-escape>mbsync gmail && notmuch new 2> /dev/null<enter>" "sync email"
+set sendmail = "msmtp --account gmail"
+set header_cache = "{{ env "XDG_CACHE_HOME" }}/mutt/gmail/header_cache"
+set message_cachedir = "{{ env "XDG_CACHE_HOME" }}/mutt/gmail/message_cache"
+set spoolfile=+Inbox
+set postponed=+[Gmail]/Drafts
+set record="+[Gmail]/Sent Mail"
+set trash=+[Gmail]/Trash
+mailboxes =Inbox {{ env "MY_EMAIL_MAILBOXES" }} ="[Gmail]/Drafts" ="[Gmail]/Sent Mail" ="[Gmail]/Spam" ="[Gmail]/Trash"
+virtual-mailboxes "All" "notmuch://?query=path:gmail/** AND NOT folder:gmail/[Gmail]/All Mail AND NOT folder:gmail/[Gmail]/Drafts AND NOT folder:gmail/[Gmail]/Spam AND NOT folder:gmail/[Gmail]/Trash"
+{{- if (env "MY_EMAIL_VMAILBOXES") }}
+virtual-mailboxes {{ env "MY_EMAIL_VMAILBOXES" }}
+{{- end }}

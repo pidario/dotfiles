@@ -1,0 +1,81 @@
+#!/bin/sh
+
+set -eu
+
+PAMIXER="$(check-dep pamixer)"
+PACTL="$(check-dep pactl)"
+TAIL="$(check-dep tail)"
+AWK="$(check-dep awk)"
+JQ="$(check-dep jq)"
+
+get_default_sink() {
+  "$PAMIXER" --get-default-sink | "$TAIL" --lines 1
+}
+
+sinks_list() {
+  "$PACTL" --format json list sinks | "$JQ" '.[] | .index'
+}
+
+sink_input_list() {
+  "$PACTL" list sink-inputs short | awk '{print $1}'
+}
+
+set_default_sink() {
+  "$PACTL" set-default-sink "$1"
+  INPUTS="$(sink_input_list)"
+  for INPUT in $INPUTS; do
+    "$PACTL" move-sink-input "$INPUT" "$1"
+  done
+  # shellcheck disable=SC2016
+  get_default_sink | "$AWK" -F \" '{print $4}'
+}
+
+is_mute() {
+  "$PAMIXER" --get-mute
+}
+
+toggle_mute() {
+  "$PAMIXER" --toggle-mute
+  is_mute
+}
+
+get() {
+  "$PAMIXER" --get-volume
+}
+
+change() {
+  ACTION="increase"
+  if [ "$1" -lt 0 ]; then
+    ACTION="decrease"
+  fi
+  "$PAMIXER" --"$ACTION" "${1#-}"
+  get
+}
+
+next_sink() {
+  # shellcheck disable=SC2016
+  DEFAULT_SINK="$(get_default_sink | "$AWK" '{print $1}')"
+  FIRST_SINK=
+  for SINK in $(sinks_list); do
+    if [ -z "$FIRST_SINK" ]; then
+      FIRST_SINK="$SINK"
+    fi
+    if [ "$((SINK))" -gt "$((DEFAULT_SINK))" ]; then
+      set_default_sink "$SINK"
+      exit 0
+    fi
+  done
+  set_default_sink "$FIRST_SINK"
+}
+
+main() {
+  case "$1" in
+    is-mute) is_mute;;
+    toggle-mute) toggle_mute;;
+    get) get;;
+    change) change "$2";;
+    next-sink) next_sink;;
+  esac
+}
+
+main "$@"

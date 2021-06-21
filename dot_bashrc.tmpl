@@ -1,0 +1,4 @@
+{{- if eq (env "SHELL") "/bin/bash" -}}
+{{ template "environment" }}
+{{ template "shell" }}
+{{- end -}}

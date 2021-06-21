@@ -1,0 +1,15 @@
+export TZ="$(readlink --canonicalize-existing /etc/localtime | sed "s#/usr/share/zoneinfo/##")"
+
+if [[ -d "/usr/share/Kvantum" ]]; then
+  export QT_STYLE_OVERRIDE=kvantum
+fi
+
+if [[ -z "$DISPLAY" ]] && [[ "$(tty)" = /dev/tty1 ]] && [[ -f "$HOME/.xinitrc" ]]; then
+  TDM="$(command -v tdm)"
+  if [[ -z "$TDM" ]]; then
+    startx
+  else
+    "$TDM"
+  fi
+  logout
+fi

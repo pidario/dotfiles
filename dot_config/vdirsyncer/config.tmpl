@@ -1,0 +1,33 @@
+[general]
+status_path = "{{ env "XDG_DATA_HOME" }}/vdirsyncer/status/"
+
+[pair contacts]
+a = "contacts_local"
+b = "contacts_remote"
+collections = ["from a", "from b"]
+
+[pair calendars]
+a = "calendars_local"
+b = "calendars_remote"
+collections = ["from a", "from b"]
+
+[storage contacts_local]
+type = "filesystem"
+path = "{{ env "XDG_DATA_HOME" }}/contacts/"
+fileext = ".vcf"
+
+[storage contacts_remote]
+type = "carddav"
+url = "{{ env "MY_DAV_SERVER" }}"
+auth_cert = ["{{ env "MY_DAV_CERT_PATH" }}", "{{ env "MY_DAV_KEY_PATH" }}"]
+
+[storage calendars_local]
+type = "filesystem"
+path = "{{ env "XDG_DATA_HOME" }}/calendars/"
+fileext = ".ics"
+
+[storage calendars_remote]
+type = "caldav"
+url = "{{ env "MY_DAV_SERVER" }}"
+auth_cert = ["{{ env "MY_DAV_CERT_PATH" }}", "{{ env "MY_DAV_KEY_PATH" }}"]
+

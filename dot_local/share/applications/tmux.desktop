@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Terminal=true
+Type=Application
+Name=tmux
+Exec=/usr/bin/tmux
+Icon=terminal

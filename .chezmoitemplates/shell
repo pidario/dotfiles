@@ -1,0 +1,8 @@
+alias ls='ls --color=tty'
+alias ll='ls -l --almost-all'
+alias diff='diff --color'
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+
+for f in "$XDG_CONFIG_HOME/conf.d/"*.conf; do
+  source "$f"
+done 2> /dev/null
