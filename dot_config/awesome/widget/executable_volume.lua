@@ -27,9 +27,10 @@ local button = function()
 	local volume_percentage_text = wibox.widget {
 		id = 'percent_text',
 		text = '',
-		align = 'center',
+		align = 'right',
 		valign = 'center',
 		visible = true,
+		forced_width = 24,
 		widget = wibox.widget.textbox
 	}
 
@@ -43,7 +44,7 @@ local button = function()
 	local volume_button = wibox.widget {
 		{
 			volume_widget,
-			margins = dpi(5),
+			margins = beautiful.button_margin,
 			widget = wibox.container.margin
 		},
 		widget = clickable_container

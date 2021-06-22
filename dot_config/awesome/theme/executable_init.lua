@@ -12,6 +12,7 @@ local system_white = '#FFFFFF'
 local theme = {}
 
 theme.bp_height = dpi(26)
+theme.button_margin = dpi(3)
 -- Font
 theme.font = 'Noto Regular 10'
 theme.font_bold = 'Noto Bold 10'
@@ -38,13 +39,10 @@ theme.groups_title_bg = system_black_light
 theme.press_event = system_black_light
 -- Decorations
 theme.useless_gap = dpi(2)
--- Icons
--- Volume icons by Freepik
--- https://www.flaticon.com/authors/freepik
+-- Icons (Volume icons by Freepik: https://www.flaticon.com/authors/freepik)
 theme.sound = icons_dir .. 'sound.svg'
 theme.no_sound = icons_dir .. 'no-sound.svg'
 theme.awesome_icon = icons_dir .. 'awesome.svg'
-theme.close = icons_dir .. 'close.svg'
 theme.poweroff = icons_dir .. 'power.svg'
 theme.restart = icons_dir .. 'restart.svg'
 theme.logout = icons_dir .. 'logout.svg'
@@ -68,6 +66,7 @@ theme.tasklist_bg_focus = theme.primary
 theme.tasklist_bg_urgent = theme.secondary
 theme.tasklist_bg_minimize = system_black_dark
 theme.tasklist_fg_normal = system_white
+theme.tasklist_fg_focus = system_black_dark
 theme.tasklist_fg_focus = system_black_dark
 theme.tasklist_fg_urgent = system_black_dark
 theme.tasklist_fg_minimize = system_white

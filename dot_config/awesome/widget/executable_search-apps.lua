@@ -2,7 +2,6 @@ local awful = require('awful')
 local wibox = require('wibox')
 local gears = require('gears')
 local beautiful = require('beautiful')
-local dpi = beautiful.xresources.apply_dpi
 local clickable_container = require('widget.common').clickable_container
 local apps = require('configuration.apps')
 
@@ -21,7 +20,7 @@ local return_button = function()
 	local widget_button = wibox.widget {
 		{
 			widget,
-			margins = dpi(5),
+			margins = beautiful.button_margin,
 			widget = wibox.container.margin
 		},
 		widget = clickable_container

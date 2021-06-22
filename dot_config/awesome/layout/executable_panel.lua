@@ -1,12 +1,9 @@
 local beautiful = require('beautiful')
 local wibox = require('wibox')
 local dpi = beautiful.xresources.apply_dpi
-local task_list = require('widget.task-list')
-local tag_list = require('widget.tag-list')
-local clock = require('widget.clock')
 
 local panel = function(s)
-	local panel = wibox {
+	local custom_panel = wibox {
 		ontop = true,
 		screen = s,
 		type = 'dock',
@@ -17,7 +14,7 @@ local panel = function(s)
 		stretch = true,
 	}
 
-	panel:struts {
+	custom_panel:struts {
 		top = beautiful.bp_height
 	}
 
@@ -29,55 +26,57 @@ local panel = function(s)
 				border_color = beautiful.groups_title_bg,
 				widget = wibox.container.background
 			},
-			top = dpi(1),
-			bottom = dpi(1),
+			top = dpi(2),
+			bottom = dpi(2),
 			widget = wibox.container.margin
 		}
 	end
 
 	s.systray = wibox.widget {
-	    {
-	        wibox.widget.systray(),
-	        left   = 2,
-	        top    = 2,
-	        bottom = 2,
-	        right  = 2,
-	        widget = wibox.container.margin,
-	    },
-	    shape_clip = true,
-	    widget     = wibox.container.background
+		{
+			wibox.widget.systray(),
+			left = 2,
+			top = 2,
+			bottom = 2,
+			right = 2,
+			widget = wibox.container.margin,
+		},
+		shape_clip = true,
+		widget = wibox.container.background
 	}
 
-	s.search_apps			= build_widget(require('widget.search-apps')())
-	s.volume			= build_widget(require('widget.volume')())
-	s.end_session			= build_widget(require('widget.end-session')())
-	s.layout_box			= build_widget(require('widget.layout-box')(s))
-	s.clock				= build_widget(clock)
+	local search_apps = build_widget(require('widget.search-apps')())
+	local tag_list = build_widget(require('widget.tag-list')(s))
+	local task_list = build_widget(require('widget.task-list')(s))
+	local volume = build_widget(require('widget.volume')())
+	local end_session = build_widget(require('widget.end-session')())
+	local layout_box = build_widget(require('widget.layout-box')(s))
+	local clock = build_widget(require('widget.clock')())
 
-	panel : setup {
+	custom_panel:setup {
 		{
 			layout = wibox.layout.align.horizontal,
 			expand = 'none',
 			{
 				layout = wibox.layout.fixed.horizontal,
-				spacing = dpi(5),
-				s.search_apps,
-				build_widget(tag_list(s)),
-				build_widget(task_list(s))
+				spacing = dpi(0),
+				search_apps,
+				tag_list,
+				task_list
 			},
 			nil,
 			{
 				layout = wibox.layout.fixed.horizontal,
-				spacing = dpi(5),
+				spacing = dpi(2),
 				{
 					s.systray,
-					margins = dpi(5),
+					margins = dpi(2),
 					widget = wibox.container.margin
 				},
-				s.volume,
-				s.layout_box,
-				s.end_session,
-				s.clock
+				volume,
+				layout_box,
+				end_session,
+				clock
 			}
 		},
 		left = dpi(2),
@@ -85,7 +84,7 @@ local panel = function(s)
 		widget = wibox.container.margin
 	}
 
-	return panel
+	return custom_panel
 end
 
 return panel

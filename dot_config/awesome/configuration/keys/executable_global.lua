@@ -20,7 +20,7 @@ local globalKeys = awful.util.table.join(
 		{modkey},
 		'w',
 		set_wallpaper,
-		{description = 'set wallpaper', group = 'utility'}
+		{description = 'cycle wallpaper', group = 'utility'}
 	),
 	awful.key({altkey},
 		'r',
@@ -107,6 +107,30 @@ local globalKeys = awful.util.table.join(
 		{description = 'restore minimized', group = 'client'}
 	),
 	awful.key(
+		{altkey, 'Control'},
+		'Left',
+		function()
+			awful.tag.incmwfact(-0.05)
+		end,
+		{description = 'master width factor', group = 'client'}
+	),
+	awful.key(
+		{altkey, 'Control'},
+		'Right',
+		function()
+			awful.tag.incmwfact(0.05)
+		end,
+		{description = 'master width factor', group = 'client'}
+	),
+	awful.key(
+		{},
+		'XF86Calculator',
+		function()
+			awful.spawn(apps.default.calculator)
+		end,
+		{description = 'calculator', group = 'hotkeys'}
+	),
+	awful.key(
 		{},
 		'XF86AudioRaiseVolume',
 		function()
@@ -171,6 +195,15 @@ local globalKeys = awful.util.table.join(
 
 	),
 	awful.key(
+		{},
+		'XF86AudioStop',
+		function()
+			awful.spawn('mpc stop', false)
+		end,
+		{description = 'stop music', group = 'hotkeys'}
+
+	),
+	awful.key(
 		{altkey},
 		'q',
 		function()
@@ -179,15 +212,15 @@ local globalKeys = awful.util.table.join(
 		{description = 'toggle exit screen', group = 'utility'}
 	),
 	awful.key(
-		{modkey},
-		's',
+		{},
+		'Print',
 		function ()
 			shot("full")
 		end,
-		{description = 'fullscreen screenshot', group = 'utility'}
+		{description = 'fullscreen screenshot', group = 'hotkeys'}
 	),
 	awful.key(
-		{modkey, 'Shift'},
+		{modkey},
 		's',
 		function ()
 			shot('area')
@@ -249,12 +282,11 @@ local globalKeys = awful.util.table.join(
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 9 do
 	-- Hack to only show tags 1 and 9 in the shortcut window (mod+s)
-	local descr_view, descr_toggle, descr_move, descr_toggle_focus
+	local descr_view, descr_toggle, descr_move
 	if i == 1 or i == 9 then
 		descr_view = {description = 'view tag #', group = 'tag'}
 		descr_toggle = {description = 'toggle tag #', group = 'tag'}
 		descr_move = {description = 'move focused client to tag #', group = 'tag'}
-		descr_toggle_focus = {description = 'toggle focused client on tag #', group = 'tag'}
 	end
 	globalKeys =
 		awful.util.table.join(

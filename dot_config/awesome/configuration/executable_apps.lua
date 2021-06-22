@@ -6,7 +6,7 @@ return {
 	default = {
 
 		-- Terminal Emulator
-		terminal			= 'alacritty',
+		terminal			= 'st',
 
 		-- Web browser
 		web_browser			= 'firefox -P',
@@ -18,7 +18,7 @@ return {
 		wallpaper			= 'feh --bg-fill --no-fehbg --randomize ' .. wall_dir .. '/*',
 
 		-- Lockscreen
-		lock				= 'i3lock -i ' .. wall_dir .. '/"$(ls ' .. wall_dir .. ' | shuf -n 1)"',
+		lock				= 'i3lock --color 000000',
 
 		-- Application Menu
 		rofi_appmenu			= 'rofi -show drun -show-icons -theme dmenu -theme-str \'#prompt {enabled: false;}\'',
@@ -27,7 +27,10 @@ return {
 		image_viewer			= 'feh',
 
 		-- Mixer
-		mixer				= 'pamixer'
+		mixer				= 'pamixer',
+
+		-- Calculator
+		calculator			= 'qalculate-gtk'
 
 	},
 
@@ -38,6 +41,9 @@ return {
 
 		-- VMWare
 		'vmware-user',
+
+		-- NumLockX
+		'numlockx',
 
 		-- Imwheel
 		'imwheel',

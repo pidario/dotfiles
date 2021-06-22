@@ -1,0 +1,204 @@
+{
+  "policies": {
+    "Certificates": {
+      "ImportEnterpriseRoots": true
+    },
+    "Cookies": {
+      "AcceptThirdParty": "never",
+      "Default": true,
+      "ExpireAtSessionEnd": false,
+      "RejectTracker": true
+    },
+    "DefaultDownloadDirectory": "${home}",
+    "DisableAppUpdate": true,
+    "DisableDefaultBrowserAgent": true,
+    "DisableFeedbackCommands": true,
+    "DisableFirefoxStudies": true,
+    "DisableMasterPasswordCreation": true,
+    "DisablePasswordReveal": true,
+    "DisableProfileImport": true,
+    "DisableProfileRefresh": true,
+    "DisablePocket": true,
+    "DisableSetDesktopBackground": true,
+    "DisableSystemAddonUpdate": true,
+    "DisableTelemetry": true,
+    "DisplayBookmarksToolbar": true,
+    "DontCheckDefaultBrowser": true,
+    "DownloadDirectory": "${home}",
+    "DNSOverHTTPS": {
+      "Enabled": false,
+      "Locked": true
+    },
+    "EnableTrackingProtection": {
+      "Cryptomining": true,
+      "Fingerprinting": true,
+      "Value": true,
+      "Locked": true
+    },
+    "ExtensionSettings": {
+      "*": {
+        "blocked_install_message": "Forbidden",
+        "installation_mode": "blocked",
+        "allowed_types": ["extension"]
+      },
+      "jid1-KKzOGWgsW3Ao4Q@jetpack": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/i-dont-care-about-cookies/latest.xpi"
+      },
+      "amazon@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "amazondotcom@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "bing@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "google@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "wikipedia@search.mozilla.org": {
+        "installation_mode": "blocked"
+      }
+    },
+    "FirefoxHome": {
+      "Search": true,
+      "TopSites": true,
+      "Highlights": true,
+      "Pocket": false,
+      "Snippets": true,
+      "Locked": true
+    },
+    "FlashPlugin": {
+      "Default": false,
+      "Locked": true
+    },
+    "Homepage": {
+      "StartPage": "previous-session"
+    },
+    "NetworkPrediction": false,
+    "NoDefaultBookmarks": true,
+    "OfferToSaveLogins": false,
+    "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
+    "PasswordManagerEnabled": false,
+    "Permissions": {
+      "Location": {
+        "BlockNewRequests": true,
+        "Locked": true
+      },
+      "Autoplay": {
+        "Default": "block-audio-video",
+        "Locked": true
+      }
+    },
+    "PictureInPicture": {
+      "Enabled": false,
+      "Locked": true
+    },
+    "PopupBlocking": {
+      "Default": true
+    },
+    "Preferences": {
+      "accessibility.browsewithcaret": { "Status": "locked", "Value": false },
+      "accessibility.typeaheadfind": { "Status": "locked", "Value": false },
+      "browser.compactmode.show": { "Status": "locked", "Value": true },
+      "browser.crashReports.unsubmittedCheck.autoSubmit2": { "Status": "locked", "Value": false },
+      "browser.ctrlTab.recentlyUsedOrder": { "Status": "locked", "Value": false },
+      "browser.ctrlTab.sortByRecentlyUsed": { "Status": "locked", "Value": false },
+      "browser.link.open_newwindow": { "Status": "locked", "Value": 3 },
+      "browser.newtabpage.activity-stream.section.highlights.includeBookmarks": { "Status": "locked", "Value": true },
+      "browser.newtabpage.activity-stream.section.highlights.includeDownloads": { "Status": "locked", "Value": true },
+      "browser.newtabpage.activity-stream.section.highlights.includeVisited": { "Status": "locked", "Value": true },
+      "browser.newtabpage.activity-stream.section.highlights.rows": { "Status": "locked", "Value": 1 },
+      "browser.newtabpage.activity-stream.showSponsored": { "Status": "locked", "Value": false },
+      "browser.newtabpage.activity-stream.showSponsoredTopSites": { "Status": "locked", "Value": false },
+      "browser.newtabpage.activity-stream.topSitesRows": { "Status": "locked", "Value": 1 },
+      "browser.newtabpage.enabled": { "Status": "locked", "Value": true },
+      "browser.safebrowsing.downloads.remote.block_dangerous": { "Status": "default", "Value": true },
+      "browser.safebrowsing.downloads.remote.block_dangerous_host": { "Status": "default", "Value": true },
+      "browser.safebrowsing.downloads.remote.block_potentially_unwanted": { "Status": "default", "Value": true },
+      "browser.safebrowsing.downloads.remote.block_uncommon": { "Status": "default", "Value": true },
+      "browser.search.suggest.enabled": { "Status": "locked", "Value": true },
+      "browser.search.widget.inNavBar": { "Status": "locked", "Value": false },
+      "browser.sessionstore.warnOnQuit": { "Status": "locked", "Value": true },
+      "browser.tabs.loadInBackground": { "Status": "locked", "Value": true }, 
+      "browser.tabs.warnOnClose": { "Status": "locked", "Value": true },
+      "browser.preferences.defaultPerformanceSettings.enabled": { "Status": "locked", "Value": true },
+      "browser.search.suggest.enabled.private": { "Status": "locked", "Value": false },
+      "browser.startup.homepage": { "Status": "locked", "Value": "about:home" },
+      "browser.startup.page": { "Status": "locked", "Value": 3 },
+      "browser.uiCustomization.state": { "Status": "locked", "Value": "{\"placements\":{\"widget-overflow-fixed-list\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"home-button\",\"urlbar-container\",\"downloads-button\",\"library-button\",\"add-ons-button\",\"screenshot-button\",\"sidebar-button\",\"fxa-toolbar-menu-button\",\"enterprise-policy-generator_agenedia_com-browser-action\",\"privatebrowsing-button\",\"jid1-kkzogwgsw3ao4q_jetpack-browser-action\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"developer-button\",\"enterprise-policy-generator_agenedia_com-browser-action\",\"jid1-kkzogwgsw3ao4q_jetpack-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"toolbar-menubar\",\"TabsToolbar\",\"PersonalToolbar\"],\"currentVersion\":17,\"newElementCount\":4}" },
+      "browser.uidensity": { "Status": "locked", "Value": 1 },
+      "browser.urlbar.showSearchSuggestionsFirst": { "Status": "locked", "Value": true },
+      "browser.urlbar.suggest.bookmark": { "Status": "locked", "Value": true },
+      "browser.urlbar.suggest.history": { "Status": "locked", "Value": true },
+      "browser.urlbar.suggest.engines": { "Status": "locked", "Value": true },
+      "browser.urlbar.suggest.openpage": { "Status": "locked", "Value": true },
+      "browser.urlbar.suggest.quicksuggest": { "Status": "locked", "Value": true },
+      "browser.urlbar.suggest.searches": { "Status": "locked", "Value": true },
+      "browser.urlbar.suggest.topsites": { "Status": "locked", "Value": true },
+      "browser.warnOnQuit": { "Status": "locked", "Value": true },
+      "dom.disable_open_during_load": { "Status": "default", "Value": true },
+      "dom.disable_window_flip": { "Status": "locked", "Value": true },
+      "dom.disable_window_move_resize": { "Status": "locked", "Value": false },
+      "dom.event.contextmenu.enabled": { "Status": "locked", "Value": true },
+      "dom.security.https_only_mode": { "Status": "locked", "Value": false },
+      "dom.security.https_only_mode_ever_enabled": { "Status": "locked", "Value": false },
+      "extensions.getAddons.showPane": { "Status": "locked", "Value": false },
+      "general.autoScroll": { "Status": "locked", "Value": false },
+      "general.smoothScroll": { "Status": "locked", "Value": true },
+      "layout.spellcheckDefault": { "Status": "locked", "Value": 1 },
+      "media.gmp-gmpopenh264.enabled": { "Status": "locked", "Value": true },
+      "media.gmp-widevinecdm.enabled": { "Status": "locked", "Value": true },
+      "media.hardwaremediakeys.enabled": { "Status": "locked", "Value": true },
+      "media.videocontrols.picture-in-picture.video-toggle.enabled": { "Status": "locked", "Value": true },
+      "network.cookie.cookieBehavior": { "Status": "locked", "Value": 5 },
+      "network.cookie.lifetimePolicy": { "Status": "locked", "Value": 0 },
+      "network.proxy.no_proxies_on": { "Status": "locked", "Value" : "" },
+      "network.proxy.socks_remote_dns": { "Status": "locked", "Value": false },
+      "network.proxy.type": { "Status": "locked", "Value": 5 },
+      "network.trr.mode": { "Status": "locked", "Value": 0 },
+      "privacy.donottrackheader.enabled": { "Status": "locked", "Value": true },
+      "places.history.enabled": { "Status": "locked", "Value": true },
+      "privacy.file_unique_origin": { "Status": "locked", "Value": true },
+      "security.ssl.errorReporting.enabled": { "Status": "locked", "Value": false },
+      "security.OCSP.enabled": { "Status": "locked", "Value": true },
+      "signon.autofillForms": { "Status": "locked", "Value": false },
+      "signon.autologin.proxy": { "Status": "locked", "Value": false },
+      "signon.generation.enabled": { "Status": "locked", "Value": false },
+      "signon.management.page.breach-alerts.enabled": { "Status": "locked", "Value": false },
+      "signon.rememberSignons": { "Status": "locked", "Value": false },
+      "toolkit.tabbox.switchByScrolling": { "Status": "locked", "Value": true },
+      "xpinstall.whitelist.required": { "Status": "locked", "Value": true }
+    },
+    "Proxy": {
+      "Mode": "system",
+      "Locked": true
+    },
+    "SearchBar": "unified",
+    "SearchEngines": {
+      "Default": "Brave",
+      "PreventInstalls": true,
+      "Remove": ["Google", "Amazon.it", "Bing", "Wikipedia (en)"],
+      "Add": [
+        {
+          "Name": "Brave",
+          "URLTemplate": "https://search.brave.com/search?q={searchTerms}",
+          "Method": "GET",
+          "IconURL": "https://brave.com/favicon.ico",
+          "Alias": "b",
+          "Description": "Brave Search",
+          "PostData": "name=value&q={searchTerms}",
+	  "SuggestURLTemplate": "https://search.brave.com/suggestions/q={searchTerms}"
+        }
+      ]
+    },
+    "ShowHomeButton": true,
+    "UserMessaging": {
+      "WhatsNew": false,
+      "UrlbarInterventions": false,
+      "SkipOnboarding": true
+    }
+  }
+}
