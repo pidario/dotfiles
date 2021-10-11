@@ -1,5 +1,5 @@
-"1- Install neovim, neovim-drop-in, vim-plug and ripgrep
-"yay -S neovim neovim-drop-in vim-plug ripgrep
+"1- Install neovim, neovim-drop-in, vim-plug and ripgrep fzf
+"yay -S neovim neovim-drop-in vim-plug ripgrep fzf
 "2- Install all plugins
 ":PlugInstall
 "3- Install treesitter parsers (if needed)
@@ -11,14 +11,14 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'dense-analysis/ale'
 Plug 'rmagatti/auto-session'
 Plug 'nvim-lua/completion-nvim'
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'mfussenegger/nvim-dap'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'jremmen/vim-ripgrep'
 Plug 'tpope/vim-sleuth'
 Plug 'vim-test/vim-test'
 call plug#end()
@@ -56,6 +56,8 @@ nnoremap <C-q> :q<CR>
 nnoremap <C-A-q> :q!<CR>
 nnoremap <A-w> :wincmd w<CR>
 nnoremap <C-b> :Vexplore<CR>
+nnoremap <C-p> :FZF<CR>
+nnoremap <C-f> :Rg<CR>
 nnoremap <A-k> :move-2<CR>
 nnoremap <A-j> :move+<CR>
 nnoremap cc :source $MYVIMRC<CR>
@@ -78,7 +80,6 @@ nnoremap <silent> <leader>dl :lua require'dap'.repl.run_last()<CR>
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:gitgutter_set_sign_backgrounds = 0
 let test#strategy = "neovim"
 let test#go#gotest#options = '-v'
@@ -87,6 +88,7 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
+let $FZF_DEFAULT_COMMAND = 'rg --files'
 
 hi SignColumn guibg=#262626
 hi LineNr guifg=grey guibg=NONE
