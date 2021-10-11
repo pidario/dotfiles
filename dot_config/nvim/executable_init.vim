@@ -9,6 +9,7 @@
 
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'dense-analysis/ale'
+Plug 'rmagatti/auto-session'
 Plug 'nvim-lua/completion-nvim'
 Plug 'kien/ctrlp.vim'
 Plug 'mfussenegger/nvim-dap'
