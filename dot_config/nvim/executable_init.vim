@@ -57,7 +57,7 @@ nnoremap <C-A-q> :q!<CR>
 nnoremap <A-w> :wincmd w<CR>
 nnoremap <C-b> :Vexplore<CR>
 nnoremap <C-p> :FZF<CR>
-nnoremap <C-f> :Rg<CR>
+nnoremap <C-f> :Rg <C-R><C-W><CR>
 nnoremap <A-k> :move-2<CR>
 nnoremap <A-j> :move+<CR>
 nnoremap cc :source $MYVIMRC<CR>
@@ -88,7 +88,7 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-let $FZF_DEFAULT_COMMAND = 'rg --files'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden -g "!.git"'
 
 hi SignColumn guibg=#262626
 hi LineNr guifg=grey guibg=NONE
