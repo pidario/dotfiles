@@ -1,12 +1,12 @@
 local dpi = require('beautiful').xresources.apply_dpi
 local icons_dir = require('gears').filesystem.get_configuration_dir() .. 'theme/icons/'
 -- Colorscheme
-local system_black_dark = '#29353B'
+local system_black_dark = '#383C4A'
 local system_black_light = '#56687E'
 local system_red_dark = '#EE4F84'
 local system_green_dark = '#53E2AE'
 local system_yellow_dark = '#F1FF52'
-local system_blue_dark = '#00BCD4'
+local system_blue_dark = '#5294E2'
 local system_white = '#FFFFFF'
 
 local theme = {}
