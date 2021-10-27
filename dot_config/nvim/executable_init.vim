@@ -10,17 +10,21 @@
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'dense-analysis/ale'
 Plug 'rmagatti/auto-session'
-Plug 'nvim-lua/completion-nvim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mfussenegger/nvim-dap'
-Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sleuth'
 Plug 'vim-test/vim-test'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 call plug#end()
 
 syntax on
@@ -45,6 +49,7 @@ set belloff=""
 set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨,space:␣
 set list
 set guicursor=a:block-Cursor-blinkon0,i-ci:ver100,r-cr:hor100
+set completeopt=menu,menuone,noselect
 
 nnoremap <C-PageDown> :bn<CR>
 nnoremap <C-PageUp> :bp<CR>
@@ -135,18 +140,8 @@ let g:ale_fixers = {
 \ }
 let g:ale_fix_on_save = 1
 
-"------------------ completion-nvim ------------------
-let g:completion_trigger_character = ['.', '::', '->']
-let g:completion_trigger_on_delete = 1
-"Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
-"Avoid showing message extra message when using completion
-set shortmess+=c
-
 "------------------ lua ------------------
 lua require("treesitter")
+lua require("completion")
 lua require("lsp")
 "lua require("dap")

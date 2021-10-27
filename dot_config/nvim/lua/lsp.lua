@@ -1,11 +1,12 @@
 local lspconfig = require('lspconfig')
-local completion = require('completion')
 local home = os.getenv('HOME')
 local lua_lsp_dir = home .. '/workspace/lua-language-server'
 
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 lspconfig.gopls.setup{
 	name = "gopls";
-	on_attach = completion.on_attach;
+	capabilities = capabilities;
 	cmd = {"gopls"};
 	filetypes = {'go','gomod'};
 	root_patterns = {'go.mod','.git'};
@@ -21,33 +22,33 @@ lspconfig.gopls.setup{
 }
 
 lspconfig.clangd.setup{
-	on_attach = completion.on_attach;
+	capabilities = capabilities;
 }
 
 lspconfig.tsserver.setup{
-	on_attach = completion.on_attach;
+	capabilities = capabilities;
 }
 
 lspconfig.pylsp.setup{
-	on_attach = completion.on_attach;
+	capabilities = capabilities;
 }
 
 lspconfig.rls.setup{
-	on_attach = completion.on_attach;
+	capabilities = capabilities
 }
 
 lspconfig.sumneko_lua.setup{
 	cmd = {lua_lsp_dir .. '/bin/Linux/lua-language-server', '-E', lua_lsp_dir .. '/main.lua'};
-	on_attach = completion.on_attach;
+	capabilities = capabilities;
 }
 
 lspconfig.jdtls.setup{
 	cmd = { "jdtls.sh" };
 	filetypes = { "java" };
 	root_dir = require'lspconfig/util'.root_pattern(".git", "pom.xml");
-	on_attach = completion.on_attach;
+	capabilities = capabilities;
 }
 
 lspconfig.dartls.setup{
-	on_attach = completion.on_attach;
+	capabilities = capabilities;
 }
