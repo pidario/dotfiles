@@ -47,21 +47,3 @@ export PYLINTHOME=$XDG_CACHE_HOME/pylint
 # PATH ###################################################################################
 ##########################################################################################
 export PATH="$GOBIN:$CARGO_HOME/bin:$XDG_DATA_HOME/npm/bin:$HOME/.local/bin:$PATH"
-##########################################################################################
-# MISC ###################################################################################
-##########################################################################################
-export BITBUCKET_ACCESS_KEY=$(cat <<RSA
------BEGIN RSA PRIVATE KEY-----
-...
------END RSA PRIVATE KEY-----
-RSA
-);
-# use quoted to keep format: echo "$BITBUCKET_ACCESS_KEY"
-#proxy=192.168.225.2:8083
-#export HTTP_PROXY=$proxy
-#export HTTPS_PROXY=$proxy
-#export ALL_PROXY=$proxy
-#export http_proxy=$proxy
-#export https_proxy=$proxy
-#export all_proxy=$proxy
-
