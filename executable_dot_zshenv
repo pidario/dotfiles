@@ -11,7 +11,6 @@ export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export WGETRC=$XDG_CONFIG_HOME/wgetrc
 # to get rid of hsts file, run:
 # echo hsts-file \= "$XDG_DATA_HOME"/wget-hsts >> "$XDG_CONFIG_HOME/wgetrc"
-export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export PM2_HOME=$XDG_CONFIG_HOME/pm2
 export WEGORC=$XDG_CONFIG_HOME/wegorc
 export LESSKEY=$XDG_CONFIG_HOME/lesskey
@@ -48,3 +47,7 @@ export PYLINTHOME=$XDG_CACHE_HOME/pylint
 ##########################################################################################
 export PATH="$GOBIN:$CARGO_HOME/bin:$XDG_DATA_HOME/npm/bin:$HOME/.local/bin:$PATH"
 export EDITOR=vi
+export npm_config_userconfig=$XDG_CONFIG_HOME/npm/npmrc
+export npm_config_fund=false
+export npm_config_prefix=$XDG_DATA_HOME/npm
+export npm_config_cache=$XDG_CACHE_HOME/npm
