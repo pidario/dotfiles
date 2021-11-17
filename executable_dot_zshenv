@@ -10,7 +10,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export WGETRC=$XDG_CONFIG_HOME/wgetrc
 # to get rid of hsts file, run:
-# echo hsts-file \= "$XDG_CACHE_HOME"/wget-hsts >> "$XDG_CONFIG_HOME/wgetrc"
+# echo hsts-file \= "$XDG_DATA_HOME"/wget-hsts >> "$XDG_CONFIG_HOME/wgetrc"
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export PM2_HOME=$XDG_CONFIG_HOME/pm2
 export WEGORC=$XDG_CONFIG_HOME/wegorc
@@ -44,6 +44,7 @@ export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
 ##########################################################################################
 export PYLINTHOME=$XDG_CACHE_HOME/pylint
 ##########################################################################################
-# PATH ###################################################################################
+# MISC ###################################################################################
 ##########################################################################################
 export PATH="$GOBIN:$CARGO_HOME/bin:$XDG_DATA_HOME/npm/bin:$HOME/.local/bin:$PATH"
+export EDITOR=vi
