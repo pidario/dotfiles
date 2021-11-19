@@ -1,5 +1,6 @@
 local lspconfig = require('lspconfig')
 local home = os.getenv('HOME')
+local data = os.getenv('XDG_DATA_HOME')
 local lua_lsp_dir = home .. '/workspace/lua-language-server'
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -51,4 +52,14 @@ lspconfig.jdtls.setup{
 
 lspconfig.dartls.setup{
 	capabilities = capabilities;
+}
+
+local npm_path = data .. "/npm/lib/node_modules"
+local cmd = { "ngserver", "--stdio", "--tsProbeLocations", npm_path, "--ngProbeLocations", npm_path }
+lspconfig.angularls.setup{
+	capabilities = capabilities,
+	cmd = cmd,
+	on_new_config = function(new_config, new_root_dir)
+		new_config.cmd = cmd
+	end,
 }
