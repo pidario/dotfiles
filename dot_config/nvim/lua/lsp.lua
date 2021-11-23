@@ -54,6 +54,10 @@ lspconfig.dartls.setup{
 	capabilities = capabilities;
 }
 
+lspconfig.svelte.setup{
+	capabilities = capabilities;
+}
+
 local npm_path = data .. "/npm/lib/node_modules"
 local cmd = { "ngserver", "--stdio", "--tsProbeLocations", npm_path, "--ngProbeLocations", npm_path }
 lspconfig.angularls.setup{
