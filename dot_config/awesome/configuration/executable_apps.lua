@@ -15,7 +15,7 @@ return {
 		file_manager			= 'pcmanfm',
 
 		-- Wallpaper setter
-		wallpaper			= 'feh --bg-fill --no-fehbg --randomize ' .. wall_dir .. '/*',
+		wallpaper			= 'feh --bg-scale --no-fehbg --randomize ' .. wall_dir .. '/*',
 
 		-- Lockscreen
 		lock				= 'i3lock --color 000000',

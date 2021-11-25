@@ -1,31 +1,44 @@
-"1- Install neovim, neovim-drop-in, vim-plug and ripgrep fzf
+"1- Install basic stuff
 "yay -S neovim neovim-drop-in vim-plug ripgrep fzf
+"1.1- Install other stuff (if needed)
+"yay -S shellcheck-bin clang ninja go go-tools gopls rustup flutter node-lts-fermium npm python lua-language-server lua luarocks jdk11-openjdk jdtls
+"rust (needs rustup):
+"rustup toolchain install stable
+"rustup component add cargo rls rust-analysis rust-docs rustfmt
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"nodejs (needs node-lts-fermium and npm):
+"npm install -g eslint @angular/cli @angular/language-server @angular/language-service svelte-language-server typescript typescript-language-server
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"python (needs python):
+"python -m ensurepip --upgrade
+"pip install --upgrade pip autopep8 pylint
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "2- Install all plugins
 ":PlugInstall
-"3- Install treesitter parsers (if needed)
+"3- Install treesitter parsers (it should happen automatically on first launch)
 ":TSInstall <LANG>
-"4- To update plugins:
+"4- To update plugins, run:
 ":PlugUpdate
 
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'dense-analysis/ale'
 Plug 'rmagatti/auto-session'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-vsnip'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'mfussenegger/nvim-dap'
+Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sleuth'
 Plug 'vim-test/vim-test'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 call plug#end()
 
@@ -129,7 +142,7 @@ let g:ale_linters = {
 	\'javascript': ['eslint'],
 	\'go': ['golint', 'gofmt'],
 	\'rust': ['rls'],
-	\'lua': ['luacheck', 'luac'],
+	\'lua': ['luac'],
 	\'sh': ['shellcheck']
 \ }
 let g:ale_fixers = {
