@@ -2,6 +2,7 @@
 "yay -S neovim neovim-drop-in vim-plug ripgrep fzf
 "1.1- Install other stuff (if needed)
 "yay -S shellcheck-bin clang ninja go go-tools gopls rustup flutter node-lts-fermium npm python lua-language-server lua luarocks jdk11-openjdk jdtls
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "rust (needs rustup):
 "rustup toolchain install stable
 "rustup component add cargo rls rust-analysis rust-docs rustfmt

@@ -42,7 +42,7 @@ lspconfig.sumneko_lua.setup{
 }
 
 lspconfig.jdtls.setup{
-	cmd = { "jdtls.sh" };
+	cmd = { "jdtls", "-data",  data .. "/jdtls/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") };
 	filetypes = { "java" };
 	root_dir = require'lspconfig/util'.root_pattern(".git", "pom.xml");
 	capabilities = capabilities;
