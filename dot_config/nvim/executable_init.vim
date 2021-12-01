@@ -14,34 +14,21 @@
 "python -m ensurepip --upgrade
 "pip install --upgrade pip autopep8 pylint
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"2- Install all plugins
-":PlugInstall
-"3- Install treesitter parsers (it should happen automatically on first launch)
-":TSInstall <LANG>
-"4- To update plugins, run:
-":PlugUpdate
-
-call plug#begin(stdpath('data') . '/plugged')
-Plug 'dense-analysis/ale'
-Plug 'rmagatti/auto-session'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'mfussenegger/nvim-dap'
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-sleuth'
-Plug 'vim-test/vim-test'
-Plug 'hrsh7th/vim-vsnip'
-call plug#end()
+"to install all plugins (it will install oh-my-zsh too):
+"cd $XDG_DATA_HOME
+"mkdir nvim
+"git clone https://github.com/pidario/submodules --recurse-submodules
+"ln -s $XDG_DATA_HOME/submodules/site $XDG_DATA_HOME/nvim/site
+"to install a new plugin
+"cd submodules
+"git submodule add https://github.com/$USER_ORG/$REPO.git site/pack/my-plugins/start/$REPO
+"to update all submodules
+"git submodule update --remote --merge
+"to remove a submodule
+"git submodule deinit $SUBMODULE_PATH
+"git rm $SUBMODULE_PATH
+"rm -Rf .git/modules/$SUBMODULE_PATH
+"after update/removal or new install don't forget to commit and push
 
 syntax on
 
