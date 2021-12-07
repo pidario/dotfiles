@@ -2,7 +2,10 @@
 
 set -eu
 
-[ "$(id -u)" -ne 0 ] && exec sudo -- "$0" "$@"
+if [ "$(id -u)" -ne 0 ]; then
+	echo "this script must be run as root"
+	exit 1
+fi
 
 SOURCE="$(dirname "$(dirname "$(realpath "$0")")")"
 

@@ -1,5 +1,5 @@
 "1- Install basic stuff
-"yay -S neovim neovim-drop-in vim-plug ripgrep fzf
+"yay -S neovim neovim-drop-in ripgrep fzf
 "1.1- Install other stuff (if needed)
 "yay -S shellcheck-bin clang ninja go go-tools gopls rustup flutter node-lts-fermium npm python lua-language-server lua luarocks jdk11-openjdk jdtls
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -12,12 +12,14 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "python (needs python):
 "python -m ensurepip --upgrade
-"pip install --upgrade pip autopep8 pylint
+"pip install --upgrade pip autopep8 pylint python-lsp-server[all]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "to install all plugins (it will install oh-my-zsh too):
 "cd $XDG_DATA_HOME
 "mkdir nvim
-"git clone https://github.com/pidario/submodules --recurse-submodules
+"git clone https://github.com/pidario/submodules.git --recurse-submodules
+"or
+"git clone git@github.com:pidario/submodules.git --recurse-submodules
 "ln -s $XDG_DATA_HOME/submodules/site $XDG_DATA_HOME/nvim/site
 "to install a new plugin
 "cd submodules
