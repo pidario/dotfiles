@@ -11,7 +11,7 @@
 	"BackgroundModeEnabled": false,
 	"BlockThirdPartyCookies": true,
 	"BookmarkBarEnabled": true,
-	"BrowserAddPersonEnabled": false,
+	"BrowserAddPersonEnabled": true,
 	"BrowserGuestModeEnabled": false,
 	"BrowserLabsEnabled": false,
 	"BrowserNetworkTimeQueriesEnabled": false,
@@ -54,7 +54,6 @@
 	"PaymentMethodQueryEnabled": false,
 	"ProfilePickerOnStartupAvailability": 2,
 	"PromotionalTabsEnabled": false,
-	"ProxySettings": { "ProxyMode": "system" },
 	"RemoteAccessHostAllowClientPairing": false,
 	"RemoteAccessHostAllowFileTransfer": false,
 	"RemoteAccessHostAllowRelayedConnection": false,
@@ -71,5 +70,5 @@
 	"TranslateEnabled": false,
 	"UrlKeyedAnonymizedDataCollectionEnabled": false,
 	"UserFeedbackAllowed": false,
-	"WPADQuickCheckEnabled": false	
+	"WPADQuickCheckEnabled": false
 }
