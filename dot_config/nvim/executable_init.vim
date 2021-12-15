@@ -8,7 +8,7 @@
 "rustup component add cargo rls rust-analysis rust-docs rustfmt
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "nodejs (needs node-lts-fermium and npm):
-"npm install -g eslint @angular/cli @angular/language-server @angular/language-service svelte-language-server typescript typescript-language-server
+"npm install -g eslint prettier @angular/cli @angular/language-server @angular/language-service @angular/compiler svelte-language-server typescript typescript-language-server
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "python (needs python):
 "python -m ensurepip --upgrade
@@ -138,6 +138,8 @@ let g:ale_linters = {
 let g:ale_fixers = {
 	\'python': ['autopep8'],
 	\'javascript': ['eslint'],
+	\'typescript': ['prettier'],
+	\'html': ['prettier'],
 	\'go': ['gofmt', 'goimports'],
 	\'rust': ['rustfmt'],
 	\'c': ['clang-format'],
