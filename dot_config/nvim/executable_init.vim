@@ -25,7 +25,7 @@
 "cd submodules
 "git submodule add https://github.com/$USER_ORG/$REPO.git site/pack/my-plugins/start/$REPO
 "to update all submodules
-"git submodule update --remote --merge
+"git submodule update --recursive --remote --merge
 "to remove a submodule
 "git submodule deinit $SUBMODULE_PATH
 "git rm $SUBMODULE_PATH
@@ -146,7 +146,28 @@ let g:ale_fixers = {
 	\'cpp': ['clang-format']
 \ }
 let g:ale_fix_on_save = 1
+"------------------ vsnip ------------------
+" Expand
+imap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
+smap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
 
+" Expand or jump
+imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)' : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)' : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
+
+" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
+" See https://github.com/hrsh7th/vim-vsnip/pull/50
+nmap s <Plug>(vsnip-select-text)
+xmap s <Plug>(vsnip-select-text)
+nmap S <Plug>(vsnip-cut-text)
+xmap S <Plug>(vsnip-cut-text)
+let g:vsnip_snippet_dir = '$XDG_CONFIG_HOME/nvim/vsnip'
 "------------------ lua ------------------
 lua require("treesitter")
 lua require("completion")
