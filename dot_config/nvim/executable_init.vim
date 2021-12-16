@@ -56,6 +56,7 @@ set list
 set guicursor=a:block-Cursor-blinkon0,i-ci:ver100,r-cr:hor100
 set completeopt=menu,menuone,noselect
 
+nnoremap <silent> <Esc> :noh<CR>
 nnoremap <C-PageDown> :bn<CR>
 nnoremap <C-PageUp> :bp<CR>
 nnoremap <C-w> :bdelete<CR>
@@ -75,7 +76,7 @@ nnoremap tn :TestNearest<CR>
 nnoremap tf :TestFile<CR>
 nnoremap ts :TestSuite<CR>
 nnoremap tl :TestLast<CR>
-nnoremap gd :Gdiffsplit<CR>
+nnoremap <leader>gd :Gdiffsplit<CR>
 nnoremap <leader>tt :set noexpandtab<CR>:retab!<CR>
 nnoremap <leader><space><space> :set tabstop=4 shiftwidth=4 expandtab<CR>:retab<CR>
 nnoremap <silent> <F5> :lua require'dap'.continue()<CR>
