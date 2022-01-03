@@ -36,7 +36,6 @@
 	"DnsOverHttpsMode": "off",
 	"DownloadRestrictions": 0,
 	"EnableOnlineRevocationChecks": true,
-	"ExtensionInstallForcelist": ["fihnjjcciajhdojfnbdddfaoknhalnja"],
 	"HideWebStoreIcon": true,
 	"HomepageIsNewTabPage": true,
 	"ImportAutofillFormData": false,
