@@ -46,7 +46,7 @@ return {
 		'numlockx',
 
 		-- Imwheel
-		'imwheel -d',
+		'imwheel --detach',
 
 		-- Polkitd agent
 		"/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1",

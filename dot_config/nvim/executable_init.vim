@@ -55,6 +55,7 @@ set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨,spac
 set list
 set guicursor=a:block-Cursor-blinkon0,i-ci:ver100,r-cr:hor100
 set completeopt=menu,menuone,noselect
+set lazyredraw
 
 nnoremap <silent> <Esc> :noh<CR>
 nnoremap <C-PageDown> :bn<CR>
@@ -71,6 +72,12 @@ nnoremap <C-p> :FZF<CR>
 nnoremap <C-f> :Rg <C-R><C-W><CR>
 nnoremap <A-k> :move-2<CR>
 nnoremap <A-j> :move+<CR>
+nnoremap j jzz
+nnoremap k kzz
+nnoremap <Up> <Up>zz
+nnoremap <Down> <Down>zz
+nnoremap <PageUp> <PageUp>zz
+nnoremap <PageDown> <PageDown>zz
 nnoremap cc :source $MYVIMRC<CR>
 nnoremap tn :TestNearest<CR>
 nnoremap tf :TestFile<CR>
