@@ -26,8 +26,9 @@ return {
 		-- Image Viewer
 		image_viewer			= 'feh',
 
-		-- Mixer
+		-- Audio
 		mixer				= 'pamixer',
+		audio_control_panel		= 'pavucontrol',
 
 		-- Calculator
 		calculator			= 'qalculate-gtk'

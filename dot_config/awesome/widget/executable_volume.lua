@@ -26,7 +26,7 @@ local button = function()
 
 	local volume_percentage_text = wibox.widget {
 		id = 'percent_text',
-		text = '',
+		text = '0',
 		align = 'right',
 		valign = 'center',
 		visible = true,
@@ -58,12 +58,41 @@ local button = function()
 		return result;
 	end
 
-	local set_volume = function()
+	local get_volume = function (cb)
 		awful.spawn.easy_async(
-			apps.default.mixer .. " --get-mute --get-volume",
+			apps.default.mixer .. " --get-volume",
+			function (stdout)
+				cb(stdout)
+			end
+		)
+	end
+
+	local volume_change = function (delta, set)
+		local param
+		if set then
+			param = " --set-volume " .. delta
+		else
+			if delta > 0 then
+				param = " --increase " .. delta
+			else
+				param = " --decrease " .. (delta * -1)
+			end
+		end
+		awful.spawn.easy_async(
+			apps.default.mixer .. param,
+			function ()
+				get_volume(function (volume)
+					volume_percentage_text:set_text(volume)
+				end)
+			end
+		)
+	end
+
+	local get_mute = function ()
+		awful.spawn.easy_async(
+			apps.default.mixer .. " --get-mute",
 			function(stdout)
 				local out = split(stdout, '%s')
-				volume_percentage_text:set_text(out[2])
 				local muted = out[1] == 'true'
 				if muted then
 					volume_icon_widget.image = beautiful.no_sound
@@ -71,8 +100,8 @@ local button = function()
 						app_name = 'Volume',
 						icon = beautiful.no_sound,
 						timeout = 5,
-						title = '<b>Audio Muted!</b>',
-						message = 'Audio is muted',
+						title = '<b>Audio Muted</b>',
+						message = 'Audio is muted!',
 					})
 				else
 					volume_icon_widget.image = beautiful.sound
@@ -81,34 +110,31 @@ local button = function()
 		)
 	end
 
-	-- The emit will come from the global keybind
-	_G.awesome.connect_signal(
-		'widget::volume',
-		function()
-			set_volume()
-		end
-	)
-
-	local set_volume_perc_text = function(value)
-		awful.spawn(apps.default.mixer .. ' --set-volume ' .. value, false)
-		volume_percentage_text:set_text(value)
+	local toggle_mute = function()
+		awful.spawn.easy_async(
+			apps.default.mixer .. ' --toggle-mute',
+			function ()
+				get_mute()
+			end
+		)
 	end
-
-	set_volume()
 
 	volume_button:buttons(
 		gears.table.join(
 			awful.button(
 				{},
+				1,
+				nil,
+				function()
+					awful.spawn(apps.default.audio_control_panel)
+				end
+			),
+			awful.button(
+				{},
 				2,
 				nil,
 				function()
-					awful.spawn.easy_async(
-						apps.default.mixer .. ' --toggle-mute',
-						function()
-							set_volume()
-						end
-					)
+					toggle_mute()
 				end
 			),
 			awful.button(
@@ -129,7 +155,7 @@ local button = function()
 					else
 						vol = 0
 					end
-					set_volume_perc_text(vol)
+					volume_change(vol, true)
 				end
 			),
 			awful.button(
@@ -144,7 +170,7 @@ local button = function()
 					else
 						vol = curr_value + 5
 					end
-					set_volume_perc_text(vol)
+					volume_change(vol, true)
 				end
 			),
 			awful.button(
@@ -159,10 +185,35 @@ local button = function()
 					else
 						vol = curr_value - 5
 					end
-					set_volume_perc_text(vol)
+					volume_change(vol, true)
 				end
 			)
 		)
+	)
+
+	_G.awesome.connect_signal(
+		'widget::volume::indecrease',
+		function(delta)
+			volume_change(delta)
+		end
+	)
+
+	_G.awesome.connect_signal(
+		'widget::volume::mute',
+		function()
+			toggle_mute()
+		end
+	)
+
+	awful.spawn.easy_async(
+		-- trick to start audio server, otherwise functions inside callback will fail
+		apps.default.mixer .. " --list-sinks",
+		function ()
+			get_mute()
+			get_volume(function (volume)
+				volume_percentage_text:set_text(volume)
+			end)
+		end
 	)
 
 	return volume_button

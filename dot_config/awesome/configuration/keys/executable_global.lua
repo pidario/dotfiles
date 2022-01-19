@@ -134,12 +134,7 @@ local globalKeys = awful.util.table.join(
 		{},
 		'XF86AudioRaiseVolume',
 		function()
-			awful.spawn.easy_async(
-				apps.default.mixer .. ' --increase 5',
-				function ()
-					_G.awesome.emit_signal('widget::volume')
-				end
-			)
+			_G.awesome.emit_signal('widget::volume::indecrease', 5)
 		end,
 		{description = '+/- volume', group = 'hotkeys'}
 	),
@@ -147,12 +142,7 @@ local globalKeys = awful.util.table.join(
 		{},
 		'XF86AudioLowerVolume',
 		function()
-			awful.spawn.easy_async(
-				apps.default.mixer .. ' --decrease 5',
-				function ()
-					_G.awesome.emit_signal('widget::volume')
-				end
-			)
+			_G.awesome.emit_signal('widget::volume::indecrease', -5)
 		end,
 		{description = '+/- volume', group = 'hotkeys'}
 	),
@@ -160,12 +150,7 @@ local globalKeys = awful.util.table.join(
 		{},
 		'XF86AudioMute',
 		function()
-			awful.spawn.easy_async(
-				apps.default.mixer .. ' --toggle-mute',
-				function ()
-					_G.awesome.emit_signal('widget::volume')
-				end
-			)
+			_G.awesome.emit_signal('widget::volume::mute')
 		end,
 		{description = 'toggle mute', group = 'hotkeys'}
 	),
