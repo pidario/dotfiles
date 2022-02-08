@@ -248,7 +248,7 @@ local globalKeys = awful.util.table.join(
 		{modkey},
 		'space',
 		function()
-			awful.spawn(apps.default.rofi_appmenu, false)
+			awful.spawn(apps.default.launcher, false)
 		end,
 		{description = 'open application drawer', group = 'launcher'}
 	),
@@ -256,7 +256,7 @@ local globalKeys = awful.util.table.join(
 		{},
 		'Menu',
 		function()
-			awful.spawn(apps.default.rofi_appmenu, false)
+			awful.spawn(apps.default.launcher, false)
 		end,
 		{description = 'open application drawer', group = 'hotkeys'}
 	)
