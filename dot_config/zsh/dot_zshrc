@@ -14,21 +14,38 @@ if [[ ! -d "$(dirname "$HISTFILE")" ]]; then
 fi
 
 if [[ -f "$XDG_CONFIG_HOME/path" ]]; then
-  while IFS= read -r p; do
-    if [[ -n "$p" ]]; then
-      case "$p" in
-      /*)
-	dir="$p";;
+  while IFS= read -r ROW; do
+    if [[ -n "$ROW" ]]; then
+      case "$ROW" in
+      "/"*);;
       *)
-	dir="$HOME/$p";;
+        ROW="$HOME/$ROW";;
       esac
-      dir="$(realpath "$dir")"
-      if [[ -d "$dir" ]]; then
-        PATH="$dir:$PATH"
+      ROW="$(realpath "$ROW")"
+      if [[ -d "$ROW" ]]; then
+        PATH="$ROW:$PATH"
       fi
     fi
   done < "$XDG_CONFIG_HOME/path"
 fi
+
+if [[ -f "$XDG_CONFIG_HOME/env" ]]; then
+  while IFS= read -r ROW; do
+    ROW="${ROW#"${ROW%%[![:space:]]*}"}"
+    ROW="${ROW%"${ROW##*[![:space:]]}"}"
+    if [[ -n "$ROW" ]] && [[ "${ROW%"${ROW#?}"}" != "#" ]]; then
+      case "$ROW" in
+      *"="*)
+        if (printf "%s" "$ROW" | grep --quiet --extended-regexp "^\w+\=((\"{1}(.*)\"{1})|\w*)?$"); then
+          export "$ROW"
+        fi
+      ;;
+      esac
+    fi
+  done < "$XDG_CONFIG_HOME/env"
+fi
+
+unset ROW
 
 source "$ZSH/oh-my-zsh.sh"
 
