@@ -20,6 +20,7 @@ export PGSERVICEFILE=$XDG_CONFIG_HOME/pg/pg_service.conf
 # mkdir "$XDG_CONFIG_HOME/pg"
 export CONAN_USER_HOME=$XDG_CONFIG_HOME
 # Conan will create a .conan folder inside $CONAN_USER_HOME
+export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
 ##########################################################################################
 # DATA ###################################################################################
 ##########################################################################################
