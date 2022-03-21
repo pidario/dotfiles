@@ -19,7 +19,7 @@
 "python -m ensurepip --upgrade
 "pip install --upgrade pip autopep8 pylint python-lsp-server[all]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"to install all plugins (it will install oh-my-zsh too):
+"to install all plugins:
 "cd $XDG_DATA_HOME
 "mkdir nvim
 "git clone https://github.com/pidario/submodules.git --recurse-submodules
