@@ -93,11 +93,21 @@ bindkey '^Xa' alias-expension
 zle -N incarg
 bindkey -M vicmd '^a' incarg
 
-if [ $(command -v fzf) ]; then
+if [ "$(command -v fzf)" ]; then
     source /usr/share/fzf/completion.zsh
     source /usr/share/fzf/key-bindings.zsh
     # Search with fzf and open selected file with EDITOR
-    bindkey -s '^f' '$EDITOR $(fzf);^M'
+    search () {
+      F="$(fzf)"
+      if [ -n "$F" ] && [ -f "$F" ]; then
+        if [ -n "$EDITOR" ]; then
+          "$EDITOR" "$F"
+        else
+          echo "EDITOR variable not set"
+        fi
+      fi
+    }
+    bindkey -s '^f' '^qsearch\n'
 fi
 
 # edit current command line with vim (vim-mode, then v)
