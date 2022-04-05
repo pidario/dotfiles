@@ -75,6 +75,7 @@ nnoremap <A-w> :wincmd w<CR>
 nnoremap <C-b> :Vexplore<CR>
 nnoremap <C-p> :FZF<CR>
 nnoremap <C-f> :Rg <C-R><C-W><CR>
+nnoremap <leader>\ :Buffers<CR>
 nnoremap <A-k> :move-2<CR>
 nnoremap <A-j> :move+<CR>
 nnoremap j jzz

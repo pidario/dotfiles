@@ -48,7 +48,7 @@ export PYLINTHOME=$XDG_CACHE_HOME/pylint
 ##########################################################################################
 export PATH="$GOBIN:$CARGO_HOME/bin:$XDG_DATA_HOME/npm/bin:$HOME/.local/bin:$PATH"
 export EDITOR=vi
-export npm_config_userconfig=$XDG_CONFIG_HOME/npm/npmrc
-export npm_config_fund=false
-export npm_config_prefix=$XDG_DATA_HOME/npm
-export npm_config_cache=$XDG_CACHE_HOME/npm
+export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
+export NPM_CONFIG_FUND=false
+export NPM_CONFIG_PREFIX=$XDG_DATA_HOME/npm
+export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
