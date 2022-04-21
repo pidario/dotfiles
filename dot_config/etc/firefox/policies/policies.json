@@ -63,6 +63,12 @@
       },
       "wikipedia@search.mozilla.org": {
         "installation_mode": "blocked"
+      },
+      "ddg@search.mozilla.org": {
+        "installation_mode": "blocked"
+      },
+      "addons-search-detection@mozilla.com": {
+        "installation_mode": "blocked"
       }
     },
     "FirefoxHome": {
@@ -110,6 +116,7 @@
       "browser.crashReports.unsubmittedCheck.autoSubmit2": { "Status": "locked", "Value": false },
       "browser.ctrlTab.recentlyUsedOrder": { "Status": "locked", "Value": false },
       "browser.ctrlTab.sortByRecentlyUsed": { "Status": "locked", "Value": false },
+      "browser.formfill.enable": { "Status": "locked", "Value": true },
       "browser.link.open_newwindow": { "Status": "locked", "Value": 3 },
       "browser.newtabpage.activity-stream.section.feeds.telemetry": { "Status": "locked", "Value": false },
       "browser.newtabpage.activity-stream.section.highlights.includeBookmarks": { "Status": "locked", "Value": true },
@@ -126,7 +133,7 @@
       "browser.safebrowsing.downloads.remote.block_dangerous_host": { "Status": "default", "Value": true },
       "browser.safebrowsing.downloads.remote.block_potentially_unwanted": { "Status": "default", "Value": true },
       "browser.safebrowsing.downloads.remote.block_uncommon": { "Status": "default", "Value": true },
-      "browser.search.suggest.enabled": { "Status": "locked", "Value": true },
+      "browser.search.suggest.enabled": { "Status": "locked", "Value": false },
       "browser.search.widget.inNavBar": { "Status": "locked", "Value": false },
       "browser.sessionstore.warnOnQuit": { "Status": "locked", "Value": true },
       "browser.tabs.loadInBackground": { "Status": "locked", "Value": true },
@@ -137,15 +144,16 @@
       "browser.startup.page": { "Status": "locked", "Value": 3 },
       "browser.uiCustomization.state": { "Status": "locked", "Value": "{\"placements\":{\"widget-overflow-fixed-list\":[],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"home-button\",\"urlbar-container\",\"downloads-button\",\"library-button\",\"add-ons-button\",\"screenshot-button\",\"sidebar-button\",\"fxa-toolbar-menu-button\",\"enterprise-policy-generator_agenedia_com-browser-action\",\"privatebrowsing-button\",\"jid1-kkzogwgsw3ao4q_jetpack-browser-action\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"developer-button\",\"enterprise-policy-generator_agenedia_com-browser-action\",\"jid1-kkzogwgsw3ao4q_jetpack-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"toolbar-menubar\",\"TabsToolbar\",\"PersonalToolbar\"],\"currentVersion\":17,\"newElementCount\":4}" },
       "browser.uidensity": { "Status": "locked", "Value": 1 },
-      "browser.urlbar.showSearchSuggestionsFirst": { "Status": "locked", "Value": true },
+      "browser.urlbar.showSearchSuggestionsFirst": { "Status": "locked", "Value": false },
       "browser.urlbar.suggest.bookmark": { "Status": "locked", "Value": true },
       "browser.urlbar.suggest.history": { "Status": "locked", "Value": true },
-      "browser.urlbar.suggest.engines": { "Status": "locked", "Value": true },
-      "browser.urlbar.suggest.openpage": { "Status": "locked", "Value": true },
-      "browser.urlbar.suggest.quicksuggest": { "Status": "locked", "Value": true },
-      "browser.urlbar.suggest.searches": { "Status": "locked", "Value": true },
-      "browser.urlbar.suggest.topsites": { "Status": "locked", "Value": true },
+      "browser.urlbar.suggest.engines": { "Status": "locked", "Value": false },
+      "browser.urlbar.suggest.openpage": { "Status": "locked", "Value": false },
+      "browser.urlbar.suggest.quicksuggest": { "Status": "locked", "Value": false },
+      "browser.urlbar.suggest.searches": { "Status": "locked", "Value": false },
+      "browser.urlbar.suggest.topsites": { "Status": "locked", "Value": false },
       "browser.warnOnQuit": { "Status": "locked", "Value": true },
+      "browser.warnOnQuitShortcut": { "Status": "locked", "Value": true },
       "dom.disable_open_during_load": { "Status": "default", "Value": true },
       "dom.disable_window_flip": { "Status": "locked", "Value": true },
       "dom.disable_window_move_resize": { "Status": "locked", "Value": false },
@@ -166,9 +174,13 @@
       "network.proxy.socks_remote_dns": { "Status": "locked", "Value": false },
       "network.proxy.type": { "Status": "locked", "Value": 5 },
       "network.trr.mode": { "Status": "locked", "Value": 0 },
-      "privacy.donottrackheader.enabled": { "Status": "locked", "Value": true },
       "places.history.enabled": { "Status": "locked", "Value": true },
+      "privacy.clearOnShutdown.history": { "Status": "locked", "Value": false },
+      "privacy.clearOnShutdown.downloads": { "Status": "locked", "Value": false },
+      "privacy.donottrackheader.enabled": { "Status": "locked", "Value": true },
       "privacy.file_unique_origin": { "Status": "locked", "Value": true },
+      "privacy.sanitize.sanitizeOnShutdown": { "Status": "locked", "Value": false },
+      "security.cert_pinning.enforcement_level": { "Status": "locked", "Value": 1 },
       "security.ssl.errorReporting.enabled": { "Status": "locked", "Value": false },
       "security.OCSP.enabled": { "Status": "locked", "Value": true },
       "signon.autofillForms": { "Status": "locked", "Value": false },
@@ -187,6 +199,7 @@
       "toolkit.telemetry.shutdownPingSender.enabled": { "Status": "locked", "Value": false },
       "toolkit.telemetry.unified": { "Status": "locked", "Value": false },
       "toolkit.telemetry.updatePing.enabled": { "Status": "locked", "Value": false },
+      "widget.gtk.overlay-scrollbars.enabled": { "Status": "locked", "Value": true },
       "xpinstall.whitelist.required": { "Status": "locked", "Value": true }
     },
     "Proxy": {
@@ -195,19 +208,36 @@
     },
     "SearchBar": "unified",
     "SearchEngines": {
-      "Default": "Brave",
+      "Default": "StartPage",
       "PreventInstalls": true,
-      "Remove": ["Google", "Amazon.it", "Bing", "Wikipedia (en)"],
+      "Remove": ["Google", "Amazon.it", "Bing", "Wikipedia (en)", "DuckDuckGo", "DuckDuckGo Lite", "MetaGer", "StartPage", "SearXNG", "Brave"],
       "Add": [
+        {
+          "Name": "StartPage",
+          "URLTemplate": "https://startpage.com/sp/search",
+          "Method": "POST",
+          "IconURL": "https://www.startpage.com/sp/cdn/favicons/favicon--default.ico",
+          "Alias": "s",
+          "Description": "StartPage",
+          "PostData": "query={searchTerms}"
+        },
+        {
+          "Name": "SearXNG",
+          "URLTemplate": "https://searx.tiekoetter.com",
+          "Method": "POST",
+          "IconURL": "https://searx.tiekoetter.com/static/themes/simple/img/favicon.svg",
+          "Alias": "x",
+          "Description": "SearXNG",
+          "PostData": "q={searchTerms}"
+        },
         {
           "Name": "Brave",
           "URLTemplate": "https://search.brave.com/search?q={searchTerms}",
           "Method": "GET",
-          "IconURL": "https://brave.com/favicon.ico",
+          "IconURL": "https://brave.com/static-assets/images/brave-favicon.png",
           "Alias": "b",
-          "Description": "Brave Search",
-          "PostData": "name=value&q={searchTerms}",
-          "SuggestURLTemplate": "https://search.brave.com/suggestions/q={searchTerms}"
+          "Description": "Brave",
+          "PostData": "name=value&q={searchTerms}"
         }
       ]
     },

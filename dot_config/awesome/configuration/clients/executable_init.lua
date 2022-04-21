@@ -84,7 +84,7 @@ ruled.client.connect_signal(
 )
 
 local browsers_class = function (cls)
-	if cls == "firefox" or cls == "Chromium" then
+	if cls == "firefox" or cls == "librewolf" or cls == "Chromium" then
 		return true
 	end
 	return false
