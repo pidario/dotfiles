@@ -167,9 +167,12 @@ alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox
 
 if [[ -f "$XDG_CONFIG_HOME/path" ]]; then
   while IFS= read -r ROW; do
-    if [[ -n "$ROW" ]]; then
+    if [[ -n "$ROW" ]] && [[ "${ROW%"${ROW#?}"}" != "#" ]]; then
       case "$ROW" in
       "/"*);;
+      ".")
+        PATH=".:$PATH"
+        continue;;
       *)
         ROW="$HOME/$ROW";;
       esac
@@ -187,11 +190,7 @@ if [[ -f "$XDG_CONFIG_HOME/env" ]]; then
     ROW="${ROW%"${ROW##*[![:space:]]}"}"
     if [[ -n "$ROW" ]] && [[ "${ROW%"${ROW#?}"}" != "#" ]]; then
       case "$ROW" in
-      *"="*)
-        if (printf "%s" "$ROW" | grep --quiet --extended-regexp "^\w+\=((\"{1}(.*)\"{1})|\w*)?$"); then
-          export "$ROW"
-        fi
-      ;;
+      *"="*) export $ROW;;
       esac
     fi
   done < "$XDG_CONFIG_HOME/env"
