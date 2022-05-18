@@ -4,9 +4,11 @@
 "curl -qL https://www.npmjs.com/install.sh | sh
 "npm install -g npm@<VERSION>
 "in order to install npm, nodejs is required)
-"yay -S neovim neovim-drop-in ripgrep fzf
+"yay -S neovim neovim-drop-in ripgrep fzf python
+"python -m ensurepip --upgrade
+"pip install venv
 "1.1- Install other stuff (if needed)
-"yay -S shellcheck-bin clang ninja go go-tools gopls rustup flutter node-lts-fermium python lua-language-server lua luarocks jdk11-openjdk jdtls
+"yay -S shellcheck-bin clang ninja go go-tools gopls rustup flutter node-lts-fermium lua-language-server lua luarocks jdk11-openjdk jdtls
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "rust (needs rustup):
 "rustup toolchain install stable
@@ -15,8 +17,7 @@
 "nodejs (needs nodejs and npm):
 "npm install -g eslint prettier @angular/cli @angular/language-server @angular/language-service @angular/compiler svelte-language-server typescript typescript-language-server
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"python (needs python):
-"python -m ensurepip --upgrade
+"for python development:
 "pip install --upgrade pip autopep8 pylint python-lsp-server[all]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "to install all plugins:
@@ -125,7 +126,7 @@ hi PmenuSel guifg=#dddd00 guibg=#1f82cd
 hi PmenuSbar guibg=#d6d6d6
 hi ExtraWhitespace guibg=red
 match ExtraWhitespace /\s\+$/
-
+let g:coq_settings = { 'auto_start': 'shut-up' }
 "------------------ ale ------------------
 hi clear ALEErrorSign
 hi clear ALEWarningSign
@@ -140,7 +141,6 @@ hi Info guifg=#00f3ff guibg=NONE
 hi link ALEErrorSign Error
 hi link ALEWarningSign Warning
 hi link ALEInfoSign Info
-
 let g:ale_linters = {
 	\'python': ['pylint'],
 	\'javascript': ['eslint'],
@@ -160,30 +160,7 @@ let g:ale_fixers = {
 	\'cpp': ['clang-format']
 \ }
 let g:ale_fix_on_save = 1
-"------------------ vsnip ------------------
-" Expand
-imap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
-smap <expr> <C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
-
-" Expand or jump
-imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-
-" Jump forward or backward
-imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)' : '<Tab>'
-smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)' : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)' : '<S-Tab>'
-
-" Select or cut text to use as $TM_SELECTED_TEXT in the next snippet.
-" See https://github.com/hrsh7th/vim-vsnip/pull/50
-nmap s <Plug>(vsnip-select-text)
-xmap s <Plug>(vsnip-select-text)
-nmap S <Plug>(vsnip-cut-text)
-xmap S <Plug>(vsnip-cut-text)
-let g:vsnip_snippet_dir = '$XDG_CONFIG_HOME/nvim/vsnip'
 "------------------ lua ------------------
 lua require("treesitter")
-lua require("completion")
 lua require("lsp")
 "lua require("dap")

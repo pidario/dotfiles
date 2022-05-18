@@ -1,18 +1,13 @@
 local lspconfig = require('lspconfig')
+local coq = require('coq')
 local data = os.getenv('XDG_DATA_HOME')
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+vim.g.coq_settings = { auto_start = 'shut-up' }
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
 	local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-	local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-	-- Enable completion triggered by <c-x><c-o>
-	buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-	-- Mappings.
 	local opts = { noremap = true, silent = true }
 
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -35,75 +30,49 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-lspconfig.gopls.setup{
-	name = "gopls";
-	capabilities = capabilities;
+lspconfig.gopls.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach;
-	cmd = { "gopls" };
-	filetypes = { "go", "gomod" };
-	root_patterns = { "go.mod", ".git" };
-	-- https://github.com/golang/tools/blob/master/gopls/doc/settings.md#settings
-	init_options = {
-		usePlaceholders = true;
-		linkTarget = "pkg.go.dev";
-		completionDocumentation = true;
-		completeUnimported = true;
-		deepCompletion = true;
-		fuzzyMatching = true;
-	};
-}
+}))
 
-lspconfig.clangd.setup{
-	capabilities = capabilities;
+lspconfig.clangd.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach;
-}
+}))
 
-lspconfig.tsserver.setup{
-	capabilities = capabilities;
+lspconfig.tsserver.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach;
-}
+}))
 
-lspconfig.pylsp.setup{
-	capabilities = capabilities;
+lspconfig.pylsp.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach;
-}
+}))
 
-lspconfig.rls.setup{
-	capabilities = capabilities;
+lspconfig.rls.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach;
-}
+}))
 
-lspconfig.sumneko_lua.setup{
-	cmd = { "lua-language-server" };
-	capabilities = capabilities;
+lspconfig.sumneko_lua.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach;
-}
+}))
 
-lspconfig.jdtls.setup{
+lspconfig.jdtls.setup(coq.lsp_ensure_capabilities({
 	cmd = { "jdtls", "-data",  data .. "/jdtls/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") };
-	filetypes = { "java" };
-	root_dir = require'lspconfig/util'.root_pattern(".git", "pom.xml");
-	capabilities = capabilities;
 	on_attach = on_attach;
-}
+}))
 
-lspconfig.dartls.setup{
-	capabilities = capabilities;
+lspconfig.dartls.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach;
-}
+}))
 
-lspconfig.svelte.setup{
-	capabilities = capabilities;
+lspconfig.svelte.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach;
-}
+}))
 
 local npm_path = data .. "/npm/lib/node_modules"
 local cmd = { "ngserver", "--stdio", "--tsProbeLocations", npm_path, "--ngProbeLocations", npm_path }
-lspconfig.angularls.setup{
-	capabilities = capabilities,
+lspconfig.angularls.setup(coq.lsp_ensure_capabilities({
 	on_attach = on_attach;
 	cmd = cmd,
 	on_new_config = function(new_config, new_root_dir)
 		new_config.cmd = cmd
 	end,
-}
+}))

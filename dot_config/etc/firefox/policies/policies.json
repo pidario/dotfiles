@@ -208,7 +208,7 @@
     },
     "SearchBar": "unified",
     "SearchEngines": {
-      "Default": "StartPage",
+      "Default": "SearXNG",
       "PreventInstalls": true,
       "Remove": ["Google", "Amazon.it", "Bing", "Wikipedia (en)", "DuckDuckGo", "DuckDuckGo Lite", "MetaGer", "StartPage", "SearXNG", "Brave"],
       "Add": [
