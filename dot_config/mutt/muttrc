@@ -1,0 +1,81 @@
+source /usr/share/doc/neomutt/samples/gpg.rc
+# copy "private.example" to "private"
+# edit "private" accordingly
+# encrypt "private" with gpg using: gpg --recipient $RECIPIENT --encrypt
+# this command will produce "private.gpg"
+# file "private" can now be deleted
+source "gpg -dq $HOME/.config/mutt/private.gpg |"
+auto_view text/html
+auto_view application/pdf
+unset imap_passive
+subscribe ".*@lists\\.archlinux\\.org"
+alternative_order text/plain text/html
+set editor=`echo \$EDITOR`
+# needed programs are:
+# lynx to view html messages
+# xreader to open pdf files
+set mailcap_path=$HOME/.config/mutt/mailcap
+set send_charset="utf-8"
+set assumed_charset="utf-8"
+set menu_scroll=yes
+set pager_context=3
+set pager_stop=yes
+set copy=no
+set imap_check_subscribed
+set imap_keepalive=300
+set mail_check=60
+set timeout=10
+set ssl_force_tls=yes
+set ssl_starttls=yes
+set sort="threads"
+set sort_aux="reverse-date-received"
+set sidebar_visible=yes
+set sidebar_width=15
+set sidebar_folder_indent=no
+set sidebar_short_path=yes
+set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
+set sidebar_sort_method="unsorted"
+set sidebar_new_mail_only=no
+set mail_check_stats
+set pgp_default_key="$my_pgp_default_key"
+set crypt_opportunistic_encrypt=yes
+set crypt_autosign=yes
+bind editor <space> noop
+bind index,pager <C-Up> sidebar-prev
+bind index,pager <C-Down> sidebar-next
+bind index,pager <C-Right> sidebar-open
+bind index,pager B sidebar-toggle-visible
+color normal      white          black
+color hdrdefault  green          default
+color quoted      green          default
+color quoted1     yellow         default
+color quoted2     red            default
+color signature   cyan           default
+color indicator   brightyellow   red
+color error       brightred      default
+color status      brightwhite    blue
+color tree        brightmagenta  black
+color tilde       blue           default
+color attachment  brightyellow   default
+color markers     brightred      default
+color message     white          black
+color search      brightwhite    magenta
+color bold        brightyellow   default
+color sidebar_indicator brightyellow red
+color sidebar_highlight black brightyellow
+color sidebar_divider white black
+color sidebar_flagged red black
+color sidebar_new green black
+color sidebar_spoolfile white default
+# gmail
+macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Delete"
+set realname="$my_name"
+set imap_user="$my_gmail_user"
+set imap_pass="$my_gmail_pass"
+set from="$imap_user"
+set folder="imaps://imap.gmail.com/"
+set smtp_url="smtps://$imap_user@smtp.gmail.com"
+set smtp_pass="$imap_pass"
+set spoolfile=+INBOX
+set postponed=+[Gmail]/Drafts
+mailboxes =INBOX
