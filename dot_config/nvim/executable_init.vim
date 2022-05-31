@@ -18,25 +18,10 @@
 "npm install -g eslint prettier @angular/cli @angular/language-server @angular/language-service @angular/compiler svelte-language-server typescript typescript-language-server
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "for python development:
-"pip install --upgrade pip autopep8 pylint python-lsp-server[all]
+"pip install --upgrade pip autopep8 pylint python-lsp-server\[all\]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"to install all plugins:
-"cd $XDG_DATA_HOME
-"mkdir nvim
-"git clone https://github.com/pidario/submodules.git --recurse-submodules
-"or
-"git clone git@github.com:pidario/submodules.git --recurse-submodules
-"ln -s $XDG_DATA_HOME/submodules/site $XDG_DATA_HOME/nvim/site
-"to install a new plugin
-"cd submodules
-"git submodule add https://github.com/$USER_ORG/$REPO.git site/pack/my-plugins/start/$REPO
-"to update all submodules
-"git submodule update --recursive --remote --merge
-"to remove a submodule
-"git submodule deinit $SUBMODULE_PATH
-"git rm $SUBMODULE_PATH
-"rm -Rf .git/modules/$SUBMODULE_PATH
-"after update/removal or new install don't forget to commit and push
+"to install/update all plugins:
+"chezmoi apply -R (--refresh-externals)
 
 syntax on
 
