@@ -4,7 +4,7 @@ source /usr/share/doc/neomutt/samples/gpg.rc
 # encrypt "private" with gpg using: gpg --recipient $RECIPIENT --encrypt
 # this command will produce "private.gpg"
 # file "private" can now be deleted
-source "gpg -dq $HOME/.config/mutt/private.gpg |"
+source "gpg --quiet --decrypt .config/mutt/private.gpg |"
 auto_view text/html
 auto_view application/pdf
 unset imap_passive
@@ -14,7 +14,7 @@ set editor=`echo \$EDITOR`
 # needed programs are:
 # lynx to view html messages
 # xreader to open pdf files
-set mailcap_path=$HOME/.config/mutt/mailcap
+set mailcap_path=.config/mutt/mailcap
 set send_charset="utf-8"
 set assumed_charset="utf-8"
 set menu_scroll=yes
