@@ -74,9 +74,9 @@
     "FirefoxHome": {
       "Search": true,
       "TopSites": true,
-      "Highlights": true,
+      "Highlights": false,
       "Pocket": false,
-      "Snippets": true,
+      "Snippets": false,
       "Locked": true
     },
     "FlashPlugin": {
@@ -118,10 +118,12 @@
       "browser.ctrlTab.sortByRecentlyUsed": { "Status": "locked", "Value": false },
       "browser.formfill.enable": { "Status": "locked", "Value": true },
       "browser.link.open_newwindow": { "Status": "locked", "Value": 3 },
+      "browser.newtabpage.activity-stream.feeds.section.highlights": { "Status": "locked", "Value": false },
+      "browser.newtabpage.activity-stream.feeds.snippets": { "Status": "locked", "Value": false },
       "browser.newtabpage.activity-stream.section.feeds.telemetry": { "Status": "locked", "Value": false },
-      "browser.newtabpage.activity-stream.section.highlights.includeBookmarks": { "Status": "locked", "Value": true },
-      "browser.newtabpage.activity-stream.section.highlights.includeDownloads": { "Status": "locked", "Value": true },
-      "browser.newtabpage.activity-stream.section.highlights.includeVisited": { "Status": "locked", "Value": true },
+      "browser.newtabpage.activity-stream.section.highlights.includeBookmarks": { "Status": "locked", "Value": false },
+      "browser.newtabpage.activity-stream.section.highlights.includeDownloads": { "Status": "locked", "Value": false },
+      "browser.newtabpage.activity-stream.section.highlights.includeVisited": { "Status": "locked", "Value": false },
       "browser.newtabpage.activity-stream.section.highlights.rows": { "Status": "locked", "Value": 1 },
       "browser.newtabpage.activity-stream.showSponsored": { "Status": "locked", "Value": false },
       "browser.newtabpage.activity-stream.showSponsoredTopSites": { "Status": "locked", "Value": false },
