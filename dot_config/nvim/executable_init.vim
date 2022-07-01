@@ -60,7 +60,6 @@ nnoremap <C-A-q> :q!<CR>
 nnoremap <A-w> :wincmd w<CR>
 nnoremap <C-b> :Vexplore<CR>
 nnoremap <C-p> :FZF<CR>
-nnoremap <C-f> :Rg <C-R><C-W><CR>
 nnoremap <leader>\ :Buffers<CR>
 nnoremap <A-k> :move-2<CR>
 nnoremap <A-j> :move+<CR>
@@ -87,18 +86,21 @@ nnoremap <silent> <leader>B :lua require'dap'.set_breakpoint(vim.fn.input('Break
 nnoremap <silent> <leader>lp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
 nnoremap <silent> <leader>dr :lua require'dap'.repl.open()<CR>
 nnoremap <silent> <leader>dl :lua require'dap'.repl.run_last()<CR>
+nnoremap <C-f> :Rg <C-R><C-W><CR>
+vnoremap <C-f> y:Rg <C-r>"<CR>
 
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:gitgutter_set_sign_backgrounds = 0
-let test#strategy = "neovim"
-let test#go#gotest#options = '-v'
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden -g "!.git"'
+let g:coq_settings = { 'auto_start': 'shut-up' }
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:gitgutter_set_sign_backgrounds = 0
+let test#strategy = "neovim"
+let test#go#gotest#options = '-v'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --ignore-vcs --glob "!.git"'
 
 hi SignColumn guibg=#262626
 hi LineNr guifg=grey guibg=NONE
@@ -111,7 +113,6 @@ hi PmenuSel guifg=#dddd00 guibg=#1f82cd
 hi PmenuSbar guibg=#d6d6d6
 hi ExtraWhitespace guibg=red
 match ExtraWhitespace /\s\+$/
-let g:coq_settings = { 'auto_start': 'shut-up' }
 "------------------ ale ------------------
 hi clear ALEErrorSign
 hi clear ALEWarningSign
