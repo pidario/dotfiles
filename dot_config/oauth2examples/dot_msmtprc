@@ -1,0 +1,13 @@
+defaults
+auth         oauthbearer
+tls          on
+logfile      ~/.local/share/msmtp/msmtp.log
+
+account      gmail
+host         smtp.gmail.com
+port         587
+from         johndoe@gmail.com
+user         johndoe@gmail.com
+passwordeval oauth2get gmail johndoe@gmail.com
+
+account default : gmail

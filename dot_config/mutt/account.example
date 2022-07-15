@@ -1,0 +1,14 @@
+unmailboxes *
+set folder = "~/.local/share/mail/gmail"
+set realname="John Doe"
+set from="johndoe@gmail.com"
+set pgp_default_key="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+macro index S "<shell-escape>mbsync gmail<enter><shell-escape>notmuch new<enter>" "sync email"
+set sendmail = "msmtp --account gmail"
+set header_cache = "~/.cache/mutt/gmail/header_cache"
+set message_cachedir = "~/.cache/mutt/gmail/message_cache"
+set spoolfile=+Inbox
+set postponed=+[Gmail]/Drafts
+set record="+[Gmail]/Sent Mail"
+set trash=+[Gmail]/Trash
+mailboxes =Inbox =arch ="[Gmail]/All Mail" ="[Gmail]/Drafts" ="[Gmail]/Sent Mail" ="[Gmail]/Spam" ="[Gmail]/Trash"

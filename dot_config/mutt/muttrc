@@ -1,19 +1,35 @@
+# configuration for using mutt as a maildir viewer
+# complexities are left to other program such as:
+# isync: for synchronizing remote imap server with a local folder
+# oauth2token: for logging in using oauth2 tokens
+# msmtp: for sending mail
+# notmuch: for indexing and searching inside the maildir
+# lynx: for viewing html messages
+# xreader: for opening pdf files
+# packages installed (example for arch):
+# neomutt isync cyrus-sasl-xoauth2-git msmtp notmuch lynx xreader
+# python packages:
+# oauth2token
+# dotfiles in repo also contains systemd timer and service to sync maildir
+# make sure to create necessary folders for local synchronization before launching isync or enabling its timer
+# and use the full path for oauth2get (necessary if installed in local folder with pip) in "PassCmd" entry in your .mbsyncrc file
+# before logging in it is necessary to obtain a token by using:
+# oauth2create <account> <email-address>
+# where <account> is a folder in $XDG_CONFIG_HOME/oauth2token
+# that contains two json files: config.json and scopes.json (search how to obain this information for each email provider)
+# run "notmuch setup" to configure it (it will ask about the maildir location and your email addresses)
+# $XDG_CONFIG_HOME/oauth2examples contains templates of .mbsyncrc .msmtprc config.json scopes.json for gmail
+
 source /usr/share/doc/neomutt/samples/gpg.rc
-# copy "private.example" to "private"
-# edit "private" accordingly
-# encrypt "private" with gpg using: gpg --recipient $RECIPIENT --encrypt
-# this command will produce "private.gpg"
-# file "private" can now be deleted
-source "gpg --quiet --decrypt .config/mutt/private.gpg |"
+# copy "account.example" to some other file, e.g. "account"
+# edit "account" accordingly
+# source ~/.config/mutt/account
 auto_view text/html
 auto_view application/pdf
-unset imap_passive
 subscribe ".*@lists\\.archlinux\\.org"
 alternative_order text/plain text/html
 set editor=`echo \$EDITOR`
-# needed programs are:
-# lynx to view html messages
-# xreader to open pdf files
+set mbox_type = Maildir
 set mailcap_path=.config/mutt/mailcap
 set send_charset="utf-8"
 set assumed_charset="utf-8"
@@ -21,12 +37,8 @@ set menu_scroll=yes
 set pager_context=3
 set pager_stop=yes
 set copy=no
-set imap_check_subscribed
-set imap_keepalive=300
 set mail_check=60
 set timeout=10
-set ssl_force_tls=yes
-set ssl_starttls=yes
 set sort="threads"
 set sort_aux="reverse-date-received"
 set sidebar_visible=yes
@@ -37,7 +49,6 @@ set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
 set sidebar_sort_method="unsorted"
 set sidebar_new_mail_only=no
 set mail_check_stats
-set pgp_default_key="$my_pgp_default_key"
 set crypt_opportunistic_encrypt=yes
 set crypt_autosign=yes
 bind editor <space> noop
@@ -45,37 +56,75 @@ bind index,pager <C-Up> sidebar-prev
 bind index,pager <C-Down> sidebar-next
 bind index,pager <C-Right> sidebar-open
 bind index,pager B sidebar-toggle-visible
-color normal      white          black
-color hdrdefault  green          default
-color quoted      green          default
-color quoted1     yellow         default
-color quoted2     red            default
-color signature   cyan           default
-color indicator   brightyellow   red
-color error       brightred      default
-color status      brightwhite    blue
-color tree        brightmagenta  black
-color tilde       blue           default
-color attachment  brightyellow   default
-color markers     brightred      default
-color message     white          black
-color search      brightwhite    magenta
-color bold        brightyellow   default
+macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search term to find with notmuch: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head --lines 600 | perl -le '@a=<>;s/\^id:// for@a;$,=\"|\";print@a' | perl -le '@a=<>; chomp@a; s/\\+/\\\\+/ for@a;print@a' \`\"<enter>" "show only messages matching a notmuch pattern"
+macro index a "<limit>all\n" "show all messages (undo limit)"
+# Default index colors:
+color index yellow default '.*'
+color index_author red default '.*'
+color index_number blue default
+color index_subject cyan default '.*'
+# New mail is boldened:
+color index brightyellow black "~N"
+color index_author brightred black "~N"
+color index_subject brightcyan black "~N"
+# Tagged mail is highlighted:
+color index brightyellow blue "~T"
+color index_author brightred blue "~T"
+color index_subject brightcyan blue "~T"
+# Other colors and aesthetic settings:
+mono bold bold
+mono underline underline
+mono indicator reverse
+mono error bold
+color normal default default
+color indicator brightblack white
 color sidebar_indicator brightyellow red
 color sidebar_highlight black brightyellow
 color sidebar_divider white black
 color sidebar_flagged red black
 color sidebar_new green black
 color sidebar_spoolfile white default
+color normal brightyellow default
+color error red default
+color tilde black default
+color message cyan default
+color markers red white
+color attachment white default
+color search brightmagenta default
+color status brightyellow black
+color hdrdefault brightgreen default
+color quoted green default
+color quoted1 blue default
+color quoted2 cyan default
+color quoted3 yellow default
+color quoted4 red default
+color quoted5 brightred default
+color signature brightgreen default
+color bold black default
+color underline black default
+color normal default default
+# Regex highlighting:
+color header blue default ".*"
+color header brightmagenta default "^(From)"
+color header brightcyan default "^(Subject)"
+color header brightwhite default "^(CC|BCC)"
+color body brightred default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # Email addresses
+color body brightblue default "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+" # URL
+color body green default "\`[^\`]*\`" # Green text between ` and `
+color body brightblue default "^# \.*" # Headings as bold blue
+color body brightcyan default "^## \.*" # Subheadings as bold cyan
+color body brightgreen default "^### \.*" # Subsubheadings as bold green
+color body yellow default "^(	| )*(-|\*) \.*" # List items as yellow
+color body brightcyan default "[;:][-o][)/(|]" # emoticons
+color body brightcyan default "[;:][)(|]" # emoticons
+color body brightcyan default "[ ][*][^*]*[*][ ]?" # more emoticon?
+color body brightcyan default "[ ]?[*][^*]*[*][ ]" # more emoticon?
+color body red default "(BAD signature)"
+color body cyan default "(Good signature)"
+color body brightblack default "^gpg: Good signature .*"
+color body brightyellow default "^gpg: "
+color body brightyellow red "^gpg: BAD signature from.*"
+mono body bold "^gpg: Good signature"
+mono body bold "^gpg: BAD signature from.*"
 # gmail
-macro index,pager d "<save-message>=[Gmail]/Trash<enter><enter>" "Delete"
-set realname="$my_name"
-set imap_user="$my_gmail_user"
-set imap_pass="$my_gmail_pass"
-set from="$imap_user"
-set folder="imaps://imap.gmail.com/"
-set smtp_url="smtps://$imap_user@smtp.gmail.com"
-set smtp_pass="$imap_pass"
-set spoolfile=+INBOX
-set postponed=+[Gmail]/Drafts
-mailboxes =INBOX
+source ~/.config/mutt/gmail

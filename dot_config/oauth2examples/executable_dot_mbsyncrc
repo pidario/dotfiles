@@ -1,0 +1,23 @@
+IMAPAccount gmail
+Host imap.gmail.com
+User johndoe@gmail.com
+AuthMechs XOAUTH2
+PassCmd "~/.local/bin/oauth2get gmail johndoe@gmail.com"
+SSLType IMAPS
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+SubFolders Verbatim
+# The trailing "/" is important
+Path ~/.local/share/mail/gmail/
+Inbox ~/.local/share/mail/gmail/Inbox
+
+Channel gmail
+Far :gmail-remote:
+Near :gmail-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *
