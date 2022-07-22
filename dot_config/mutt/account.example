@@ -1,4 +1,5 @@
 unmailboxes *
+unvirtual-mailboxes *
 set folder = "~/.local/share/mail/gmail"
 set realname="John Doe"
 set from="johndoe@gmail.com"
@@ -11,4 +12,5 @@ set spoolfile=+Inbox
 set postponed=+[Gmail]/Drafts
 set record="+[Gmail]/Sent Mail"
 set trash=+[Gmail]/Trash
-mailboxes =Inbox =arch ="[Gmail]/All Mail" ="[Gmail]/Drafts" ="[Gmail]/Sent Mail" ="[Gmail]/Spam" ="[Gmail]/Trash"
+mailboxes =Inbox ="[Gmail]/Drafts" ="[Gmail]/Sent Mail" ="[Gmail]/Spam" ="[Gmail]/Trash"
+virtual-mailboxes "All" "notmuch://?query=NOT folder:gmail/[Gmail]/All Mail AND NOT folder:gmail/[Gmail]/Drafts AND NOT folder:gmail/[Gmail]/Spam AND NOT folder:gmail/[Gmail]/Trash"

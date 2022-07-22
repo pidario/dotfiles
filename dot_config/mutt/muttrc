@@ -45,19 +45,19 @@ set sidebar_visible=yes
 set sidebar_width=15
 set sidebar_folder_indent=no
 set sidebar_short_path=yes
-set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
+set sidebar_format="%D%?F? [%F]?%* %?N?%N/?%S"
 set sidebar_sort_method="unsorted"
 set sidebar_new_mail_only=no
 set mail_check_stats
 set crypt_opportunistic_encrypt=yes
 set crypt_autosign=yes
+set nm_default_uri="notmuch://$HOME/.local/share/mail"
 bind editor <space> noop
 bind index,pager <C-Up> sidebar-prev
 bind index,pager <C-Down> sidebar-next
 bind index,pager <C-Right> sidebar-open
 bind index,pager B sidebar-toggle-visible
-macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search term to find with notmuch: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head --lines 600 | perl -le '@a=<>;s/\^id:// for@a;$,=\"|\";print@a' | perl -le '@a=<>; chomp@a; s/\\+/\\\\+/ for@a;print@a' \`\"<enter>" "show only messages matching a notmuch pattern"
-macro index a "<limit>all\n" "show all messages (undo limit)"
+macro index \Cf "<vfolder-from-query>"
 # Default index colors:
 color index yellow default '.*'
 color index_author red default '.*'

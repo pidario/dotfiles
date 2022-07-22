@@ -17,7 +17,7 @@ Inbox ~/.local/share/mail/gmail/Inbox
 Channel gmail
 Far :gmail-remote:
 Near :gmail-local:
-Patterns *
+Patterns * "![Gmail]/All Mail"
 Create Both
 Expunge Both
 SyncState *
