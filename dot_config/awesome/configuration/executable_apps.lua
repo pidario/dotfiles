@@ -1,7 +1,4 @@
-local wall_dir = '/usr/share/backgrounds'
-
 return {
-
 	-- The default applications that we will use in keybindings and widgets
 	default = {
 
@@ -15,7 +12,7 @@ return {
 		file_manager			= 'pcmanfm',
 
 		-- Wallpaper setter
-		wallpaper			= 'feh --bg-fill --no-fehbg --randomize ' .. wall_dir .. '/*',
+		wallpaper			= 'feh --bg-fill --no-fehbg --randomize /usr/share/backgrounds/*',
 
 		-- Lockscreen
 		lock				= 'i3lock --color 000000',
@@ -33,25 +30,5 @@ return {
 		-- Calculator
 		calculator			= 'qalculate-gtk'
 
-	},
-
-	-- List of apps to run on start-up
-	-- auto-start.lua module will start these
-
-	run_on_start_up = {
-
-		-- VMWare
-		'vmware-user',
-
-		-- NumLockX
-		'numlockx',
-
-		-- Imwheel
-		'imwheel --detach',
-
-		-- Polkitd agent
-		"/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1",
-
 	}
-
 }

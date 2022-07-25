@@ -1,1 +1,11 @@
 export QT_STYLE_OVERRIDE=kvantum
+
+if [[ -z "$DISPLAY" ]] && [[ "$(tty)" = /dev/tty1 ]] && [[ -f "$HOME/.xinitrc" ]]; then
+  TDM="$(command -v tdm)"
+  if [[ -z "$TDM" ]]; then
+    startx
+  else
+    "$TDM"
+  fi
+  logout
+fi

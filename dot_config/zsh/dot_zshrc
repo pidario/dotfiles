@@ -197,7 +197,3 @@ if [[ -f "$XDG_CONFIG_HOME/env" ]]; then
 fi
 
 unset ROW
-
-if [[ -z "$DISPLAY" ]] && [[ "$(tty)" = /dev/tty1 ]] && [[ -f "$HOME/.xinitrc" ]]; then
-  startx
-fi
