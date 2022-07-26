@@ -1,12 +1,12 @@
 "1- Install basic stuff
-"("npm is available in the community repo but it's better to install it using its
+"("npm is available in the community repo but it's possible to install it using its
 "install script and then use itself to upgrade it and install other versions:
 "curl -qL https://www.npmjs.com/install.sh | sh
 "npm install -g npm@<VERSION>
+"or install using community repo:
+"yay -S npm
 "in order to install npm, nodejs is required)
-"yay -S neovim neovim-drop-in ripgrep fzf python
-"python -m ensurepip --upgrade
-"pip install venv
+"yay -S neovim neovim-drop-in ripgrep fzf python python-pip
 "1.1- Install other stuff (if needed)
 "yay -S shellcheck-bin clang ninja go go-tools gopls rustup flutter node-lts-fermium lua-language-server lua luarocks jdk11-openjdk jdtls
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -18,7 +18,7 @@
 "npm install -g eslint prettier @angular/cli @angular/language-server @angular/language-service @angular/compiler svelte-language-server typescript typescript-language-server
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "for python development:
-"pip install --upgrade pip autopep8 pylint python-lsp-server\[all\]
+"yay -S autopep8 python-pylint python-lsp-server
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "to install/update all plugins:
 "chezmoi apply -R (--refresh-externals)
