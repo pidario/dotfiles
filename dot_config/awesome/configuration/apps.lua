@@ -1,5 +1,5 @@
 return {
-	terminal	= 'st',
+	terminal	= 'alacritty',
 	web_browser	= 'firefox -P',
 	file_manager	= 'pcmanfm-qt',
 	clipboard	= 'xclip -selection clipboard',

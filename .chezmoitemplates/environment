@@ -53,3 +53,4 @@ export PATH="$GOBIN:$CARGO_HOME/bin:$XDG_DATA_HOME/npm/bin:$HOME/.local/bin:$PAT
 export CDPATH="$XDG_CONFIG_HOME:$XDG_DATA_HOME"
 export EDITOR=vi
 export NPM_CONFIG_FUND=false
+export TERMINAL=alacritty
