@@ -54,3 +54,4 @@ export CDPATH="$XDG_CONFIG_HOME:$XDG_DATA_HOME"
 export EDITOR=vi
 export NPM_CONFIG_FUND=false
 export TERMINAL=alacritty
+export REQUESTS_CA_BUNDLE="/etc/ssl/cert.pem"

@@ -5,11 +5,13 @@ status_path = "{{ env "XDG_DATA_HOME" }}/vdirsyncer/status/"
 a = "contacts_local"
 b = "contacts_remote"
 collections = ["from a", "from b"]
+conflict_resolution = ["command", "nvim", "-d"]
 
 [pair calendars]
 a = "calendars_local"
 b = "calendars_remote"
 collections = ["from a", "from b"]
+conflict_resolution = ["command", "nvim", "-d"]
 
 [storage contacts_local]
 type = "filesystem"
@@ -20,6 +22,7 @@ fileext = ".vcf"
 type = "carddav"
 url = "{{ env "MY_DAV_SERVER" }}"
 auth_cert = ["{{ env "MY_DAV_CERT_PATH" }}", "{{ env "MY_DAV_KEY_PATH" }}"]
+verify = "/etc/ssl/cert.pem"
 
 [storage calendars_local]
 type = "filesystem"
@@ -30,4 +33,4 @@ fileext = ".ics"
 type = "caldav"
 url = "{{ env "MY_DAV_SERVER" }}"
 auth_cert = ["{{ env "MY_DAV_CERT_PATH" }}", "{{ env "MY_DAV_KEY_PATH" }}"]
-
+verify = "/etc/ssl/cert.pem"
