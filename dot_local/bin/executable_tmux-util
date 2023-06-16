@@ -1,0 +1,22 @@
+#!/bin/sh
+
+set -eu
+
+TM="$(command -v tmux)"
+BN="$(command -v basename)"
+
+if [ -z "${TMUX-}" ] || [ -z "$TM" ]; then
+	exit 0
+fi
+
+rename() {
+  "$TM" rename-window "$("$BN" "$1")"
+}
+
+main() {
+  case "$1" in
+    rename) rename "$2";;
+  esac
+}
+
+main "$@"
