@@ -20,12 +20,15 @@
 	"BuiltInDnsClientEnabled": false,
 	"CloudPrintProxyEnabled": false,
 	"CookiesAllowedForUrls": [
+		"[*.]drive.google.com",
 		"[*.]microsoft.com",
 		"[*.]microsoftonline.com",
 		"[*.]teams.skype.com",
 		"[*.]teams.microsoft.com",
 		"[*.]sfbassets.com",
-		"[*.]skypeforbusiness.com"
+		"[*.]skypeforbusiness.com",
+		"[*.]stackblitz.com",
+		"[*.]stackblitz.io"
 	],
 	"DNSInterceptionChecksEnabled": false,
 	"DefaultBrowserSettingEnabled": false,

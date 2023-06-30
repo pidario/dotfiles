@@ -5,12 +5,15 @@
     },
     "Cookies": {
       "Allow": [
+        "https://drive.google.com",
         "https://microsoft.com",
         "https://microsoftonline.com",
         "https://teams.skype.com",
         "https://teams.microsoft.com",
         "https://sfbassets.com",
-        "https://skypeforbusiness.com"
+        "https://skypeforbusiness.com",
+        "https://stackblitz.com",
+        "https://stackblitz.io"
       ],
       "AcceptThirdParty": "never",
       "Default": true,
