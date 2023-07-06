@@ -1,7 +1,7 @@
 return {
-	terminal	= 'alacritty',
+	terminal	= 'termite',
 	web_browser	= 'firefox -P',
-	file_manager	= 'pcmanfm-qt',
+	file_manager	= 'thunar',
 	clipboard	= 'xclip -selection clipboard',
 	trash		= 'gio trash',
 	wallpaper	= 'feh --bg-fill --no-fehbg --randomize /usr/share/backgrounds/*',
