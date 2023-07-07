@@ -56,6 +56,7 @@ attachments +A */.*
 attachments +I */.*
 attachments -I text/.*
 attachments -I multipart/.*
+attachments -I image/.*
 set date_format="%Y-%m-%d %H:%M:%S%Z"
 set index_format="%4C %Z %d %-15.15L %X (%?l?%4l&%4c?) %s"
 set abort_noattach = ask-yes
@@ -155,3 +156,6 @@ mono body bold "^gpg: Good signature"
 mono body bold "^gpg: BAD signature from.*"
 # gmail
 source ~/.config/mutt/gmail
+
+macro index <f2> '<sync-mailbox><enter-command>source ~/.config/mutt/gmail<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.config/mutt/work<enter><change-folder>!<enter>'
