@@ -12,7 +12,7 @@ count () {
 
 PREV=$(count)
 echo "Previous E-Mail count: $PREV"
-"$MBS" --quiet --all
+"$MBS" --quiet --all --config ~/.config/mbsync/gmail
 "$NM" new --quiet 2> /dev/null
 NOW=$(count)
 echo "Current E-Mail count: $NOW"
