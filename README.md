@@ -6,6 +6,9 @@ used by neomutt and notmuch
 * MY_EMAIL
 used by neomutt isync msmtp and notmuch
 
+* MY_EMAIL_2
+used by neomutt isync msmtp and notmuch (second account)
+
 * MY_EMAIL_SKIP_PATTERNS
 optional, used by isync to skip certain mailboxes
 with the following value, isync won't synchronize "All Mail" and "Spam" mailboxes:

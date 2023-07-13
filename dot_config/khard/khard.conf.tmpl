@@ -1,6 +1,10 @@
 [addressbooks]
-[[contacts]]
-path = ~/.local/share/contacts/addressbook/
+[[personal]]
+path = ~/.local/share/contacts/{{ env "MY_DAV_PERSONAL_COLLECTION" }}/
+[[outlook]]
+path = ~/.local/share/contacts/{{ env "MY_DAV_CONTACTS_COLLECTION" }}/
+[[work]]
+path = ~/.local/share/contacts/{{ env "MY_DAV_WORK_COLLECTION" }}/
 
 [general]
 debug = no

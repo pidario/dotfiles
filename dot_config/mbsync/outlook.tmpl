@@ -1,0 +1,23 @@
+IMAPAccount outlook
+Host localhost
+Port 1143
+User {{ env "MY_EMAIL_2" }}
+AuthMechs LOGIN
+SSLType None
+
+IMAPStore outlook-remote
+Account outlook
+
+MaildirStore outlook-local
+SubFolders Verbatim
+# The trailing "/" is important
+Path /home/dario/.local/share/mail/outlook/
+Inbox /home/dario/.local/share/mail/outlook/Inbox
+
+Channel outlook
+Far :outlook-remote:
+Near :outlook-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *
