@@ -1,8 +1,8 @@
 IMAPAccount gmail
 Host imap.gmail.com
-User {{ env "MY_EMAIL" }}
+User {{ .config.email }}
 AuthMechs XOAUTH2
-PassCmd "oauth2get gmail {{ env "MY_EMAIL" }}"
+PassCmd "oauth2get gmail {{ .config.email }}"
 SSLType IMAPS
 
 IMAPStore gmail-remote
@@ -11,13 +11,13 @@ Account gmail
 MaildirStore gmail-local
 SubFolders Verbatim
 # The trailing "/" is important
-Path {{ env "XDG_DATA_HOME" }}/mail/gmail/
-Inbox {{ env "XDG_DATA_HOME" }}/mail/gmail/Inbox
+Path {{ .config.maildir }}/gmail/
+Inbox {{ .config.maildir }}/gmail/Inbox
 
 Channel gmail
 Far :gmail-remote:
 Near :gmail-local:
-Patterns * {{ env "MY_EMAIL_SKIP_PATTERNS" }}
+Patterns * {{ .config.patterns_skip }}
 Create Both
 Expunge Both
 SyncState *

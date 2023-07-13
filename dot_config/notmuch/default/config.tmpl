@@ -11,7 +11,7 @@
 # configured here named ".notmuch".
 #
 [database]
-path={{ env "XDG_DATA_HOME" }}/mail
+path={{ .config.maildir }}
 
 # User configuration
 #
@@ -29,8 +29,8 @@ path={{ env "XDG_DATA_HOME" }}/mail
 # address to which the original email was addressed.
 #
 [user]
-name={{ env "MY_NAME" }}
-primary_email={{ env "MY_EMAIL" }}
+name={{ .config.name }}
+primary_email={{ .config.email }}
 
 # Configuration for "notmuch new"
 #

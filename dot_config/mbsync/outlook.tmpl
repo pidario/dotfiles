@@ -1,7 +1,7 @@
 IMAPAccount outlook
 Host localhost
 Port 1143
-User {{ env "MY_EMAIL_2" }}
+User {{ .config.email_2 }}
 AuthMechs LOGIN
 SSLType None
 
@@ -11,8 +11,8 @@ Account outlook
 MaildirStore outlook-local
 SubFolders Verbatim
 # The trailing "/" is important
-Path /home/dario/.local/share/mail/outlook/
-Inbox /home/dario/.local/share/mail/outlook/Inbox
+Path {{ .config.maildir }}/outlook/
+Inbox {{ .config.maildir }}/outlook/Inbox
 
 Channel outlook
 Far :outlook-remote:

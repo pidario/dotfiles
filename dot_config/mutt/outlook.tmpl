@@ -1,12 +1,12 @@
 unmailboxes *
 unvirtual-mailboxes *
-set folder = "{{ env "XDG_DATA_HOME" }}/mail/outlook"
-set realname="{{ env "MY_NAME" }}"
-set from="{{ env "MY_EMAIL_2" }}"
-macro index S "<shell-escape>mbsync --all --config {{ env "XDG_CONFIG_HOME" }}/mbsync/outlook && notmuch new 2> /dev/null<enter>" "sync email"
+set folder = "{{ .config.maildir }}/outlook"
+set realname="{{ .config.name }}"
+set from="{{ .config.email_2 }}"
+macro index S "<shell-escape>mbsync --all --config ~/.config/mbsync/outlook && notmuch new 2> /dev/null<enter>" "sync email"
 set sendmail = "msmtp --account outlook"
-set header_cache = "{{ env "XDG_CACHE_HOME" }}/mutt/outlook/header_cache"
-set message_cachedir = "{{ env "XDG_CACHE_HOME" }}/mutt/outlook/message_cache"
+set header_cache = "~/.cache/mutt/outlook/header_cache"
+set message_cachedir = "~/.cache/mutt/outlook/message_cache"
 set spoolfile=+Inbox
 set postponed=+Drafts
 set record=+Sent

@@ -1,37 +1,22 @@
-In order to fully use these dotfiles, some environment variables are needed:
+In order to fully use these dotfiles, some configuration is needed in `~/.config/chezmoi/chezmoi.toml`:
 
-* MY_NAME
-used by neomutt and notmuch
-
-* MY_EMAIL
-used by neomutt isync msmtp and notmuch
-
-* MY_EMAIL_2
-used by neomutt isync msmtp and notmuch (second account)
-
-* MY_EMAIL_SKIP_PATTERNS
-optional, used by isync to skip certain mailboxes
-with the following value, isync won't synchronize "All Mail" and "Spam" mailboxes:
-```sh
-export MY_EMAIL_SKIP_PATTERNS='!"[Gmail]/All Mail" !"[Gmail]/Spam"'
+```toml
+[data.config]
+name = "John Doe"
+email = "john@doe.com"
+pgp_key = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+maildir = "/path/to/mail"
+email_2 = "doe@john.com"
+mailboxes = "=MAILBOX =MAILBOX2"
+virtual_mailboxes = "\"VM\" \"notmuch://?query=path:XXX/**"
+patterns_skip = "!\"[Gmail]/All Mail\""
+oauth2_client_id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com"
+oauth2_client_secret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+dav_server = "https://my-dav-server.com"
+dav_key = "/path/to/key.pem"
+dav_cert = "/path/to/cert.pem"
+personal_contacts_collection = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+work_contacts_collection = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+contacts_collection = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+calendars_collection = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 ```
-
-* MY_EMAIL_PGP_KEY
-used by neomutt to sign outgoing emails
-
-* MY_EMAIL_MAILBOXES and MY_EMAIL_VMAILBOXES
-optional, used by neomutt to add other mailboxes or virtual mailboxes to sidebar
-```sh
-export MY_EMAIL_MAILBOXES="=folder1 =folder2/subfolder1 =folder2/subfolder2"
-export MY_EMAIL_VMAILBOXES='"VM1" "notmuch://?query=to:mailing-list@example.com"'
-```
-
-* MY_EMAIL_OAUTH2_CLIENT_ID and MY_EMAIL_OAUTH2_CLIENT_SECRET
-used by oauth2token to obtain the access token
-
-* MY_DAV_SERVER
-used by vdirsyncer
-
-* MY_DAV_CERT_PATH and MY_DAV_KEY_PATH
-used by vdirsyncer, absolute paths to certificate and key used for mutual authentication to dav server
-

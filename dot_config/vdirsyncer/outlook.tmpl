@@ -1,38 +1,38 @@
 [general]
-status_path = "{{ env "XDG_DATA_HOME" }}/outlook-dav/status/"
+status_path = "~/.local/share/vdirsyncer/outlook_status/"
 
 [pair contacts]
 a = "contacts_davmail"
 b = "contacts_dav"
-collections = [["outlook", "contacts", "{{ env "MY_DAV_CONTACTS_COLLECTION" }}"]]
+collections = [["outlook", "contacts", "{{ .config.contacts_collection }}"]]
 conflict_resolution = "a wins"
 
 [pair calendars]
 a = "calendars_davmail"
 b = "calendars_dav"
-collections = [["outlook", "calendar", "{{ env "MY_DAV_CALENDARS_COLLECTION" }}"]]
+collections = [["outlook", "calendar", "{{ .config.calendars_collection }}"]]
 conflict_resolution = "a wins"
 
 [storage contacts_dav]
 type = "carddav"
-url = "{{ env "MY_DAV_SERVER" }}"
-auth_cert = ["{{ env "MY_DAV_CERT_PATH" }}", "{{ env "MY_DAV_KEY_PATH" }}"]
+url = "{{ .config.dav_server }}"
+auth_cert = ["{{ .config.dav_cert }}", "{{ .config.dav_key }}"]
 verify = "/etc/ssl/cert.pem"
 
 [storage contacts_davmail]
 type = "carddav"
-url = "http://localhost:1080/users/{{ env "MY_EMAIL_2" }}/contacts/"
-username = "{{ env "MY_EMAIL_2" }}"
+url = "http://localhost:1080/users/{{ .config.email_2 }}/contacts/"
+username = "{{ .config.email_2 }}"
 password.fetch = ["prompt", "Password for outlook"]
 
 [storage calendars_dav]
 type = "caldav"
-url = "{{ env "MY_DAV_SERVER" }}"
-auth_cert = ["{{ env "MY_DAV_CERT_PATH" }}", "{{ env "MY_DAV_KEY_PATH" }}"]
+url = "{{ .config.dav_server }}"
+auth_cert = ["{{ .config.dav_cert }}", "{{ .config.dav_key }}"]
 verify = "/etc/ssl/cert.pem"
 
 [storage calendars_davmail]
 type = "caldav"
-url = "http://localhost:1080/users/{{ env "MY_EMAIL_2" }}/calendar/"
-username = "{{ env "MY_EMAIL_2" }}"
+url = "http://localhost:1080/users/{{ .config.email_2 }}/calendar/"
+username = "{{ .config.email_2 }}"
 password.fetch = ["prompt", "Password for outlook"]
