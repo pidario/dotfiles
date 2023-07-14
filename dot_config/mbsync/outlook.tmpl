@@ -2,6 +2,9 @@ IMAPAccount outlook
 Host localhost
 Port 1143
 User {{ .config.email_2 }}
+{{- if not (eq .config.passcmd "") }}
+PassCmd "{{ .config.passcmd }}"
+{{- end }}
 AuthMechs LOGIN
 SSLType None
 

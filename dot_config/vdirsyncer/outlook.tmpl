@@ -23,7 +23,11 @@ verify = "/etc/ssl/cert.pem"
 type = "carddav"
 url = "http://localhost:1080/users/{{ .config.email_2 }}/contacts/"
 username = "{{ .config.email_2 }}"
+{{- if not (eq .config.passcmd "") }}
+password.fetch = ["command", "sh", "-c", "{{ .config.passcmd }}"]
+{{- else }}
 password.fetch = ["prompt", "Password for outlook"]
+{{- end }}
 
 [storage calendars_dav]
 type = "caldav"
@@ -35,4 +39,8 @@ verify = "/etc/ssl/cert.pem"
 type = "caldav"
 url = "http://localhost:1080/users/{{ .config.email_2 }}/calendar/"
 username = "{{ .config.email_2 }}"
+{{- if not (eq .config.passcmd "") }}
+password.fetch = ["command", "sh", "-c", "{{ .config.passcmd }}"]
+{{- else }}
 password.fetch = ["prompt", "Password for outlook"]
+{{- end }}
