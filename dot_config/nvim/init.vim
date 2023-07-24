@@ -147,6 +147,7 @@ let g:ale_fixers = {
 \ }
 let g:ale_fix_on_save = 1
 "------------------ lua ------------------
+lua require("session")
 lua require("treesitter")
 lua require("lsp")
 "lua require("dap")
