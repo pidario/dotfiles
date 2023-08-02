@@ -233,10 +233,6 @@
       "webgl.disabled": { "Status": "locked", "Value": true },
       "xpinstall.whitelist.required": { "Status": "locked", "Value": true }
     },
-    "Proxy": {
-      "Mode": "system",
-      "Locked": false
-    },
     "SearchBar": "unified",
     "SearchEngines": {
       "Default": "SearXNG",

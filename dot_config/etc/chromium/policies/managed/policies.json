@@ -74,11 +74,6 @@
 	"PasswordProtectionWarningTrigger": 0,
 	"PaymentMethodQueryEnabled": false,
 	"ProfilePickerOnStartupAvailability": 2,
-	"ProxySettings": {
-		"ProxyMode": "pac_script",
-		"ProxyPacMandatory": false,
-		"ProxyPacUrl": "http://example.com/proxy.pac"
-	},
 	"PromotionalTabsEnabled": false,
 	"RemoteAccessHostAllowClientPairing": false,
 	"RemoteAccessHostAllowFileTransfer": false,
