@@ -1,0 +1,11 @@
+#!/bin/sh
+
+fzf="$(check-dep fzf)"
+fd="$(check-dep fd)"
+fd="$fd . --type f"
+
+attachments="$($fd | $fzf -m)"
+
+for att in $attachments; do
+	echo "push 'a$att<enter>'"
+done

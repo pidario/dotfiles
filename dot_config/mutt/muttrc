@@ -87,6 +87,7 @@ macro index \Cf "<vfolder-from-query>"
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro index,pager a "<pipe-message>khard add-email<return>" "Add this sender to Khard"
+macro compose <space>a ":source ~/.local/bin/attach|<enter>"
 # Default index colors:
 color index yellow default '.*'
 color index_author red default '.*'
