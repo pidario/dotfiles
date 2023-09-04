@@ -4,12 +4,10 @@ set -eu
 
 PAMIXER="$(check-dep pamixer)"
 PACTL="$(check-dep pactl)"
-TAIL="$(check-dep tail)"
-AWK="$(check-dep awk)"
 JQ="$(check-dep jq)"
 
 get_default_sink() {
-  "$PAMIXER" --get-default-sink | "$TAIL" --lines 1
+  "$PAMIXER" --get-default-sink | tail --lines 1
 }
 
 sinks_list() {
@@ -26,8 +24,7 @@ set_default_sink() {
   for INPUT in $INPUTS; do
     "$PACTL" move-sink-input "$INPUT" "$1"
   done
-  # shellcheck disable=SC2016
-  get_default_sink | "$AWK" -F \" '{print $4}'
+  get_default_sink | awk -F \" '{print $4}'
 }
 
 is_mute() {
@@ -53,8 +50,7 @@ change() {
 }
 
 next_sink() {
-  # shellcheck disable=SC2016
-  DEFAULT_SINK="$(get_default_sink | "$AWK" '{print $1}')"
+  DEFAULT_SINK="$(get_default_sink | awk '{print $1}')"
   FIRST_SINK=
   for SINK in $(sinks_list); do
     if [ -z "$FIRST_SINK" ]; then
