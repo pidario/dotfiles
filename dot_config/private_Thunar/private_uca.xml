@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Terminal</name>
+	<submenu></submenu>
+	<unique-id>1607709768793789-1</unique-id>
+	<command>$TERMINAL --directory %f</command>
+	<description>Open Terminal Here</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>nvim</icon>
+	<name>Edit</name>
+	<submenu></submenu>
+	<unique-id>1694089890471252-1</unique-id>
+	<command>$TERMINAL --exec &quot;$EDITOR %f&quot;</command>
+	<description>Open in Editor</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<other-files/>
+	<text-files/>
+</action>
+</actions>
