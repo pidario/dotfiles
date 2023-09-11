@@ -24,4 +24,15 @@
 	<other-files/>
 	<text-files/>
 </action>
+<action>
+	<icon>application-x-compress</icon>
+	<name>Extract</name>
+	<submenu></submenu>
+	<unique-id>1694413563526274-1</unique-id>
+	<command>$TERMINAL --exec &quot;tar -axvf %f&quot;</command>
+	<description>Extract Tar Archive</description>
+	<range>*</range>
+	<patterns>*.tar;*.tar.*</patterns>
+	<other-files/>
+</action>
 </actions>
