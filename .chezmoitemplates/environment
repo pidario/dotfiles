@@ -42,6 +42,7 @@ export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 export PSQL_HISTORY=$XDG_DATA_HOME/psql_history
 export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
 export NPM_CONFIG_PREFIX=$XDG_DATA_HOME/npm
+export N_PREFIX=$XDG_DATA_HOME/n
 ##########################################################################################
 # CACHE ##################################################################################
 ##########################################################################################
@@ -50,7 +51,7 @@ export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 ##########################################################################################
 # MISC ###################################################################################
 ##########################################################################################
-export PATH="$GOBIN:$CARGO_HOME/bin:$XDG_DATA_HOME/npm/bin:$HOME/.local/bin:$PATH"
+export PATH="$GOBIN:$CARGO_HOME/bin:$XDG_DATA_HOME/npm/bin:$HOME/.local/bin:$PATH:$XDG_DATA_HOME/n/bin"
 export CDPATH="$XDG_CONFIG_HOME:$XDG_DATA_HOME"
 export EDITOR=vi
 export NPM_CONFIG_FUND=false
