@@ -1,11 +1,6 @@
-"1- Install basic stuff
-"("npm is available in the community repo but it's possible to install it using its
-"install script and then use itself to upgrade it and install other versions:
-"curl -qL https://www.npmjs.com/install.sh | sh
-"npm install -g npm@<VERSION>
-"or install using community repo:
-"yay -S npm
-"in order to install npm, nodejs is required)
+"1- Install basic stuff:
+"n nodejs version manager: (the following command will bootstrap node 16"
+"curl -fsSL https://raw.githubusercontent.com/tj/n/master/bin/n | bash -s 16"
 "yay -S neovim ripgrep fzf python python-pip
 "1.1- Install other stuff
 "yay -S shellcheck-bin clang ninja go go-tools gopls rustup flutter node-lts-gallium lua-language-server lua luarocks
