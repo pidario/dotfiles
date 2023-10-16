@@ -13,12 +13,10 @@ echo "source directory: $SOURCE"
 
 FIREFOX_PATH=/etc/firefox/policies
 CHROMIUM_PATH=/etc/chromium/policies/managed
-DIALOG_PATH=/etc/dialogrc
 
 mkdir -p "$FIREFOX_PATH" "$CHROMIUM_PATH"
 
 cp "$SOURCE$FIREFOX_PATH/"* "$FIREFOX_PATH/"
 cp "$SOURCE$CHROMIUM_PATH/"* "$CHROMIUM_PATH/"
-cp "$SOURCE$DIALOG_PATH" "$DIALOG_PATH"
 
 echo "done"
