@@ -52,6 +52,7 @@ vim.opt.listchars = {
 	multispace = '_'
 }
 vim.opt.list = true
+vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 lvim.format_on_save.enabled = true
 lvim.builtin.terminal.active = true
@@ -76,15 +77,18 @@ lvim.plugins = {
 		end,
 	},
 	{
-		"folke/persistence.nvim",
-		event = "BufReadPre",
-		lazy = true,
+		"rmagatti/auto-session",
 		config = function()
-			require("persistence").setup {
-				dir = vim.fn.expand(vim.fn.stdpath "cache" .. "/session/"),
-				options = { "buffers", "curdir", "tabpages", "winsize" },
-			}
-		end
+			require("auto-session").setup({
+				log_level = "error",
+				auto_session_root_dir = vim.fn.stdpath("cache") .. "/sessions/",
+				auto_session_enabled = true,
+				auto_save_enabled = true,
+				auto_restore_enabled = true,
+				auto_session_suppress_dirs = nil,
+				auto_session_use_git_branch = true,
+			})
+		end,
 	},
 	{
 		"vim-test/vim-test",
@@ -107,11 +111,6 @@ lvim.plugins = {
 			require("spectre").setup()
 		end,
 	},
-}
-
-lvim.builtin.which_key.mappings["S"] = {
-	name = "Session",
-	r = { "<cmd>lua require('persistence').load()<cr>", "Restore last session for current dir" },
 }
 
 lvim.builtin.which_key.mappings["T"] = {
