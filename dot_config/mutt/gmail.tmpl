@@ -5,7 +5,7 @@ set realname="{{ .config.name }}"
 set from="{{ .config.email }}"
 set pgp_default_key="{{ .config.pgp_key }}"
 macro index S "<shell-escape>mbsync --all --config ~/.config/mbsync/gmail && notmuch new 2> /dev/null<enter>" "sync email"
-set sendmail = "msmtp --account gmail"
+set sendmail = "msmtp --file ~/.config/msmtp/gmail"
 set header_cache = "~/.cache/mutt/gmail/header_cache"
 set message_cachedir = "~/.cache/mutt/gmail/message_cache"
 set spoolfile=+Inbox

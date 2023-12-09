@@ -1,0 +1,13 @@
+defaults
+auth         plain
+tls          off
+logfile      ~/.local/share/msmtp/msmtp.log
+
+account      outlook
+host         localhost
+port         1025
+from         {{ .config.email_2 }}
+user         {{ .config.email_2 }}
+passwordeval {{ .config.passcmd_2 }}
+
+account default : outlook
