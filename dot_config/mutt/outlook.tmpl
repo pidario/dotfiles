@@ -4,7 +4,7 @@ set folder = "{{ .config.maildir }}/outlook"
 set realname="{{ .config.name }}"
 set from="{{ .config.email_2 }}"
 macro index S "<shell-escape>mbsync --all --config ~/.config/mbsync/outlook && notmuch new 2> /dev/null<enter>" "sync email"
-set sendmail = "msmtp --file ~/.config/msmtp/outlook"
+set sendmail = "msmtp --file $HOME/.config/msmtp/outlook"
 set header_cache = "~/.cache/mutt/outlook/header_cache"
 set message_cachedir = "~/.cache/mutt/outlook/message_cache"
 set spoolfile=+Inbox

@@ -5,7 +5,7 @@ set realname="{{ .config.name }}"
 set from="{{ .config.email_3 }}"
 set pgp_default_key="{{ .config.pgp_key_3 }}"
 macro index S "<shell-escape>mbsync --all --config ~/.config/mbsync/pidario && notmuch new 2> /dev/null<enter>" "sync email"
-set sendmail = "msmtp --file ~/.config/msmtp/pidario"
+set sendmail = "msmtp --file $HOME/.config/msmtp/pidario"
 set header_cache = "~/.cache/mutt/pidario/header_cache"
 set message_cachedir = "~/.cache/mutt/pidario/message_cache"
 set spoolfile=+Inbox
