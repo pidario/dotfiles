@@ -1,0 +1,24 @@
+IMAPAccount pidario
+Host {{ .config.imap_host_3 }}
+Port {{ .config.imap_port_3 }}
+User {{ .config.user_3 }}
+PassCmd "{{ .config.passcmd_3 }}"
+AuthMechs LOGIN
+SSLType IMAPS
+
+IMAPStore pidario-remote
+Account pidario
+
+MaildirStore pidario-local
+SubFolders Verbatim
+# The trailing "/" is important
+Path ~/.local/share/mail/pidario/
+Inbox ~/.local/share/mail/pidario/Inbox
+
+Channel pidario
+Far :pidario-remote:
+Near :pidario-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *

@@ -9,6 +9,9 @@ pgp_key_3 = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 maildir = "/path/to/mail"
 email_2 = "doe@john.com"
 email_3 = "doe@bob.org"
+user_3 = "doe@bob.org"
+imap_host_3 = "imap.example.org"
+imap_port_3 = 143
 smtp_host_3 = "smtp.example.org"
 smtp_port_3 = 25
 mailboxes = "=MAILBOX =MAILBOX2"
