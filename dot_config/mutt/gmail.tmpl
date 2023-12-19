@@ -12,6 +12,6 @@ set spoolfile=+Inbox
 set postponed=+[Gmail]/Drafts
 set record="+[Gmail]/Sent Mail"
 set trash=+[Gmail]/Trash
-mailboxes =Inbox {{ .config.mailboxes }} ="[Gmail]/Drafts" ="[Gmail]/Sent Mail" ="[Gmail]/Spam" ="[Gmail]/Trash"
+mailboxes =Inbox {{ .config.mailboxes }} =[Gmail]/Drafts ="[Gmail]/Sent Mail" =[Gmail]/Spam =[Gmail]/Trash
 virtual-mailboxes "All" "notmuch://?query=path:gmail/** AND NOT folder:gmail/[Gmail]/All Mail AND NOT folder:gmail/[Gmail]/Drafts AND NOT folder:gmail/[Gmail]/Spam AND NOT folder:gmail/[Gmail]/Trash"
 virtual-mailboxes {{ .config.virtual_mailboxes }}
