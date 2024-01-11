@@ -1,9 +1,9 @@
 startpage = 'https://searx.tiekoetter.com'
 
-
 config.load_autoconfig(False)
 
 c.auto_save.session = True
+c.content.autoplay = False
 c.confirm_quit = ['always']
 c.content.cookies.accept = 'no-3rdparty'
 c.editor.command = ['st', '-e', 'vi', '{file}']
