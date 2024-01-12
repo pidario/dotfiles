@@ -57,6 +57,8 @@ vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpo
 lvim.format_on_save.enabled = true
 lvim.builtin.terminal.active = true
 lvim.colorscheme = "darkplus"
+lvim.builtin.bufferline.options.sort_by = "insert_at_end"
+lvim.builtin.bufferline.options.numbers = "ordinal"
 
 lvim.plugins = {
 	{
@@ -113,12 +115,8 @@ lvim.plugins = {
 	},
 }
 
-lvim.builtin.which_key.mappings["T"] = {
-	name = "Test",
-	f = { "<cmd>TestFile<cr>", "File" },
-	n = { "<cmd>TestNearest<cr>", "Nearest" },
-	l = { "<cmd>TestLast<cr>", "Last" },
-	s = { "<cmd>TestSuite<cr>", "Suite" },
+lvim.builtin.which_key.mappings["bp"] = {
+	"<cmd>BufferLineTogglePin<CR>", "Pin"
 }
 
 lvim.builtin.which_key.mappings["F"] = {
@@ -126,4 +124,12 @@ lvim.builtin.which_key.mappings["F"] = {
 	f = { "<cmd>lua require('spectre').toggle()<cr>", "Find Toggle" },
 	p = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Find in Project" },
 	c = { "<cmd>lua require('spectre').open_file_search({select_word=true})<cr>", "Find in Current File" },
+}
+
+lvim.builtin.which_key.mappings["T"] = {
+	name = "Test",
+	f = { "<cmd>TestFile<cr>", "File" },
+	n = { "<cmd>TestNearest<cr>", "Nearest" },
+	l = { "<cmd>TestLast<cr>", "Last" },
+	s = { "<cmd>TestSuite<cr>", "Suite" },
 }
