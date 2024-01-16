@@ -13,3 +13,4 @@ set record=+Sent
 set trash=+Trash
 mailboxes =Inbox =Archive =Sent =Drafts =Junk =Trash
 virtual-mailboxes "All" "notmuch://?query=path:outlook/** AND NOT folder:outlook/Drafts AND NOT folder:outlook/Junk AND NOT folder:outlook/Trash"
+virtual-mailboxes "Important" "notmuch://?query=path:outlook/** AND tag:flagged"
