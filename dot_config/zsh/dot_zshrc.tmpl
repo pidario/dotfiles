@@ -135,13 +135,13 @@ bindkey '^[[A'    up-line-or-beginning-search   # up         prev command in his
 bindkey '^[[B'    down-line-or-beginning-search # down       next command in history
 
 function zle-line-init zle-keymap-select {
-  PWD='%F{green}%~%f'
-  VCS='%F{red}${vcs_info_msg_0_}%f'
-  ROOT='%#'
+  work_dir='%F{green}%~%f'
+  vcs='%F{red}${vcs_info_msg_0_}%f'
+  root='%#'
   case ${KEYMAP} in
-    (vicmd) ROOT='%F{red}%#%f';;
+    (vicmd) root='%F{red}%#%f';;
   esac
-  PROMPT="${PWD}${VCS} ${ROOT} "
+  PROMPT="${work_dir}${vcs} ${root} "
   zle reset-prompt
 }
 
@@ -155,5 +155,7 @@ bindkey -v
 KEYTIMEOUT=1
 
 {{ template "shell" }}
+
+eval "$(atuin init zsh --disable-up-arrow)"
 
 {{- end -}}
