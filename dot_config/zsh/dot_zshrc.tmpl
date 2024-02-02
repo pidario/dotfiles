@@ -29,18 +29,6 @@ setopt CDABLE_VARS          # Change directory to a path stored in a variable.
 setopt EXTENDED_GLOB        # Use extended globbing syntax.
 setopt PROMPT_SUBST
 
-setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
-setopt SHARE_HISTORY             # Share history between all sessions.
-setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
-setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
-setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
-setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
-setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
-setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
-setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
-HISTSIZE=10000
-SAVEHIST=10000
-
 precmd() { vcs_info }
 
 # Ztyle pattern
@@ -119,9 +107,6 @@ bindkey -s '^[OC' '^[[C'  # right
 bindkey -s '^[[1~' '^[[H'  # home
 bindkey -s '^[[4~' '^[[F'  # end
 
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-
 bindkey '^?'      backward-delete-char          # bs         delete one char backward
 bindkey '^[[3~'   delete-char                   # delete     delete one char forward
 bindkey '^[[H'    beginning-of-line             # home       go to the beginning of line
@@ -131,8 +116,6 @@ bindkey '^[[1;5D' backward-word                 # ctrl+left  go backward one wor
 bindkey '^H'      backward-kill-word            # ctrl+bs    delete previous word
 bindkey '^[[D'    backward-char                 # left       move cursor one char backward
 bindkey '^[[C'    forward-char                  # right      move cursor one char forward
-bindkey '^[[A'    up-line-or-beginning-search   # up         prev command in history
-bindkey '^[[B'    down-line-or-beginning-search # down       next command in history
 
 function zle-line-init zle-keymap-select {
   work_dir='%F{green}%~%f'
@@ -154,8 +137,9 @@ zle -N zle-keymap-select
 bindkey -v
 KEYTIMEOUT=1
 
-{{ template "shell" }}
-
+source ~/.local/share/atuin/atuin.zsh
 eval "$(atuin init zsh --disable-up-arrow)"
+
+{{ template "shell" }}
 
 {{- end -}}
