@@ -1,11 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 fzf="$(check-dep fzf)"
-fd="$(check-dep fd)"
-fd="$fd . --type f"
+attachments="$($fzf -m)"
 
-attachments="$($fd | $fzf -m)"
-
-for att in $attachments; do
+IFS=$'\n'; for att in $attachments; do
 	echo "push 'a$att<enter>'"
 done

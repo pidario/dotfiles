@@ -17,9 +17,10 @@
 # before logging in it is necessary to obtain a token by using:
 # oauth2create gmail <email-address>
 
-auto_view text/html
-subscribe ".*@lists\\.archlinux\\.org"
+auto_view text/plain text/utf-8 text/html
 alternative_order text/plain text/html
+set show_multipart_alternative=inline
+subscribe ".*@lists\\.archlinux\\.org"
 set editor=`echo \$EDITOR`
 set mbox_type = Maildir
 set mailcap_path=.config/mutt/mailcap
@@ -88,6 +89,7 @@ macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract U
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro index,pager a "<pipe-message>khard add-email<return>" "Add this sender to Khard"
 macro compose <space>a ":source ~/.local/bin/attach|<enter>"
+macro attach 'V' "<pipe-entry>iconv -c > ~/.cache/mutt/mail.html<enter><shell-escape>xdg-open ~/.cache/mutt/mail.html<enter>"
 # Default index colors:
 color index yellow default '.*'
 color index_author red default '.*'
