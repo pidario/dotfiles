@@ -28,4 +28,5 @@ contacts_collection = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 calendars_collection = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 passcmd_2 = "XXX"
 passcmd_3 = "XXX"
+atuin_server = "https://my-atuin-server.com"
 ```
