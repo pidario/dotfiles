@@ -29,4 +29,8 @@ calendars_collection = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 passcmd_2 = "XXX"
 passcmd_3 = "XXX"
 atuin_server = "https://my-atuin-server.com"
+git_name = "johndoe"
+git_mail = "git@johndoe.org"
+git_work_path = "~/workpath/**"
+git_work_conf = "~/.config/git/work"
 ```

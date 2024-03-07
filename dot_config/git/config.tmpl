@@ -1,0 +1,29 @@
+[alias]
+	# lista file modificati (senza parametri restituisce i file modificati dall'ultimo commit
+	# fornendo un commit (full hash) restituisce i file modificati in quel commit
+	changed = show --pretty="format:" --name-only
+	# lista commit, hash completo, no albero
+	lg1 = log --graph --pretty=format:'%Cred%H%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset'
+	# albero lista commit, hash abbreviato
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n'' %C(white)%s%C(reset)%n'' %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+	# lista commit dove il file fornito come parametro è stato modificato
+	file = log --follow
+	# lista file modificati da un determinato commit ad ora
+	diff-commit = diff --name-only
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+[protocol "file"]
+	allow = always
+[commit]
+	gpgSign = true
+[tag]
+	gpgSign = true
+[gpg]
+	format = openpgp
+[user]
+	name = "{{.config.git_name }}"
+	email = {{ .config.git_email }}
+[includeIf "gitdir:{{ .config.git_work_path }}"]
+	path = {{ .config.git_work_conf }}
