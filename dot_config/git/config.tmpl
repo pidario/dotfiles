@@ -25,5 +25,6 @@
 [user]
 	name = "{{.config.git_name }}"
 	email = {{ .config.git_email }}
+	signingkey = {{ .config.git_sign_key }}
 [includeIf "gitdir:{{ .config.git_work_path }}"]
 	path = {{ .config.git_work_conf }}
