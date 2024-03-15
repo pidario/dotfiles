@@ -115,6 +115,9 @@ lvim.plugins = {
 	},
 }
 
+lvim.keys.normal_mode["<C-PageDown>"] = ":BufferLineCycleNext<CR>"
+lvim.keys.normal_mode["<C-PageUp>"] = ":BufferLineCyclePrev<CR>"
+
 lvim.builtin.which_key.mappings["bp"] = {
 	"<cmd>BufferLineTogglePin<CR>", "Pin"
 }
