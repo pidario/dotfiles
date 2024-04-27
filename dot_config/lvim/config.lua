@@ -136,3 +136,29 @@ lvim.builtin.which_key.mappings["T"] = {
 	l = { "<cmd>TestLast<cr>", "Last" },
 	s = { "<cmd>TestSuite<cr>", "Suite" },
 }
+
+local telescope_custom_actions = {}
+local actions = require('telescope.actions')
+local action_state = require('telescope.actions.state')
+
+function telescope_custom_actions._select_one_or_multi(prompt_bufnr)
+	local picker = action_state.get_current_picker(prompt_bufnr)
+	local multi = picker:get_multi_selection()
+	if not vim.tbl_isempty(multi) then
+		actions.close(prompt_bufnr)
+		for _, j in pairs(multi) do
+			if j.path ~= nil then
+				vim.cmd(string.format('%s %s', 'edit', j.path))
+			end
+		end
+	else
+		actions.select_default(prompt_bufnr)
+	end
+end
+
+lvim.builtin.telescope.defaults.mappings = {
+	i = {
+		["TAB"] = actions.toggle_selection,
+		["<CR>"] = telescope_custom_actions._select_one_or_multi,
+	},
+}
