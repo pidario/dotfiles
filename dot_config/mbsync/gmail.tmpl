@@ -2,7 +2,7 @@ IMAPAccount gmail
 Host imap.gmail.com
 User {{ .config.email }}
 AuthMechs XOAUTH2
-PassCmd "oauth2get gmail {{ .config.email }}"
+PassCmd "oama access {{ .config.email }}"
 SSLType IMAPS
 
 IMAPStore gmail-remote
