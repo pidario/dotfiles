@@ -17,7 +17,6 @@
 			],
 			"AcceptThirdParty": "never",
 			"Default": true,
-			"ExpireAtSessionEnd": false,
 			"RejectTracker": true
 		},
 		"DefaultDownloadDirectory": "${home}",
@@ -43,7 +42,7 @@
 			"Cryptomining": true,
 			"Fingerprinting": true,
 			"Value": true,
-			"Locked": true
+			"Locked": false
 		},
 		"ExtensionSettings": {
 			"*": {
@@ -68,6 +67,10 @@
 			"keepassxc-browser@keepassxc.org": {
 				"installation_mode": "force_installed",
 				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi"
+			},
+			"CanvasBlocker@kkapsner.de": {
+				"installation_mode": "force_installed",
+				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/canvasblocker/latest.xpi"
 			},
 			"amazon@search.mozilla.org": {
 				"installation_mode": "blocked"
@@ -99,10 +102,6 @@
 			"Snippets": false,
 			"Locked": true
 		},
-		"FlashPlugin": {
-			"Default": false,
-			"Locked": true
-		},
 		"Homepage": {
 			"StartPage": "previous-session"
 		},
@@ -113,10 +112,6 @@
 		"OverridePostUpdatePage": "",
 		"PasswordManagerEnabled": false,
 		"Permissions": {
-			"Location": {
-				"BlockNewRequests": true,
-				"Locked": true
-			},
 			"Autoplay": {
 				"Default": "block-audio-video",
 				"Locked": true
@@ -477,10 +472,6 @@
 			"security.ssl.errorReporting.enabled": {
 				"Status": "locked",
 				"Value": false
-			},
-			"security.OCSP.enabled": {
-				"Status": "locked",
-				"Value": true
 			},
 			"signon.autofillForms": {
 				"Status": "locked",
