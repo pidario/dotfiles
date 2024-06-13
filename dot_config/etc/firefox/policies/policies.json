@@ -314,7 +314,7 @@
 				"Status": "locked",
 				"Value": false
 			},
-			"browser.urlbar.Https": {
+			"browser.urlbar.trimHttps": {
 				"Status": "locked",
 				"Value": false
 			},
