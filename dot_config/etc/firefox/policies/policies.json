@@ -314,6 +314,14 @@
 				"Status": "locked",
 				"Value": false
 			},
+			"browser.urlbar.Https": {
+				"Status": "locked",
+				"Value": false
+			},
+			"browser.urlbar.trimURLs": {
+				"Status": "locked",
+				"Value": false
+			},
 			"browser.warnOnQuit": {
 				"Status": "locked",
 				"Value": true
@@ -428,7 +436,7 @@
 			},
 			"network.trr.mode": {
 				"Status": "locked",
-				"Value": 0
+				"Value": 5
 			},
 			"places.history.enabled": {
 				"Status": "locked",
