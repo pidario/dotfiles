@@ -1,4 +1,6 @@
-{{- if eq (env "SHELL") "/bin/zsh" -}}
+{{ template "shell" }}
+
+{{- if eq (env "SHELL") "/bin/zsh" }}
 if [[ ! -d "$XDG_CACHE_HOME/zsh" ]]; then
   mkdir --parents "$XDG_CACHE_HOME/zsh"
 fi
@@ -58,7 +60,7 @@ zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions co
 # See ZSHCOMPWID "completion matching control"
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' keep-prefix true
-zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+zstyle ':completion:*:(ssh|scp|sftp|rsh|rsync):*' hosts $SSH_HOSTS
 # Enable checking for (un)staged changes, enabling use of %u and %c
 zstyle ':vcs_info:*' check-for-changes true
 # Set custom strings for an unstaged vcs repo changes (*) and staged changes (+)
@@ -140,6 +142,4 @@ KEYTIMEOUT=1
 source ~/.local/share/atuin/atuin.zsh
 eval "$(atuin init zsh --disable-up-arrow)"
 
-{{ template "shell" }}
-
-{{- end -}}
+{{- end }}
