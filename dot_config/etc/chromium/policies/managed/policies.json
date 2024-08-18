@@ -39,8 +39,12 @@
 	"DefaultLocalFontsSetting": 2,
 	"DefaultGeolocationSetting": 2,
 	"DefaultSearchProviderEnabled": true,
-	"DefaultSearchProviderEncodings":["UTF-8", "UTF-16", "GB2312", "ISO-8859-1"],
-	"DefaultSearchProviderIconURL": "https://www.google.it/favicon.ico",
+	"DefaultSearchProviderEncodings": [
+		"UTF-8",
+		"UTF-16",
+		"GB2312",
+		"ISO-8859-1"
+	],
 	"DefaultSearchProviderKeyword": "g",
 	"DefaultSearchProviderName": "Google",
 	"DefaultSearchProviderSearchURL": "https://www.google.it/search?q={searchTerms}",
@@ -58,6 +62,7 @@
 		"cjpalhdlnbpafiamejdnhcphjbkeiagm",
 		"edibdbjcniadpccecjdfdjjppcpchdlm"
 	],
+	"ExtensionManifestV2Availability": 2,
 	"HideWebStoreIcon": true,
 	"HomepageIsNewTabPage": true,
 	"ImportAutofillFormData": false,
