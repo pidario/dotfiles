@@ -1,0 +1,14 @@
+[general]
+temp-day=5000
+temp-night=3500
+fade=1
+; When the sun is above the degrees specified with elevation-high it is considered daytime and
+; below elevation-low it is considered night.
+elevation-high=12
+elevation-low=10
+location-provider=manual
+adjustment-method=wayland
+
+[manual]
+lat={{ .config.loc_lat }}
+lon={{ .config.loc_lon }}

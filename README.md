@@ -34,4 +34,6 @@ git_mail = "git@johndoe.org"
 git_sign_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 git_work_path = "~/workpath/**"
 git_work_conf = "~/.config/git/work"
+loc_lat = 35.6821936
+loc_lon = 139.7622210
 ```
