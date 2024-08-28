@@ -5,10 +5,18 @@ if [[ -d "/usr/share/Kvantum" ]]; then
   export QT_STYLE_OVERRIDE=kvantum
 fi
 
-if [[ -z "$DISPLAY" ]] && [[ "$(tty)" = /dev/tty1 ]] && [[ -f "$HOME/.xinitrc" ]]; then
-  TDM="$(command -v tdm)"
+TDM="$(command -v tdm)"
+STX="$(command -v startx)"
+HYP="$(command -v Hyprland)"
+CUR_TTY="$(tty)"
+
+if [[ -z "$DISPLAY" ]] && [[ -z "$WAYLAND_DISPLAY" ]] && [[ "$CUR_TTY" = /dev/tty1 ]]; then
   if [[ -z "$TDM" ]]; then
-    startx
+   if [[ -f "$HOME/.xinitrc" ]]; then
+     startx
+   else
+     Hyprland
+   fi
   else
     "$TDM"
   fi

@@ -1,4 +1,4 @@
-startpage = "https://searx.tiekoetter.com"
+startpage = "https://search.brave.com"
 
 config.load_autoconfig(False)
 

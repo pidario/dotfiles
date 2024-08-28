@@ -581,15 +581,6 @@
 					"PostData": "query={searchTerms}"
 				},
 				{
-					"Name": "SearXNG",
-					"URLTemplate": "https://searx.tiekoetter.com",
-					"Method": "POST",
-					"IconURL": "https://searx.tiekoetter.com/static/themes/simple/img/favicon.svg",
-					"Alias": "x",
-					"Description": "SearXNG",
-					"PostData": "q={searchTerms}"
-				},
-				{
 					"Name": "Brave",
 					"URLTemplate": "https://search.brave.com/search?q={searchTerms}",
 					"Method": "GET",
