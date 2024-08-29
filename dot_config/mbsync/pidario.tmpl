@@ -4,7 +4,7 @@ Port {{ .config.imap_port_3 }}
 User {{ .config.user_3 }}
 PassCmd "{{ .config.passcmd_3 }}"
 AuthMechs LOGIN
-SSLType IMAPS
+TLSType IMAPS
 
 IMAPStore pidario-remote
 Account pidario
