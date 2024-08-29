@@ -1,7 +1,7 @@
 return {
 	terminal     = 'termite',
 	tmux         = 'tmux',
-	web_browser  = 'firefox -P',
+	web_browser  = 'firefox',
 	file_manager = 'thunar',
 	clipboard    = 'xclip -selection clipboard',
 	trash        = 'gio trash',
