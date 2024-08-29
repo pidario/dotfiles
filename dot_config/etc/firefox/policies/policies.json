@@ -556,7 +556,7 @@
 		},
 		"SearchBar": "unified",
 		"SearchEngines": {
-			"Default": "SearXNG",
+			"Default": "Brave",
 			"PreventInstalls": true,
 			"Remove": [
 				"Google",
