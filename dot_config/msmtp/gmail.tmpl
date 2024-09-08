@@ -8,6 +8,6 @@ host         smtp.gmail.com
 port         587
 from         {{ .config.email }}
 user         {{ .config.email }}
-passwordeval oauth2get gmail {{ .config.email }}
+passwordeval oama access {{ .config.email }}
 
 account default : gmail

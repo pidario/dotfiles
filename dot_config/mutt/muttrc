@@ -1,7 +1,7 @@
 # configuration for using neomutt as a maildir viewer
 # complexities are left to other program such as:
 # isync: for synchronizing remote imap server with a local folder (xoauth2 method requires aur package cyrus-sasl-xoauth2-git)
-# oauth2token: for logging in using oauth2 tokens
+# oama: for logging in using oauth2 tokens
 # msmtp: for sending mail
 # notmuch: for indexing and searching inside the maildir (package notmuch-runtime is a dependency of neomutt)
 # xdg-utils: for opening attachments (via mailcap)
@@ -11,11 +11,11 @@
 # khal: for managing calendar
 # vdirsyncer: for synchronizing contacts and calendar
 # packages to install (example for arch):
-# neomutt isync cyrus-sasl-xoauth2-git msmtp lynx urlscan xdg-utils oauth2token khard khal vdirsyncer
+# neomutt isync cyrus-sasl-xoauth2-git msmtp lynx urlscan xdg-utils oama khard khal vdirsyncer
 # dotfiles in repo also contains systemd timer and service to sync maildir
 # enable with systemctl --user enable --now mbsync.timer
 # before logging in it is necessary to obtain a token by using:
-# oauth2create gmail <email-address>
+# oama authorize google <email-address>
 
 auto_view text/plain text/utf-8 text/html
 alternative_order text/plain text/html
