@@ -1,11 +1,12 @@
 defaults
 auth         oauthbearer
 tls          on
-logfile      ~/.local/share/msmtp/msmtp.log
+logfile      ~/.local/share/msmtp/gmail.log
 
 account      gmail
 host         smtp.gmail.com
-port         587
+port         465
+tls_starttls off
 from         {{ .config.email }}
 user         {{ .config.email }}
 passwordeval oama access {{ .config.email }}

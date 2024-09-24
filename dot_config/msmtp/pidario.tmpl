@@ -1,11 +1,12 @@
 defaults
 auth         plain
 tls          on
-logfile      ~/.local/share/msmtp/msmtp.log
+logfile      ~/.local/share/msmtp/pidario.log
 
 account      pidario
 host         {{ .config.smtp_host_3 }}
 port         {{ .config.smtp_port_3 }}
+tls_starttls off
 from         {{ .config.email_3 }}
 user         {{ .config.user_3 }}
 passwordeval {{ .config.passcmd_3 }}
