@@ -113,6 +113,31 @@ lvim.plugins = {
 			require("spectre").setup()
 		end,
 	},
+	{
+		url = "https://gitlab.com/schrieveslaach/sonarlint.nvim",
+		config = function()
+			require('sonarlint').setup({
+				server = {
+					cmd = {
+						vim.fn.stdpath('data') .. "/mason/" .. 'bin/sonarlint-language-server',
+						'-stdio',
+						'-analyzers',
+						vim.fn.expand(vim.fn.stdpath('data') .. "/mason/" .. "share/sonarlint-analyzers/sonarjs.jar"),
+						vim.fn.expand(vim.fn.stdpath('data') .. "/mason/" .. "share/sonarlint-analyzers/sonarhtml.jar"),
+						vim.fn.expand(vim.fn.stdpath('data') .. "/mason/" .. "share/sonarlint-analyzers/sonarjava.jar"),
+						vim.fn.expand(vim.fn.stdpath('data') ..
+						"/mason/" .. "share/sonarlint-analyzers/sonarjavasymbolicexecution.jar"),
+					}
+				},
+				filetypes = {
+					'typescript',
+					'javascript',
+					'html',
+					'java'
+				}
+			})
+		end
+	}
 }
 
 lvim.keys.normal_mode["<C-PageDown>"] = ":BufferLineCycleNext<CR>"
