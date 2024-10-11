@@ -56,14 +56,10 @@ vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpo
 
 lvim.format_on_save.enabled = true
 lvim.builtin.terminal.active = true
-lvim.colorscheme = "darkplus"
 lvim.builtin.bufferline.options.sort_by = "insert_at_end"
 lvim.builtin.bufferline.options.numbers = "ordinal"
 
 lvim.plugins = {
-	{
-		"lunarvim/darkplus.nvim",
-	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "BufRead",
@@ -126,7 +122,7 @@ lvim.plugins = {
 						vim.fn.expand(vim.fn.stdpath('data') .. "/mason/" .. "share/sonarlint-analyzers/sonarhtml.jar"),
 						vim.fn.expand(vim.fn.stdpath('data') .. "/mason/" .. "share/sonarlint-analyzers/sonarjava.jar"),
 						vim.fn.expand(vim.fn.stdpath('data') ..
-						"/mason/" .. "share/sonarlint-analyzers/sonarjavasymbolicexecution.jar"),
+							"/mason/" .. "share/sonarlint-analyzers/sonarjavasymbolicexecution.jar"),
 					}
 				},
 				filetypes = {
