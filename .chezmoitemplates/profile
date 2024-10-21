@@ -5,6 +5,10 @@ if [[ -d "/usr/share/Kvantum" ]]; then
   export QT_STYLE_OVERRIDE=kvantum
 fi
 
+export XCURSOR_PATH="${XCURSOR_PATH}:~/.local/share/icons"
+export XCURSOR_THEME=Phinger-Dark
+export XCURSOR_SIZE=32
+
 TDM="$(command -v tdm)"
 STX="$(command -v startx)"
 HYP="$(command -v Hyprland)"
