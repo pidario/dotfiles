@@ -1,3 +1,18 @@
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    dark = true
+    line-numbers = true
+    side-by-side = true
+
+[merge]
+    conflictstyle = zdiff3
+
 [alias]
 	# lista file modificati (senza parametri restituisce i file modificati dall'ultimo commit
 	# fornendo un commit (full hash) restituisce i file modificati in quel commit
