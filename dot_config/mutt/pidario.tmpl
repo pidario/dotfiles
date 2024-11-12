@@ -9,9 +9,9 @@ set sendmail = "msmtp --file $HOME/.config/msmtp/pidario"
 set header_cache = "~/.cache/mutt/pidario/header_cache"
 set message_cachedir = "~/.cache/mutt/pidario/message_cache"
 set spoolfile=+Inbox
-set postponed=+Drafts
-set record=+Sent
-set trash=+Trash
-mailboxes =Inbox {{ .config.mailboxes_3 }} =Drafts =Sent =Junk =Trash
-virtual-mailboxes "All" "notmuch://?query=path:pidario/** AND NOT folder:pidario/Drafts AND NOT folder:pidario/Junk AND NOT folder:pidario/Trash"
+set postponed=+drafts
+set record=+sent
+set trash=+trash
+mailboxes =Inbox {{ .config.mailboxes_3 }} =drafts =sent =junk =trash
+virtual-mailboxes "All" "notmuch://?query=path:pidario/** AND NOT folder:pidario/drafts AND NOT folder:pidario/junk AND NOT folder:pidario/trash"
 virtual-mailboxes "Important" "notmuch://?query=path:pidario/** AND tag:flagged"
