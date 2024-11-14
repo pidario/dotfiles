@@ -1,0 +1,26 @@
+#!/bin/sh
+
+RECENT_FILE="$XDG_DATA_HOME/recently-used.xbel"
+XMLLINT="$(check-dep xmllint)"
+
+clean_recent () {
+	cat <<-EOT
+	<?xml version="1.0" encoding="UTF-8"?>
+	<xbel version="1.0"
+		xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+		xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+	>
+	$(filter_entries)
+	</xbel>
+	EOT
+}
+
+filter_entries () {
+	"$XMLLINT" --xpath "//bookmark[@href][not(contains(@*, 'file:///run'))]" "$RECENT_FILE"
+}
+
+main () {
+	clean_recent | "$XMLLINT" --format - > "${RECENT_FILE}.new" && mv "${RECENT_FILE}.new" "$RECENT_FILE"
+}
+
+main

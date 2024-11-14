@@ -1,0 +1,6 @@
+#!/bin/sh
+
+WIN="$(xwininfo | gawk 'match($0, /-geometry ([0-9]+x[0-9]+).([0-9]+).([0-9]+)/, a){ print "-video_size " a[1] " -i +" a[2] "," a[3] }')"
+OUT="$(date +%Y-%m-%d_%H-%M_%S)".mp4
+
+ffmpeg -draw_mouse 1 -f x11grab -framerate 25 $WIN -f pulse -ac 2 -i default -c:v libx264 -pix_fmt yuv420p -profile:v baseline "$OUT"

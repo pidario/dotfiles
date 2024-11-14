@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -eu
+
+DIG="$(check-dep dig)"
+DNS="$HOME/.config/dns"
+
+while IFS= read -r row; do
+	IP="${row%% *}"
+	NAME="${row#* }"
+	printf "###################\n"
+	printf "%s\n" "$NAME"
+	"$DIG" "@${IP}" +short "${2-A}" "$1"
+	printf "###################\n\n"
+done < "$DNS"
