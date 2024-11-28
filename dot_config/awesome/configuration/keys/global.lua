@@ -286,6 +286,14 @@ local globalKeys = awful.util.table.join(
 			awful.spawn(apps.launcher, false)
 		end,
 		{ description = 'open application drawer', group = 'hotkeys' }
+	),
+	awful.key(
+		{ modkey },
+		'k',
+		function()
+			awful.spawn(apps.keys, false)
+		end,
+		{ description = 'open password manager', group = 'launcher' }
 	)
 )
 

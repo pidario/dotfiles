@@ -34,10 +34,12 @@ $bar = waybar
 $idle = hypridle
 $clip = clipse
 $wallpaper = wpaperd -d
+$wallpaper_next = wpaperctl next
 $redlight = gammastep-indicator
 $menu = wofi --dmenu --show drun --allow-images --allow-markup --insensitive
 $logout = wlogout --buttons-per-row 2
 $auth = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+$keys = keepassxc
 
 # Execute your favorite apps at launch
 exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
@@ -157,7 +159,8 @@ bind = $mainMod, E, exec, $fileManager
 bind = $mainMod, B, exec, $browser
 bind = $mainMod, T, exec, $terminal -e tmux
 bind = $mainMod, V, exec, $terminal --app-id clipse -e $clip
-bind = $mainMod, W, exec, wpaperctl next
+bind = $mainMod, W, exec, $wallpaper_next
+bind = $mainMod, K, exec, $keys
 bind = $mainMod, Return, exec, $terminal
 bind = $mainMod, Space, exec, $menu
 bind = , Menu, exec, $menu

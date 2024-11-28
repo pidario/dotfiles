@@ -15,6 +15,7 @@ return {
 	audio_cp     = 'pavucontrol',
 	media_player = 'mpc',
 	calculator   = 'qalculate-gtk',
+	keys         = 'keepassxc',
 	reboot       = 'reboot',
 	poweroff     = 'poweroff',
 }
