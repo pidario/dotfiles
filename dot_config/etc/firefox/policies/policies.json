@@ -541,6 +541,10 @@
 				"Status": "locked",
 				"Value": false
 			},
+			"widget.gtk.hide-pointer-while-typing.enabled": {
+				"Status": "locked",
+				"Value": false
+			},
 			"widget.gtk.overlay-scrollbars.enabled": {
 				"Status": "locked",
 				"Value": true
