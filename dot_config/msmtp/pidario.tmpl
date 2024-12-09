@@ -4,11 +4,11 @@ tls          on
 logfile      ~/.local/share/msmtp/pidario.log
 
 account      pidario
-host         {{ .config.smtp_host_3 }}
-port         {{ .config.smtp_port_3 }}
+host         {{ .config.smtp_host_2 }}
+port         {{ .config.smtp_port_2 }}
 tls_starttls off
-from         {{ .config.email_3 }}
-user         {{ .config.user_3 }}
-passwordeval {{ .config.passcmd_3 }}
+from         {{ .config.email_2 }}
+user         {{ .config.user_2 }}
+passwordeval {{ .config.passcmd_2 }}
 
 account default : pidario

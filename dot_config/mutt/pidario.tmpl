@@ -2,8 +2,8 @@ unmailboxes *
 unvirtual-mailboxes *
 set folder = "{{ .config.maildir }}/pidario"
 set realname="{{ .config.name }}"
-set from="{{ .config.email_3 }}"
-set pgp_default_key="{{ .config.pgp_key_3 }}"
+set from="{{ .config.email_2 }}"
+set pgp_default_key="{{ .config.pgp_key_2 }}"
 macro index S "<shell-escape>mbsync --all --config ~/.config/mbsync/pidario && notmuch new 2> /dev/null<enter>" "sync email"
 set sendmail = "msmtp --file $HOME/.config/msmtp/pidario"
 set header_cache = "~/.cache/mutt/pidario/header_cache"
@@ -12,6 +12,6 @@ set spoolfile=+Inbox
 set postponed=+drafts
 set record=+sent
 set trash=+trash
-mailboxes =Inbox {{ .config.mailboxes_3 }} =drafts =sent =junk =trash
+mailboxes =Inbox {{ .config.mailboxes_2 }} =drafts =sent =junk =trash
 virtual-mailboxes "All" "notmuch://?query=path:pidario/** AND NOT folder:pidario/drafts AND NOT folder:pidario/junk AND NOT folder:pidario/trash"
 virtual-mailboxes "Important" "notmuch://?query=path:pidario/** AND tag:flagged"

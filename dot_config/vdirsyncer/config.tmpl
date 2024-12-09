@@ -23,7 +23,6 @@ fileext = ".vcf"
 type = "carddav"
 url = "{{ .config.dav_server }}"
 auth_cert = ["{{ .config.dav_cert }}", "{{ .config.dav_key }}"]
-verify = "/etc/ssl/cert.pem"
 
 [storage calendars_local]
 type = "filesystem"
@@ -34,4 +33,3 @@ fileext = ".ics"
 type = "caldav"
 url = "{{ .config.dav_server }}"
 auth_cert = ["{{ .config.dav_cert }}", "{{ .config.dav_key }}"]
-verify = "/etc/ssl/cert.pem"
