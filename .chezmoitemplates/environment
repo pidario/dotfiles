@@ -36,7 +36,6 @@ export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 export PSQL_HISTORY=$XDG_DATA_HOME/psql_history
 export GRADLE_USER_HOME=$XDG_DATA_HOME/gradle
 export NPM_CONFIG_PREFIX=$XDG_DATA_HOME/npm
-export N_PREFIX=$XDG_DATA_HOME/n
 ##########################################################################################
 # CACHE ##################################################################################
 ##########################################################################################
