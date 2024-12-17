@@ -26,13 +26,7 @@
 		"format-en": "US",
 		"format-it": "IT"
 	},
-	"hyprland/submap": {
-		"format": "{}",
-		"max-length": 8,
-		"tooltip": false
-	},
 	"modules-right": [
-		"hyprland/submap",
 		"hyprland/language",
 		"mpd",
 		"network",
