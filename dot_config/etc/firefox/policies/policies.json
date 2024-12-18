@@ -301,7 +301,15 @@
 				"Status": "locked",
 				"Value": false
 			},
+			"browser.urlbar.suggest.recentsearches": {
+				"Status": "locked",
+				"Value": false
+			},
 			"browser.urlbar.suggest.searches": {
+				"Status": "locked",
+				"Value": false
+			},
+			"browser.urlbar.suggest.trending": {
 				"Status": "locked",
 				"Value": false
 			},
