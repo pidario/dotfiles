@@ -44,7 +44,7 @@ export NPM_CONFIG_CACHE=$XDG_CACHE_HOME/npm
 ##########################################################################################
 # MISC ###################################################################################
 ##########################################################################################
-export PATH="$GOBIN:$CARGO_HOME/bin:$XDG_DATA_HOME/npm/bin:$HOME/.local/bin:$PATH:$XDG_DATA_HOME/n/bin"
+export PATH="$GOBIN:$CARGO_HOME/bin:$XDG_DATA_HOME/npm/bin:$HOME/.local/bin:$PATH"
 export CDPATH="$XDG_CONFIG_HOME:$XDG_DATA_HOME"
 export EDITOR=vi
 export MANPAGER="$EDITOR +Man!"
