@@ -1,0 +1,4 @@
+# See https://wiki.hyprland.org/Configuring/Monitors/
+{{ range .config.monitors -}}
+monitor={{ .name }}, {{ .resolution }}@{{ .refresh }}, {{ .position}}, {{ .scale }}
+{{ end }}
