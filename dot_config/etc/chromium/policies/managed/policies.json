@@ -58,7 +58,6 @@
 	"DownloadRestrictions": 0,
 	"EnableOnlineRevocationChecks": true,
 	"ExtensionInstallForcelist": [
-		"bcjindcccaagfpapjjmafapmmgkkhgoa",
 		"cjpalhdlnbpafiamejdnhcphjbkeiagm",
 		"edibdbjcniadpccecjdfdjjppcpchdlm"
 	],
