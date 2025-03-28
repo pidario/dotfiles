@@ -19,22 +19,6 @@
 -- :LspInstall angularls
 require("lvim.lsp.manager").setup("angularls")
 
-local formatters = require "lvim.lsp.null-ls.formatters"
-formatters.setup {
-	{
-		name = "prettier",
-		---@usage arguments to pass to the formatter
-		args = { "--print-width", "80" },
-		---@usage only start in these filetypes, by default it will attach to all filetypes it supports
-		filetypes = { "typescript", "javascript" },
-	},
-}
-
-local linters = require "lvim.lsp.null-ls.linters"
-linters.setup {
-	{ name = "eslint_d" },
-}
-
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 vim.o.smartindent = true
@@ -49,7 +33,7 @@ vim.opt.listchars = {
 	trail      = '␣',
 	extends    = '⟩',
 	precedes   = '⟨',
-	multispace = '_'
+	multispace = '_',
 }
 vim.opt.list = true
 vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
