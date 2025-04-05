@@ -1,0 +1,96 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+	"assistant": {
+		"enabled": false,
+		"button": false,
+		"version": "1"
+	},
+	"assistant_v2": {
+		"enabled": false
+	},
+	"auto_update": true,
+	"buffer_font_size": 16,
+	"chat_panel": {
+		"button": "never"
+	},
+	"collaboration_panel": {
+		"button": false
+	},
+	"confirm_quit": true,
+	"cursor_blink": false,
+	"features": {
+		"copilot": false,
+		"edit_prediction_provider": "none"
+	},
+	"file_scan_exclusions": [
+		"**/.git",
+		"**/.svn",
+		"**/.hg",
+		"**/CVS",
+		"**/.DS_Store",
+		"**/Thumbs.db",
+		"**/.classpath",
+		"**/.settings",
+		// above is default from Zed
+		"**/out",
+		"**/dist",
+		"**/.husky",
+		"**/.turbo",
+		"**/.vscode-test",
+		"**/.vscode",
+		"**/.next",
+		"**/.storybook",
+		"**/.tap",
+		"**/.nyc_output",
+		"**/report",
+		"**/node_modules",
+		"**/target"
+	],
+	"git_panel": {
+		"dock": "right"
+	},
+	"hard_tabs": true,
+	"indent_guides": {
+		"enabled": true,
+		"coloring": "indent_aware"
+	},
+	"inlay_hints": {
+		"enabled": true,
+		"show_background": true,
+		"show_type_hints": false
+	},
+	"notification_panel": {
+		"button": false
+	},
+	"relative_line_numbers": true,
+	"scrollbar": {
+		"show": "never"
+	},
+	"show_whitespaces": "all",
+	"show_wrap_guides": true,
+	"soft_wrap": "preferred_line_length",
+	"telemetry": {
+		"metrics": false,
+		"diagnostics": false
+	},
+	"theme": {
+		"mode": "dark",
+		"light": "One Light",
+		"dark": "One Dark"
+	},
+	"ui_font_size": 16,
+	"use_smartcase_search": true,
+	"vim": {
+		"use_system_clipboard": "always",
+		"use_smartcase_find": true
+	},
+	"vim_mode": true,
+	"wrap_guides": [80]
+}
