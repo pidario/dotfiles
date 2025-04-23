@@ -27,7 +27,6 @@
 		"format-it": "IT"
 	},
 	"modules-right": [
-		"hyprland/language",
 		"mpd",
 		"network",
 		"idle_inhibitor",
@@ -35,27 +34,17 @@
 		"power-profiles-daemon",
 		"cpu",
 		"memory",
-		"backlight",
-		"keyboard-state",
 		"battery",
 		"clock",
-		"tray"
+		"tray",
+		"hyprland/language"
 	],
-	"keyboard-state": {
-		"numlock": true,
-		"capslock": true,
-		"format": "{name} {icon}",
-		"format-icons": {
-			"locked": "",
-			"unlocked": ""
-		}
-	},
 	"mpd": {
 		"on-click": "mpc toggle",
 		"on-click-right": "mpc stop",
 		"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} {elapsedTime:%M:%S} {songPosition}/{queueLength} {volume}%",
 		"format-disconnected": "Disconnected",
-		"format-stopped": "⏹ {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}",
+		"format-stopped": "⏹",
 		"unknown-tag": "N/A",
 		"interval": 5,
 		"consume-icons": {
