@@ -1,12 +1,12 @@
 export TZ="$(readlink --canonicalize-existing /etc/localtime | sed "s#/usr/share/zoneinfo/##")"
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 if [[ -d "/usr/share/Kvantum" ]]; then
   export QT_STYLE_OVERRIDE=kvantum
 fi
 
 export XCURSOR_PATH="${XCURSOR_PATH}:~/.local/share/icons"
-export XCURSOR_THEME=Phinger-Dark
+export XCURSOR_THEME="Phinger-Dark"
 export XCURSOR_SIZE=32
 
 TDM="$(command -v tdm)"
@@ -14,12 +14,12 @@ STX="$(command -v startx)"
 HYP="$(command -v Hyprland)"
 CUR_TTY="$(tty)"
 
-if [[ -z "$DISPLAY" ]] && [[ -z "$WAYLAND_DISPLAY" ]] && [[ "$CUR_TTY" = /dev/tty1 ]]; then
+if [[ -z "$DISPLAY" ]] && [[ -z "$WAYLAND_DISPLAY" ]] && [[ "$CUR_TTY" = "/dev/tty1" ]]; then
   if [[ -z "$TDM" ]]; then
-   if [[ -f "$HOME/.xinitrc" ]]; then
-     startx
+   if [[ -f "${HOME}/.xinitrc" ]]; then
+     "$STX"
    else
-     Hyprland
+     "$HYP"
    fi
   else
     "$TDM"
