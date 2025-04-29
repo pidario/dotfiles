@@ -149,6 +149,10 @@
 				"Status": "locked",
 				"Value": false
 			},
+			"browser.fixup.fallback-to-https": {
+				"Status": "locked",
+				"Value": false
+			},
 			"browser.formfill.enable": {
 				"Status": "locked",
 				"Value": true
@@ -277,6 +281,10 @@
 				"Status": "locked",
 				"Value": 1
 			},
+			"browser.urlbar.autoFill": {
+				"Status": "locked",
+				"Value": false
+			},
 			"browser.urlbar.showSearchSuggestionsFirst": {
 				"Status": "locked",
 				"Value": false
@@ -365,6 +373,14 @@
 				"Status": "locked",
 				"Value": false
 			},
+			"dom.security.https_first": {
+				"Status": "locked",
+				"Value": false
+			},
+			"dom.security.https_first_pbm": {
+				"Status": "locked",
+				"Value": false
+			},
 			"extensions.experiments.enabled": {
 				"Status": "locked",
 				"Value": false
@@ -434,6 +450,10 @@
 				"Value": ""
 			},
 			"network.proxy.socks_remote_dns": {
+				"Status": "locked",
+				"Value": false
+			},
+			"network.stricttransportsecurity.preloadlist": {
 				"Status": "locked",
 				"Value": false
 			},
