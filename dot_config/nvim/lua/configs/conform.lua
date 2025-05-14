@@ -10,6 +10,6 @@ local options = {
   --   timeout_ms = 500,
   --   lsp_fallback = true,
   -- },
-}
+ }
 
 return options
