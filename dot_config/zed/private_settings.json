@@ -7,7 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-	"assistant": {
+	"agent": {
 		"enabled": false,
 		"button": false,
 		"version": "1"
@@ -53,6 +53,7 @@
 		"**/node_modules",
 		"**/target"
 	],
+	"buffer_font_family": "monospace",
 	"git_panel": {
 		"dock": "right"
 	},
@@ -75,7 +76,7 @@
 	},
 	"show_whitespaces": "all",
 	"show_wrap_guides": true,
-	"soft_wrap": "preferred_line_length",
+	"soft_wrap": "editor_width",
 	"telemetry": {
 		"metrics": false,
 		"diagnostics": false
@@ -91,6 +92,5 @@
 		"use_system_clipboard": "always",
 		"use_smartcase_find": true
 	},
-	"vim_mode": true,
-	"wrap_guides": [80]
+	"vim_mode": true
 }

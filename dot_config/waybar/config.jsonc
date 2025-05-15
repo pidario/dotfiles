@@ -12,7 +12,7 @@
 	],
 	"modules-center": [],
 	"hyprland/workspaces": {
-		"show-special": true,
+		"show-special": false,
 		"persistent-workspaces": {
 			"*": 10
 		}
