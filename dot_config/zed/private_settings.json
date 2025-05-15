@@ -53,7 +53,6 @@
 		"**/node_modules",
 		"**/target"
 	],
-	"buffer_font_family": "monospace",
 	"git_panel": {
 		"dock": "right"
 	},
