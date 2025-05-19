@@ -237,6 +237,18 @@
 				"Status": "locked",
 				"Value": false
 			},
+			"browser.sessionstore.restore_tabs_lazily": {
+				"Status": "locked",
+				"Value": true
+			},
+			"browser.sessionstore.restore_pinned_tabs_on_demand": {
+				"Status": "locked",
+				"Value": true
+			},
+			"browser.sessionstore.restore_on_demand": {
+				"Status": "locked",
+				"Value": true
+			},
 			"browser.sessionstore.warnOnQuit": {
 				"Status": "locked",
 				"Value": true
