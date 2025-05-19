@@ -1,0 +1,167 @@
+{
+	"policies": {
+		"Certificates": {
+			"ImportEnterpriseRoots": true
+		},
+		"Cookies": {
+			"Allow": [
+				"https://drive.google.com",
+				"https://microsoft.com",
+				"https://microsoftonline.com",
+				"https://teams.skype.com",
+				"https://teams.microsoft.com",
+				"https://sfbassets.com",
+				"https://skypeforbusiness.com",
+				"https://stackblitz.com",
+				"https://stackblitz.io"
+			],
+			"AcceptThirdParty": "never",
+			"Default": true,
+			"RejectTracker": true
+		},
+		"DefaultDownloadDirectory": "${home}",
+		"DisableAppUpdate": true,
+		"DisableDefaultBrowserAgent": true,
+		"DisableFeedbackCommands": true,
+		"DisableFirefoxStudies": true,
+		"DisableMasterPasswordCreation": true,
+		"DisablePasswordReveal": true,
+		"DisableProfileImport": true,
+		"DisableProfileRefresh": true,
+		"DisablePocket": true,
+		"DisableSetDesktopBackground": true,
+		"DisableSystemAddonUpdate": true,
+		"DisableTelemetry": true,
+		"DontCheckDefaultBrowser": true,
+		"DownloadDirectory": "${home}",
+		"DNSOverHTTPS": {
+			"Enabled": false,
+			"Locked": true
+		},
+		"EnableTrackingProtection": {
+			"Cryptomining": true,
+			"Fingerprinting": true,
+			"Value": true,
+			"Locked": false
+		},
+		"ExtensionSettings": {
+			"*": {
+				"blocked_install_message": "Forbidden",
+				"installation_mode": "blocked",
+				"allowed_types": [
+					"extension"
+				]
+			},
+			"idcac-pub@guus.ninja": {
+				"installation_mode": "force_installed",
+				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/istilldontcareaboutcookies/latest.xpi"
+			},
+			"uBlock0@raymondhill.net": {
+				"installation_mode": "force_installed",
+				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+			},
+			"7esoorv3@alefvanoon.anonaddy.me": {
+				"installation_mode": "force_installed",
+				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/libredirect/latest.xpi"
+			},
+			"keepassxc-browser@keepassxc.org": {
+				"installation_mode": "force_installed",
+				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi"
+			},
+			"CanvasBlocker@kkapsner.de": {
+				"installation_mode": "force_installed",
+				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/canvasblocker/latest.xpi"
+			},
+			"amazon@search.mozilla.org": {
+				"installation_mode": "blocked"
+			},
+			"amazondotcom@search.mozilla.org": {
+				"installation_mode": "blocked"
+			},
+			"bing@search.mozilla.org": {
+				"installation_mode": "blocked"
+			},
+			"google@search.mozilla.org": {
+				"installation_mode": "blocked"
+			},
+			"wikipedia@search.mozilla.org": {
+				"installation_mode": "blocked"
+			},
+			"ddg@search.mozilla.org": {
+				"installation_mode": "blocked"
+			},
+			"addons-search-detection@mozilla.com": {
+				"installation_mode": "blocked"
+			}
+		},
+		"FirefoxHome": {
+			"Search": true,
+			"TopSites": true,
+			"Highlights": false,
+			"Pocket": false,
+			"Snippets": false,
+			"Locked": true
+		},
+		"Homepage": {
+			"StartPage": "previous-session"
+		},
+		"NetworkPrediction": false,
+		"NoDefaultBookmarks": true,
+		"OfferToSaveLogins": false,
+		"OverrideFirstRunPage": "",
+		"OverridePostUpdatePage": "",
+		"PasswordManagerEnabled": false,
+		"Permissions": {
+			"Autoplay": {
+				"Default": "block-audio-video",
+				"Locked": true
+			}
+		},
+		"PopupBlocking": {
+			"Default": true
+		},
+		"SearchBar": "unified",
+		"SearchEngines": {
+			"Default": "Brave",
+			"PreventInstalls": true,
+			"Remove": [
+				"Google",
+				"Amazon.it",
+				"Bing",
+				"Wikipedia (en)",
+				"DuckDuckGo",
+				"DuckDuckGo Lite",
+				"MetaGer",
+				"StartPage",
+				"SearXNG",
+				"Brave"
+			],
+			"Add": [
+				{
+					"Name": "StartPage",
+					"URLTemplate": "https://startpage.com/sp/search",
+					"Method": "POST",
+					"IconURL": "https://www.startpage.com/sp/cdn/favicons/favicon--default.ico",
+					"Alias": "s",
+					"Description": "StartPage",
+					"PostData": "query={searchTerms}"
+				},
+				{
+					"Name": "Brave",
+					"URLTemplate": "https://search.brave.com/search?q={searchTerms}",
+					"Method": "GET",
+					"IconURL": "https://brave.com/static-assets/images/brave-favicon.png",
+					"Alias": "b",
+					"Description": "Brave",
+					"PostData": "name=value&q={searchTerms}"
+				}
+			]
+		},
+		"ShowHomeButton": true,
+		"UserMessaging": {
+			"WhatsNew": false,
+			"UrlbarInterventions": false,
+			"SkipOnboarding": true
+		}
+	}
+}
