@@ -12,6 +12,6 @@ set spoolfile=+Inbox
 set postponed=+drafts
 set record=+sent
 set trash=+trash
-mailboxes =Inbox {{ .config.mailboxes_2 }} =drafts =sent =junk =trash
-virtual-mailboxes "All" "notmuch://?query=path:pidario/** AND NOT folder:pidario/drafts AND NOT folder:pidario/junk AND NOT folder:pidario/trash"
+mailboxes =Inbox {{ .config.mailboxes_2 }} =Drafts =Sent =Junk =Trash
+virtual-mailboxes "All" "notmuch://?query=path:pidario/** AND NOT folder:pidario/Drafts AND NOT folder:pidario/Junk AND NOT folder:pidario/Trash"
 virtual-mailboxes "Important" "notmuch://?query=path:pidario/** AND tag:flagged"
