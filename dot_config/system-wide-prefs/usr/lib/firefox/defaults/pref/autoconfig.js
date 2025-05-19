@@ -30,6 +30,7 @@ pref("browser.sessionstore.restore_tabs_lazily", true, locked);
 pref("browser.sessionstore.restore_pinned_tabs_on_demand", true, locked);
 pref("browser.sessionstore.restore_on_demand", true, locked);
 pref("browser.sessionstore.warnOnQuit", true, locked);
+pref("browser.tabs.closeWindowWithLastTab", false, locked);
 pref("browser.tabs.firefox-view", false, locked);
 pref("browser.tabs.firefox-view-next", false, locked);
 pref("browser.tabs.loadInBackground", true, locked);
