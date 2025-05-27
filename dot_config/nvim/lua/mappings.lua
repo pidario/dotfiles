@@ -5,8 +5,8 @@ local map = vim.keymap.set
 map("n", ",", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
-map("n", "<C-PageDown>",":bnext <cr>", { desc = "Next Buffer" })
-map("n", "<C-PageUp>",":bprevious <cr>", { desc = "Previous Buffer" })
+map("n", "<C-l>",":bnext <cr>", { desc = "Next Buffer" })
+map("n", "<C-h>",":bprevious <cr>", { desc = "Previous Buffer" })
 map("n", "<leader>q",":quit <cr>", { desc = "Close" })
 
 map("n", "<leader>tf", ":TestFile <cr>", { desc = "Test File" })
