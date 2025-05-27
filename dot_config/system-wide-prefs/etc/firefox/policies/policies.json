@@ -60,10 +60,6 @@
 				"installation_mode": "force_installed",
 				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
 			},
-			"7esoorv3@alefvanoon.anonaddy.me": {
-				"installation_mode": "force_installed",
-				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/libredirect/latest.xpi"
-			},
 			"keepassxc-browser@keepassxc.org": {
 				"installation_mode": "force_installed",
 				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi"
@@ -71,27 +67,6 @@
 			"CanvasBlocker@kkapsner.de": {
 				"installation_mode": "force_installed",
 				"install_url": "https://addons.mozilla.org/firefox/downloads/latest/canvasblocker/latest.xpi"
-			},
-			"amazon@search.mozilla.org": {
-				"installation_mode": "blocked"
-			},
-			"amazondotcom@search.mozilla.org": {
-				"installation_mode": "blocked"
-			},
-			"bing@search.mozilla.org": {
-				"installation_mode": "blocked"
-			},
-			"google@search.mozilla.org": {
-				"installation_mode": "blocked"
-			},
-			"wikipedia@search.mozilla.org": {
-				"installation_mode": "blocked"
-			},
-			"ddg@search.mozilla.org": {
-				"installation_mode": "blocked"
-			},
-			"addons-search-detection@mozilla.com": {
-				"installation_mode": "blocked"
 			}
 		},
 		"FirefoxHome": {
@@ -126,26 +101,13 @@
 			"PreventInstalls": true,
 			"Remove": [
 				"Google",
-				"Amazon.it",
 				"Bing",
 				"Wikipedia (en)",
 				"DuckDuckGo",
-				"DuckDuckGo Lite",
-				"MetaGer",
-				"StartPage",
-				"SearXNG",
-				"Brave"
+				"Ecosia",
+				"Qwant"
 			],
 			"Add": [
-				{
-					"Name": "StartPage",
-					"URLTemplate": "https://startpage.com/sp/search",
-					"Method": "POST",
-					"IconURL": "https://www.startpage.com/sp/cdn/favicons/favicon--default.ico",
-					"Alias": "s",
-					"Description": "StartPage",
-					"PostData": "query={searchTerms}"
-				},
 				{
 					"Name": "Brave",
 					"URLTemplate": "https://search.brave.com/search?q={searchTerms}",
