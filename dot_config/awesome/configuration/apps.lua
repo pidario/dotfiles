@@ -14,8 +14,8 @@ return {
 	audio_script = 'volume',
 	audio_cp     = 'pavucontrol',
 	media_player = 'mpc',
-	calculator   = 'qalculate-gtk',
-	keys         = 'keepassxc',
+	calculator   = 'qalculate-qt',
+	passwords    = 'keepassxc',
 	reboot       = 'reboot',
 	poweroff     = 'poweroff',
 }

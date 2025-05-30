@@ -22,7 +22,7 @@ local client_keys = awful.util.table.join(
 	),
 	awful.key(
 		{'Control', modkey},
-		'Left',
+		'h',
 		function()
 			awful.client.focus.byidx(-1)
 		end,
@@ -30,7 +30,7 @@ local client_keys = awful.util.table.join(
 	),
 	awful.key(
 		{'Control', modkey},
-		'Right',
+		'l',
 		function()
 			awful.client.focus.byidx(1)
 		end,
@@ -44,7 +44,7 @@ local client_keys = awful.util.table.join(
 	),
 	awful.key(
 		{modkey},
-		'Tab',
+		'z',
 		function()
 			awful.client.focus.history.previous()
 			if _G.client.focus then

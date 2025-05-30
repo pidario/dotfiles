@@ -31,11 +31,11 @@ local globalKeys = awful.util.table.join(
 	),
 	awful.key(
 		{ altkey },
-		'l',
+		'space',
 		function()
 			_G.awesome.emit_signal('widget::keyboard::next')
 		end,
-		{ description = 'next layout', group = 'utility' }
+		{ description = 'next keyboard layout', group = 'utility' }
 	),
 	awful.key(
 		{ modkey },
@@ -62,12 +62,12 @@ local globalKeys = awful.util.table.join(
 	),
 	awful.key(
 		{ modkey },
-		'Escape',
+		'.',
 		awful.tag.history.restore,
 		{ description = 'alternate between current and previous tag', group = 'tag' }
 	),
 	awful.key({ modkey, 'Shift' },
-		'Left',
+		'h',
 		function()
 			local focused = awful.screen.focused()
 			for _ = 1, #focused.tags do
@@ -80,7 +80,7 @@ local globalKeys = awful.util.table.join(
 		{ description = 'previous/next non-empty tag', group = 'tag' }
 	),
 	awful.key({ modkey, 'Shift' },
-		'Right',
+		'l',
 		function()
 			local focused = awful.screen.focused()
 			for _ = 1, #focused.tags do
@@ -122,16 +122,16 @@ local globalKeys = awful.util.table.join(
 		{ description = 'restore minimized', group = 'client' }
 	),
 	awful.key(
-		{ altkey, 'Control' },
-		'Left',
+		{ altkey, modkey },
+		'h',
 		function()
 			awful.tag.incmwfact(-0.05)
 		end,
 		{ description = 'master width factor', group = 'client' }
 	),
 	awful.key(
-		{ altkey, 'Control' },
-		'Right',
+		{ altkey, modkey },
+		'l',
 		function()
 			awful.tag.incmwfact(0.05)
 		end,
@@ -232,7 +232,7 @@ local globalKeys = awful.util.table.join(
 		{ description = 'area/selected screenshot', group = 'utility' }
 	),
 	awful.key(
-		{ modkey, 'Shift' },
+		{ modkey, 'Control', altkey },
 		'l',
 		function()
 			awful.spawn(apps.lock, false)
@@ -289,9 +289,9 @@ local globalKeys = awful.util.table.join(
 	),
 	awful.key(
 		{ modkey },
-		'k',
+		'p',
 		function()
-			awful.spawn(apps.keys, false)
+			awful.spawn(apps.passwords, false)
 		end,
 		{ description = 'open password manager', group = 'launcher' }
 	)
