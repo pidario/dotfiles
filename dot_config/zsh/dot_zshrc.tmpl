@@ -106,18 +106,27 @@ bindkey -s '^[OB' '^[[B'  # down
 bindkey -s '^[OD' '^[[D'  # left
 bindkey -s '^[OC' '^[[C'  # right
 # TTY sends different key codes. Translate them to regular.
-bindkey -s '^[[1~' '^[[H'  # home
-bindkey -s '^[[4~' '^[[F'  # end
+bindkey -s '^[[1~' '^[[H' # home
+bindkey -s '^[[4~' '^[[F' # end
+# remap ctrl+hjkl to arrows
+bindkey -s '^h' '^[[D'
+bindkey -s '^j' '^[[B'
+bindkey -s '^k' '^[[A'
+bindkey -s '^l' '^[[C'
 
-bindkey '^?'      backward-delete-char          # bs         delete one char backward
-bindkey '^[[3~'   delete-char                   # delete     delete one char forward
-bindkey '^[[H'    beginning-of-line             # home       go to the beginning of line
-bindkey '^[[F'    end-of-line                   # end        go to the end of line
-bindkey '^[[1;5C' forward-word                  # ctrl+right go forward one word
-bindkey '^[[1;5D' backward-word                 # ctrl+left  go backward one word
-bindkey '^H'      backward-kill-word            # ctrl+bs    delete previous word
-bindkey '^[[D'    backward-char                 # left       move cursor one char backward
-bindkey '^[[C'    forward-char                  # right      move cursor one char forward
+bindkey '^?'      backward-delete-char          # bs            delete one char backward
+bindkey '^[[3~'   delete-char                   # delete        delete one char forward
+bindkey '^[[H'    beginning-of-line             # home          go to the beginning of line
+bindkey '^[[F'    end-of-line                   # end           go to the end of line
+bindkey '^A'      beginning-of-line             # ctrl+a        go to the beginning of line
+bindkey '^E'      end-of-line                   # ctrl+e        go to the end of line
+bindkey '^[[1;5C' forward-word                  # ctrl+right    go forward one word
+bindkey '^[[1;5D' backward-word                 # ctrl+left     go backward one word
+bindkey '^[^E'    forward-word                  # ctrl+alt+e    go forward one word
+bindkey '^[^A'    backward-word                 # ctrl+alt+a    go backward one word
+bindkey '^[^H'    backward-kill-word            # ctrl+alt+bs   delete previous word
+bindkey '^[[D'    backward-char                 # left          move cursor one char backward
+bindkey '^[[C'    forward-char                  # right         move cursor one char forward
 
 function zle-line-init zle-keymap-select {
   work_dir='%F{green}%~%f'
