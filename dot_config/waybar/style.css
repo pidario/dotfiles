@@ -72,10 +72,6 @@ button {
 	background-color: #f53c3c;
 }
 
-#pulseaudio.muted {
-	background-color: #90b1b1;
-}
-
 #tray>.needs-attention {
 	background-color: #eb4d4b;
 }
