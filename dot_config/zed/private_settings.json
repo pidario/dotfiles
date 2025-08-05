@@ -21,6 +21,7 @@
 	},
 	"confirm_quit": true,
 	"cursor_blink": false,
+	"disable_ai": true,
 	"features": {
 		"edit_prediction_provider": "none"
 	},
