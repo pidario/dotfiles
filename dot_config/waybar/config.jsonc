@@ -42,6 +42,7 @@
 	"mpd": {
 		"on-click": "mpc toggle",
 		"on-click-right": "mpc stop",
+		"max-length": 100,
 		"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {title} {elapsedTime:%M:%S} {songPosition}/{queueLength} {volume}%",
 		"format-disconnected": "Disconnected",
 		"format-stopped": "⏹",
