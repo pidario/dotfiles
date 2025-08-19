@@ -58,10 +58,8 @@
 	"DownloadRestrictions": 0,
 	"EnableOnlineRevocationChecks": true,
 	"ExtensionInstallForcelist": [
-		"cjpalhdlnbpafiamejdnhcphjbkeiagm",
-		"edibdbjcniadpccecjdfdjjppcpchdlm"
+		"ddkjiahejlhfcafbddmgiahcphecmpfh"
 	],
-	"ExtensionManifestV2Availability": 2,
 	"HideWebStoreIcon": true,
 	"HomepageIsNewTabPage": true,
 	"ImportAutofillFormData": false,
@@ -78,7 +76,6 @@
 	"PasswordProtectionWarningTrigger": 0,
 	"PaymentMethodQueryEnabled": false,
 	"ProfilePickerOnStartupAvailability": 2,
-	"PromotionalTabsEnabled": false,
 	"RemoteAccessHostAllowClientPairing": false,
 	"RemoteAccessHostAllowFileTransfer": false,
 	"RemoteAccessHostAllowRelayedConnection": false,
