@@ -75,12 +75,10 @@
 		}
 	},
 	"tray": {
-		// "icon-size": 21,
 		"spacing": 10
 	},
 	"clock": {
-		"format": "{:%H:%M}  ",
-		"format-alt": "{:L%A %d %B %Y - %R}",
+		"format": "{:L%A %d %B %Y 📅 %R  }",
 		"tooltip-format": "<tt><small>{calendar}</small></tt>",
 		"locale": "it_IT.UTF-8",
 		"calendar": {
