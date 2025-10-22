@@ -7,10 +7,42 @@
 	"spacing": 0, // Gaps between modules
 	// Choose the order of the modules
 	"modules-left": [
+		"niri/workspaces",
+		"niri/window",
 		"hyprland/workspaces",
 		"hyprland/window"
 	],
 	"modules-center": [],
+	"modules-right": [
+		"mpd",
+		"network",
+		"idle_inhibitor",
+		"pulseaudio",
+		"power-profiles-daemon",
+		"cpu",
+		"memory",
+		"battery",
+		"clock",
+		"tray",
+		"hyprland/language",
+		"niri/language"
+	],
+	"niri/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+			// Icons by state
+			"active": "",
+			"default": ""
+		}
+	},
+	"niri/window": {
+		"format": "{}"
+	},
+	"niri/language": {
+		"format": "{}",
+		"format-en": "US",
+		"format-it": "IT"
+	},
 	"hyprland/workspaces": {
 		"show-special": false,
 		"persistent-workspaces": {
@@ -26,19 +58,6 @@
 		"format-en": "US",
 		"format-it": "IT"
 	},
-	"modules-right": [
-		"mpd",
-		"network",
-		"idle_inhibitor",
-		"pulseaudio",
-		"power-profiles-daemon",
-		"cpu",
-		"memory",
-		"battery",
-		"clock",
-		"tray",
-		"hyprland/language"
-	],
 	"mpd": {
 		"on-click": "mpc toggle",
 		"on-click-right": "mpc stop",
