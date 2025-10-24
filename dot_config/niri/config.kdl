@@ -294,7 +294,7 @@ gestures {
 // See the binds section below for more spawn examples.
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
-spawn-at-startup "waybar"
+spawn-sh-at-startup "waybar -c ~/.config/waybar/niri.jsonc"
 spawn-at-startup "mako"
 spawn-at-startup "clipse"
 spawn-at-startup "nm-applet"
@@ -318,7 +318,7 @@ prefer-no-csd
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/screenshot_from_%Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/screenshot_%Y-%m-%d %H-%M-%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null

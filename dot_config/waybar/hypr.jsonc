@@ -1,0 +1,39 @@
+// -*- mode: jsonc -*-
+{
+	"include": [
+		"~/.config/waybar/modules.jsonc"
+	],
+	"hyprland/workspaces": {
+		"show-special": false,
+		"persistent-workspaces": {
+			"*": 10
+		}
+	},
+	"hyprland/window": {
+		"format": "{}",
+		"separate-outputs": true
+	},
+	"hyprland/language": {
+		"format": "{}",
+		"format-en": "US",
+		"format-it": "IT"
+	},
+	"modules-left": [
+		"hyprland/workspaces",
+		"hyprland/window"
+	],
+	"modules-center": [],
+	"modules-right": [
+		"mpd",
+		"network",
+		"idle_inhibitor",
+		"pulseaudio",
+		"power-profiles-daemon",
+		"cpu",
+		"memory",
+		"battery",
+		"clock",
+		"tray",
+		"hyprland/language"
+	]
+}

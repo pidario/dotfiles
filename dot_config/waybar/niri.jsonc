@@ -1,0 +1,40 @@
+// -*- mode: jsonc -*-
+{
+	"include": [
+		"~/.config/waybar/modules.jsonc"
+	],
+	"niri/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+			// Icons by state
+			"active": "",
+			"default": ""
+		}
+	},
+	"niri/window": {
+		"format": "{}"
+	},
+	"niri/language": {
+		"format": "{}",
+		"format-en": "US",
+		"format-it": "IT"
+	},
+	"modules-left": [
+		"niri/workspaces",
+		"niri/window"
+	],
+	"modules-center": [],
+	"modules-right": [
+		"mpd",
+		"network",
+		"idle_inhibitor",
+		"pulseaudio",
+		"power-profiles-daemon",
+		"cpu",
+		"memory",
+		"battery",
+		"clock",
+		"tray",
+		"niri/language"
+	]
+}
