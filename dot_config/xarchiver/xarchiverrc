@@ -1,13 +1,13 @@
 [xarchiver]
-preferred_format=15
+preferred_format=25
 prefer_unzip=true
 confirm_deletion=true
-sort_filename_content=false
+sort_filename_content=true
 advanced_isearch=true
 auto_expand=true
 store_output=false
 icon_size=2
-show_archive_comment=false
+show_archive_comment=true
 show_sidebar=true
 show_location_bar=true
 show_toolbar=true
@@ -15,6 +15,7 @@ preferred_custom_cmd=
 preferred_temp_dir=/tmp
 preferred_extract_dir=
 allow_sub_dir=0
+extended_dnd=1
 ensure_directory=true
 overwrite=false
 full_path=0
