@@ -5,7 +5,7 @@
 	<name>Terminal</name>
 	<submenu></submenu>
 	<unique-id>1607709768793789-1</unique-id>
-	<command>$TERMINAL --directory %f</command>
+	<command>$TERMINAL -D %f</command>
 	<description>Open Terminal Here</description>
 	<range></range>
 	<patterns>*</patterns>
@@ -17,7 +17,7 @@
 	<name>Edit</name>
 	<submenu></submenu>
 	<unique-id>1694089890471252-1</unique-id>
-	<command>$TERMINAL --exec &quot;$EDITOR %f&quot;</command>
+	<command>$TERMINAL $EDITOR %f</command>
 	<description>Open in Editor</description>
 	<range>*</range>
 	<patterns>*</patterns>
@@ -29,7 +29,7 @@
 	<name>Extract</name>
 	<submenu></submenu>
 	<unique-id>1694413563526274-1</unique-id>
-	<command>$TERMINAL --exec &quot;tar -axvf %f&quot;</command>
+	<command>$TERMINAL tar -axvf %f</command>
 	<description>Extract Tar Archive</description>
 	<range>*</range>
 	<patterns>*.tar;*.tar.*</patterns>
