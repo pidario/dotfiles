@@ -4,18 +4,18 @@ set -eu
 
 DMENU="$(check-dep wofi)"
 
-menu=$(echo -e 'lock\nlogout\nshutdown\nreboot' | "$DMENU" --show dmenu -p "Choose")
+menu=$(echo -e 'lock\nlogout\npoweroff\nreboot' | "$DMENU" --show dmenu -p "Choose")
 
 confirm() {
 	choice=$(echo -e 'no\nyes' | "$DMENU" --show dmenu -p "Confirm ${1}?")
 	if [ "$choice" = "yes" ]; then
-		"$choice"
+		"${1}"
 	fi
 }
 
 case "$menu" in
 	"lock") kill -USR1 $(pidof swayidle);;
 	"logout") niri msg action quit;;
-	"shutdown"|"reboot") confirm "$menu";;
+	"poweroff"|"reboot") confirm "$menu";;
 esac
 
