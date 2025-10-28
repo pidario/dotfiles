@@ -359,7 +359,7 @@ window-rule {
 }
 
 window-rule {
-    match app-id="Waydroid"
+    match app-id=r#"(W|w)aydroid.*"#
     open-floating true
 }
 
