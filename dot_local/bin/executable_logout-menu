@@ -4,26 +4,11 @@ set -eu
 
 DMENU="$(check-dep wofi)"
 
-<<<<<<< Updated upstream
-menu=$(echo -e 'lock\nlogout\npoweroff\nreboot' | "$DMENU" --show dmenu -p "Choose")
-||||||| Stash base
-menu=$(echo -e 'lock\nlogout\nshutdown\nreboot' | "$DMENU" --show dmenu -p "Choose")
-=======
 MENU=$(echo -e 'lock\nlogout\npoweroff\nreboot' | "$DMENU" --show dmenu -p "Choose")
->>>>>>> Stashed changes
 
 confirm() {
-<<<<<<< Updated upstream
-	choice=$(echo -e 'no\nyes' | "$DMENU" --show dmenu -p "Confirm ${1}?")
-	if [ "$choice" = "yes" ]; then
-||||||| Stash base
-	choice=$(echo -e 'no\nyes' | "$DMENU" --show dmenu -p "Confirm ${1}?")
-	if [ "$choice" = "yes" ]; then
-		"$choice"
-=======
 	CHOICE=$(echo -e 'no\nyes' | "$DMENU" --show dmenu -p "Confirm ${1}?")
 	if [ "$CHOICE" = "yes" ]; then
->>>>>>> Stashed changes
 		"${1}"
 	fi
 }
@@ -31,12 +16,6 @@ confirm() {
 case "$MENU" in
 	"lock") kill -USR1 $(pidof swayidle);;
 	"logout") niri msg action quit;;
-<<<<<<< Updated upstream
-	"poweroff"|"reboot") confirm "$menu";;
-||||||| Stash base
-	"shutdown"|"reboot") confirm "$menu";;
-=======
 	"poweroff"|"reboot") confirm "$MENU";;
->>>>>>> Stashed changes
 esac
 
