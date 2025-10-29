@@ -33,6 +33,7 @@ git_work_path = "~/workpath/**"
 git_work_conf = "~/.config/git/work"
 loc_lat = 35.6821936
 loc_lon = 139.7622210
+xorg = false
 [[data.config.monitors]]
 name = "HDMI-A-1"
 resolution = "1920x1080"
