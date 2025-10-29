@@ -2,20 +2,49 @@
 
 set -eu
 
+LOCK_CMD="lock"
+QUIT_CMD="quit"
+POWEROFF_CMD="poweroff"
+REBOOT_CMD="reboot"
+YES="yes"
+NO="no"
+
+CMDS="$(printf "%s\n%s\n%s\n%s" "$LOCK_CMD" "$QUIT_CMD" "$POWEROFF_CMD" "$REBOOT_CMD")"
+CONFIRM="$(printf "%s\n%s" "$NO" "$YES")"
+
 DMENU="$(check-dep wofi)"
 
-MENU=$(echo -e 'lock\nlogout\npoweroff\nreboot' | "$DMENU" --show dmenu -p "Choose")
-
 confirm() {
-	CHOICE=$(echo -e 'no\nyes' | "$DMENU" --show dmenu -p "Confirm ${1}?")
-	if [ "$CHOICE" = "yes" ]; then
+	CHOICE=$(echo "$CONFIRM" | "$DMENU" --show dmenu -p "Confirm ${1}?")
+	if [ "$CHOICE" = "$YES" ]; then
 		"${1}"
 	fi
 }
 
-case "$MENU" in
-	"lock") kill -USR1 $(pidof swayidle);;
-	"logout") niri msg action quit;;
-	"poweroff"|"reboot") confirm "$MENU";;
-esac
+lock() {
+	kill -USR1 "$(pidof swayidle)"
+}
 
+quit() {
+	niri msg action quit
+}
+
+menu() {
+	echo "$CMDS" | "$DMENU" --show dmenu -p "Choose action"
+}
+
+main() {
+	case "$1" in
+		"$LOCK_CMD") lock;;
+		"$QUIT_CMD") quit;;
+		"$POWEROFF_CMD"|"$REBOOT_CMD") confirm "$1";;
+	esac
+}
+
+if [ -z "${1-}" ]; then
+	ACTION="$(menu)"
+else
+	ACTION="${1-}"
+fi
+
+main "$ACTION"
