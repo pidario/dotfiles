@@ -15,8 +15,8 @@ CUR_TTY="$(tty)"
 
 if [[ -z "$DISPLAY" ]] && [[ -z "$WAYLAND_DISPLAY" ]] && [[ "$CUR_TTY" = "/dev/tty1" ]]; then
   if [[ -n "$TDM" ]]; then
-    "$TDM"
+    exec "$TDM"
   else
-    "$NIRI" --session
+    exec "$NIRI" --session
   fi
 fi
