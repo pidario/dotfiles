@@ -296,7 +296,6 @@ spawn-sh-at-startup "waybar -c ~/.config/waybar/niri.jsonc"
 spawn-sh-at-startup "swayidle -w timeout 300 'loginctl lock-session' lock 'physlock -m'"
 spawn-sh-at-startup "wpaperd -d"
 spawn-at-startup "mako"
-spawn-at-startup "clipse"
 spawn-at-startup "nm-applet"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
