@@ -27,28 +27,6 @@ set_default_sink() {
   get_default_sink | awk -F \" '{print $4}'
 }
 
-is_mute() {
-  "$PAMIXER" --get-mute
-}
-
-toggle_mute() {
-  "$PAMIXER" --toggle-mute
-  is_mute
-}
-
-get() {
-  "$PAMIXER" --get-volume
-}
-
-change() {
-  ACTION="increase"
-  if [ "$1" -lt 0 ]; then
-    ACTION="decrease"
-  fi
-  "$PAMIXER" --"$ACTION" "${1#-}"
-  get
-}
-
 next_sink() {
   DEFAULT_SINK="$(get_default_sink | awk '{print $1}')"
   FIRST_SINK=
@@ -66,10 +44,6 @@ next_sink() {
 
 main() {
   case "$1" in
-    is-mute) is_mute;;
-    toggle-mute) toggle_mute;;
-    get) get;;
-    change) change "$2";;
     next-sink) next_sink;;
   esac
 }
