@@ -21,7 +21,6 @@ input {
             // localectl set-x11-keymap.
         }
 
-        // Enable numlock on startup, omitting this setting disables it.
         repeat-delay 300
         repeat-rate 50
         numlock
@@ -294,7 +293,7 @@ gestures {
 // See the binds section below for more spawn examples.
 
 spawn-sh-at-startup "waybar -c ~/.config/waybar/niri.jsonc"
-spawn-sh-at-startup "swayidle -w timeout 30 'loginctl lock-session' lock 'physlock -m'"
+spawn-sh-at-startup "swayidle -w timeout 300 'loginctl lock-session' lock 'physlock -m'"
 spawn-sh-at-startup "wpaperd -d"
 spawn-at-startup "mako"
 spawn-at-startup "clipse"
@@ -375,8 +374,6 @@ window-rule {
 }
 
 
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
@@ -492,11 +489,9 @@ binds {
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
-    // ...
 
     // And you can also move a whole workspace to another monitor:
     // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
-    // ...
 
     Mod+Page_Down      { focus-workspace-down; }
     Mod+Page_Up        { focus-workspace-up; }
@@ -509,7 +504,6 @@ binds {
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+Page_Down { move-window-to-workspace-down; }
-    // ...
 
     Mod+Shift+Page_Down { move-workspace-down; }
     Mod+Shift+Page_Up   { move-workspace-up; }
