@@ -10,18 +10,13 @@ export XCURSOR_THEME="Phinger-Dark"
 export XCURSOR_SIZE=32
 
 TDM="$(command -v tdm)"
-STX="$(command -v startx)"
-HYP="$(command -v Hyprland)"
+NIRI="$(command -v niri)"
 CUR_TTY="$(tty)"
 
 if [[ -z "$DISPLAY" ]] && [[ -z "$WAYLAND_DISPLAY" ]] && [[ "$CUR_TTY" = "/dev/tty1" ]]; then
-  if [[ -z "$TDM" ]]; then
-   if [[ -f "${HOME}/.xinitrc" ]]; then
-     "$STX"
-   else
-     "$HYP"
-   fi
-  else
+  if [[ -n "$TDM" ]]; then
     "$TDM"
+  else
+    "$NIRI" --session
   fi
 fi
