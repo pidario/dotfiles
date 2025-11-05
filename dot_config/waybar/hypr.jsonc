@@ -10,8 +10,7 @@
 		}
 	},
 	"hyprland/window": {
-		"format": "{}",
-		"separate-outputs": true
+		"format": "{}"
 	},
 	"hyprland/language": {
 		"format": "{}",
@@ -20,6 +19,7 @@
 	},
 	"modules-left": [
 		"hyprland/workspaces",
+		"wlr/taskbar",
 		"hyprland/window"
 	],
 	"modules-center": [],
@@ -29,9 +29,9 @@
 		"idle_inhibitor",
 		"pulseaudio",
 		"power-profiles-daemon",
+		"battery",
 		"cpu",
 		"memory",
-		"battery",
 		"clock",
 		"tray",
 		"hyprland/language"

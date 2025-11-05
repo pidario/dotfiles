@@ -21,6 +21,7 @@
 	},
 	"modules-left": [
 		"niri/workspaces",
+		"wlr/taskbar",
 		"niri/window"
 	],
 	"modules-center": [],
@@ -30,9 +31,9 @@
 		"idle_inhibitor",
 		"pulseaudio",
 		"power-profiles-daemon",
+		"battery",
 		"cpu",
 		"memory",
-		"battery",
 		"clock",
 		"tray",
 		"niri/language"
