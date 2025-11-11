@@ -44,23 +44,25 @@ button {
 }
 
 #window {
-	margin: 0 5px;
+	padding-top: 5px;
+	margin-left: 5px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
-	margin-left: 0;
+#taskbar button.active {
+	background-color: #5294e2;
 }
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
-	margin-right: 0;
+/*#taskbar button
+#taskbar button.minimized
+#taskbar button.maximized*/
+#taskbar button.fullscreen {
+	background-color: #26a65b;
 }
+/*#taskbar.empty*/
 
 #battery.charging,
 #battery.plugged {
 	color: #ffffff;
-	background-color: #26A65B;
+	background-color: #26a65b;
 }
 
 #battery.critical:not(.charging) {
@@ -93,6 +95,6 @@ button {
 }
 
 #language {
-	margin: 0 5px;
-	min-width: 16px;
+	padding: 3px 3px 0 0;
+	min-width: 20px;
 }

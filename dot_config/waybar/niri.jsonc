@@ -34,8 +34,9 @@
 		"battery",
 		"cpu",
 		"memory",
-		"clock",
 		"tray",
+		"custom/notification",
+		"clock",
 		"niri/language"
 	]
 }
