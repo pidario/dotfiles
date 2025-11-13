@@ -13,9 +13,6 @@
 	},
 	"auto_update": true,
 	"buffer_font_size": 16,
-	"chat_panel": {
-		"button": "never"
-	},
 	"collaboration_panel": {
 		"button": false
 	},
@@ -65,7 +62,7 @@
 	"notification_panel": {
 		"button": false
 	},
-	"relative_line_numbers": true,
+	"relative_line_numbers": "enabled",
 	"scrollbar": {
 		"show": "never"
 	},
