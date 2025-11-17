@@ -24,9 +24,10 @@
 		"wlr/taskbar",
 		"niri/window"
 	],
-	"modules-center": [],
+	"modules-center": [
+		"mpd"
+	],
 	"modules-right": [
-		"mpd",
 		"network",
 		"idle_inhibitor",
 		"pulseaudio",
