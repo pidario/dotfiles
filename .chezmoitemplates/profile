@@ -10,13 +10,13 @@ export XCURSOR_THEME="Phinger-Dark"
 export XCURSOR_SIZE=32
 
 TDM="$(command -v tdm)"
-NIRI="$(command -v niri)"
+NIRI="$(command -v start-niri)"
 CUR_TTY="$(tty)"
 
 if [[ -z "$DISPLAY" ]] && [[ -z "$WAYLAND_DISPLAY" ]] && [[ "$CUR_TTY" = "/dev/tty1" ]]; then
   if [[ -n "$TDM" ]]; then
     exec "$TDM"
   else
-    exec "$NIRI" --session
+    exec "$NIRI"
   fi
 fi
