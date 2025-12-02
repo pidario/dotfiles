@@ -36,5 +36,4 @@ loc_lon = 139.7622210
 xorg = false
 [data.audio]
 vmOptimization = false
-virtualMic = true
 ```
