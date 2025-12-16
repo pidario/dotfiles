@@ -1,0 +1,14 @@
+defaults
+auth         plain
+tls          on
+logfile      ~/.local/share/msmtp/dario.test.log
+
+account      dario
+host         dario.test
+port         465
+tls_starttls off
+from         postmaster@dario.test
+user         postmaster@dario.test
+password     postmaster
+
+account default : dario

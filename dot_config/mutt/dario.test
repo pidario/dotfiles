@@ -1,0 +1,17 @@
+unmailboxes *
+unvirtual-mailboxes *
+set folder = "/home/dario/.local/share/mail/dario.test"
+set realname="Dario Test"
+set from="postmaster@dario.test"
+set pgp_default_key=""
+macro index S "<shell-escape>mbsync --all --config ~/.config/mbsync/dario.test && notmuch new 2> /dev/null<enter>" "sync email"
+set sendmail = "msmtp --file $HOME/.config/msmtp/dario.test"
+set header_cache = "~/.cache/mutt/dario.test/header_cache"
+set message_cachedir = "~/.cache/mutt/dario.test/message_cache"
+set spoolfile=+Inbox
+set postponed=+Drafts
+set record=+Sent
+set trash=+Trash
+mailboxes =Inbox =logs =Drafts =Sent =Junk =Trash
+virtual-mailboxes "All" "notmuch://?query=path:dario.test/** AND NOT folder:dario.test/Drafts AND NOT folder:dario/Junk AND NOT folder:dario.test/Trash"
+virtual-mailboxes "Important" "notmuch://?query=path:dario.test/** AND tag:flagged"

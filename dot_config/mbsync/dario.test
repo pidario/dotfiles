@@ -1,0 +1,24 @@
+IMAPAccount dario
+Host dario.test
+Port 993
+User postmaster@dario.test
+Pass "postmaster"
+AuthMechs LOGIN
+TLSType IMAPS
+
+IMAPStore dario-remote
+Account dario
+
+MaildirStore dario-local
+SubFolders Verbatim
+# The trailing "/" is important
+Path ~/.local/share/mail/dario.test/
+Inbox ~/.local/share/mail/dario.test/Inbox
+
+Channel dario
+Far :dario-remote:
+Near :dario-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *
