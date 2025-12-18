@@ -1,0 +1,10 @@
+[tools]
+go = "1.25.5"
+java = "temurin-21"
+maven = "3"
+node = "20"
+"go:golang.org/x/tools/cmd/goimports" = { version = "latest" }
+"go:golang.org/x/tools/gopls" = { version = "latest" }
+
+[settings]
+experimental = true
