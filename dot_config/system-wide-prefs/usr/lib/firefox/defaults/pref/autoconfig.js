@@ -1,6 +1,7 @@
 
 pref("accessibility.browsewithcaret", false, locked);
 pref("accessibility.typeaheadfind", false, locked);
+pref("browser.aiwindow.enabled", false, locked);
 pref("browser.compactmode.show", true, locked);
 pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false, locked);
 pref("browser.ctrlTab.recentlyUsedOrder", false, locked);
