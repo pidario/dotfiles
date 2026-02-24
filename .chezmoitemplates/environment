@@ -51,3 +51,4 @@ export MANPAGER="$EDITOR +Man!"
 export NPM_CONFIG_FUND=false
 export TERMINAL=foot
 export REQUESTS_CA_BUNDLE="/etc/ssl/cert.pem"
+export FZF_DEFAULT_COMMAND="fd --hidden"
