@@ -1,6 +1,12 @@
 
 pref("accessibility.browsewithcaret", false, locked);
 pref("accessibility.typeaheadfind", false, locked);
+pref("browser.ai.control.default", "blocked", locked);
+pref("browser.ai.control.linkPreviewKeyPoints", "blocked", locked);
+pref("browser.ai.control.pdfjsAltText", "blocked", locked);
+pref("browser.ai.control.sidebarChatbot", "blocked", locked);
+pref("browser.ai.control.smartTabGroups", "blocked", locked);
+pref("browser.ai.control.translations", "blocked", locked);
 pref("browser.aiwindow.enabled", false, locked);
 pref("browser.compactmode.show", true, locked);
 pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false, locked);
