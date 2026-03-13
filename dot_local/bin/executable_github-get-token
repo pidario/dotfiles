@@ -1,0 +1,23 @@
+#!/bin/sh
+
+CURL="$(check-dep curl)"
+JQ="$(check-dep jq)"
+
+encode() {
+	openssl base64 -e -A | tr '+/' '-_' | tr -d '='
+}
+
+HEADER=$(printf '{"alg":"RS256","typ":"JWT"}' | encode)
+NOW=$(date +%s)
+IAT=$((NOW - 30))
+EXP=$((NOW + 600))
+PAYLOAD=$(printf '{"iat":%d,"exp":%d,"iss":"%s"}' "$IAT" "$EXP" "$GITHUB_CLIENT_ID" | encode)
+SIGNATURE=$(printf '%s.%s' "$HEADER" "$PAYLOAD" | openssl dgst -sha256 -sign "$GITHUB_PRIVATE_KEY" | encode)
+JWT="${HEADER}.${PAYLOAD}.${SIGNATURE}"
+
+RES=$("$CURL" -s -X POST \
+	-H "Authorization: Bearer $JWT" \
+	-H "Accept: application/vnd.github.v3+json" \
+	"https://api.github.com/app/installations/${GITHUB_INSTALLATION_ID}/access_tokens")
+
+printf '%s' "$RES" | "$JQ" -r '.token'

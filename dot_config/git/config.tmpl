@@ -41,5 +41,8 @@
 	name = "{{.config.git_name }}"
 	email = {{ .config.git_email }}
 	signingkey = {{ .config.git_sign_key }}
+[credential "https://github.com/pidario"]
+    helper = !github-credentials-helper
+
 [includeIf "gitdir:{{ .config.git_work_path }}"]
 	path = {{ .config.git_work_conf }}

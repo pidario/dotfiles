@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+JQ="$(check-dep jq)"
+JWT="$1"
+HEADER=$(echo "$JWT" | cut -d '.' -f1)
+PAYLOAD=$(echo "$JWT" | cut -d '.' -f2)
+SIGNATURE=$(echo "$JWT" | cut -d '.' -f3)
+PRIVATE_KEY="${2-}"
+
+pad() {
+	INPUT="$1"
+	PAD=$(((4 - ${#INPUT} % 4) % 4))
+	while [ $PAD -gt 0 ]; do
+		INPUT="${INPUT}="
+		PAD=$((PAD - 1))
+	done
+	echo "$INPUT" | tr '_-' '/+'
+}
+
+decode() {
+	pad "$1" | openssl base64 -d 2>/dev/null
+}
+
+echo "Header:"
+decode "$HEADER" | "$JQ"
+echo
+echo "Payload:"
+decode "$PAYLOAD" | "$JQ"
+if [ -n "$PRIVATE_KEY" ] && [ -f "$PRIVATE_KEY" ]; then
+	echo
+	SIGNED_CONTENT="${HEADER}.${PAYLOAD}"
+	openssl dgst -sha256 -verify <(openssl rsa -in "$PRIVATE_KEY" -pubout 2>/dev/null) -signature <(pad "$SIGNATURE" | openssl base64 -d) <(printf '%s' "$SIGNED_CONTENT") >/dev/null
+	STATUS=$?
+	if [ $STATUS -eq 0 ]; then
+		echo "✔ Signature is VALID"
+	else
+		echo "✘ Signature is INVALID"
+	fi
+fi
