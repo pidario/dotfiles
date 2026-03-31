@@ -127,7 +127,7 @@ pref("sidebar.main.tools", "history, bookmarks,syncedtabs", locked);
 pref("sidebar.new-sidebar.has-used", true, locked);
 pref("sidebar.revamp", true, locked);
 pref("sidebar.verticalTabs", true, locked);
-pref("sidebar.visibility", "expand-on-hover", locked);
+pref("sidebar.visibility", "expand-on-hover");
 pref("signon.autofillForms", false, locked);
 pref("signon.autologin.proxy", false, locked);
 pref("signon.generation.enabled", false, locked);
