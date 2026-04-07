@@ -5,47 +5,51 @@ set -eu
 PAMIXER="$(check-dep pamixer)"
 PACTL="$(check-dep pactl)"
 JQ="$(check-dep jq)"
+NOTIFY="$(command -v notify-send)"
 
 get_default_sink() {
-  "$PAMIXER" --get-default-sink | tail --lines 1
+	"$PAMIXER" --get-default-sink | tail --lines 1
 }
 
 sinks_list() {
-  "$PACTL" --format json list sinks | "$JQ" '.[] | .index'
+	"$PACTL" --format json list sinks | "$JQ" '.[] | .index'
 }
 
 sink_input_list() {
-  "$PACTL" list sink-inputs short | awk '{print $1}'
+	"$PACTL" list sink-inputs short | awk '{print $1}'
 }
 
 set_default_sink() {
-  "$PACTL" set-default-sink "$1"
-  INPUTS="$(sink_input_list)"
-  for INPUT in $INPUTS; do
-    "$PACTL" move-sink-input "$INPUT" "$1"
-  done
-  get_default_sink | awk -F \" '{print $4}'
+	"$PACTL" set-default-sink "$1"
+	INPUTS="$(sink_input_list)"
+	for INPUT in $INPUTS; do
+		"$PACTL" move-sink-input "$INPUT" "$1"
+	done
+	if [ -n "$NOTIFY" ]; then
+		SINK_NAME="$(get_default_sink | awk -F \" '{print $4}')"
+		"$NOTIFY" --expire-time 2000 "Default Sink" "$SINK_NAME" --icon pavucontrol
+	fi
 }
 
 next_sink() {
-  DEFAULT_SINK="$(get_default_sink | awk '{print $1}')"
-  FIRST_SINK=
-  for SINK in $(sinks_list); do
-    if [ -z "$FIRST_SINK" ]; then
-      FIRST_SINK="$SINK"
-    fi
-    if [ "$((SINK))" -gt "$((DEFAULT_SINK))" ]; then
-      set_default_sink "$SINK"
-      exit 0
-    fi
-  done
-  set_default_sink "$FIRST_SINK"
+	DEFAULT_SINK="$(get_default_sink | awk '{print $1}')"
+	FIRST_SINK=
+	for SINK in $(sinks_list); do
+		if [ -z "$FIRST_SINK" ]; then
+			FIRST_SINK="$SINK"
+		fi
+		if [ "$((SINK))" -gt "$((DEFAULT_SINK))" ]; then
+			set_default_sink "$SINK"
+			exit 0
+		fi
+	done
+	set_default_sink "$FIRST_SINK"
 }
 
 main() {
-  case "$1" in
-    next-sink) next_sink;;
-  esac
+	case "$1" in
+	next-sink) next_sink ;;
+	esac
 }
 
 main "$@"

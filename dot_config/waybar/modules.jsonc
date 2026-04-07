@@ -72,7 +72,8 @@
 				""
 			]
 		},
-		"on-click": "pavucontrol"
+		"on-click": "pavucontrol",
+		"on-click-right": "volume next-sink"
 	},
 	"power-profiles-daemon": {
 		"format": "{icon}",
