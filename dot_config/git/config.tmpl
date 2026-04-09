@@ -14,17 +14,27 @@
     conflictstyle = zdiff3
 
 [alias]
-	# lista file modificati (senza parametri restituisce i file modificati dall'ultimo commit
-	# fornendo un commit (full hash) restituisce i file modificati in quel commit
+	# without parameters: changed files since last commit
+	# with parameter: changed files in a particular $COMMIT
 	changed = show --pretty="format:" --name-only
-	# lista commit, hash completo, no albero
+	# prettier log
 	lg1 = log --graph --pretty=format:'%Cred%H%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset'
-	# albero lista commit, hash abbreviato
+	# like log but with shortened hash
 	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n'' %C(white)%s%C(reset)%n'' %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
-	# lista commit dove il file fornito come parametro è stato modificato
+	# list commit where $FILE has been modified
 	file = log --follow
-	# lista file modificati da un determinato commit ad ora
+	# shows files changed from a $COMMIT until now
 	diff-commit = diff --name-only
+	# maintainers list
+	maintainer = shortlog -sn --no-merges
+	# most changed files
+	most-changed = "! git log --format=format: --name-only --since=\"1 year ago\" | sort | uniq -c | sort -nr | head -20"
+	# commits per month
+	commits-per-month = "! git log --format='%ad' --date=format:'%Y-%m' | sort | uniq -c"
+	# bugs
+	bugs = "! git log -i -E --grep=\"fix|bug|broken\" --name-only --format='' | sort | uniq -c | sort -nr | head -20"
+	# issues: Revert and hotfix frequency
+	issues = "! git log --oneline --since=\"1 year ago\" | grep -iE 'revert|hotfix|emergency|rollback'"
 [pull]
 	rebase = false
 [init]
