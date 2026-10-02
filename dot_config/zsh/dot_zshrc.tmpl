@@ -129,6 +129,20 @@ bindkey '^[^H'    backward-kill-word            # ctrl+alt+bs   delete previous 
 bindkey '^[[D'    backward-char                 # left          move cursor one char backward
 bindkey '^[[C'    forward-char                  # right         move cursor one char forward
 
+function check_git_ahead_behind {
+  if git rev-parse --is-inside-work-tree &>/dev/null; then
+    local counts=$(git rev-list --left-right --count HEAD...@{u} 2>/dev/null)
+    if [ -n "$counts" ]; then
+      local ahead=$(echo $counts | awk '{print $1}')
+      local behind=$(echo $counts | awk '{print $2}')
+      local status_str=""
+      [ "$ahead" -gt 0 ] && status_str+="%F{green}⇡${ahead}%f"
+      [ "$behind" -gt 0 ] && status_str+="%F{red}⇣${behind}%f"
+      [ -n "$status_str" ] && echo "[$status_str]"
+    fi
+  fi
+}
+
 function zle-line-init zle-keymap-select {
   work_dir='%F{green}%~%f'
   vcs='%F{red}${vcs_info_msg_0_}%f'
@@ -136,7 +150,7 @@ function zle-line-init zle-keymap-select {
   case ${KEYMAP} in
     (vicmd) root='%F{red}%#%f';;
   esac
-  PROMPT="${work_dir}${vcs} ${root} "
+  PROMPT="${work_dir}${vcs}$(check_git_ahead_behind) ${root} "
   zle reset-prompt
 }
 
