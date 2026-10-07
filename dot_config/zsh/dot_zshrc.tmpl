@@ -145,7 +145,7 @@ function check_git_ahead_behind {
 
 function print_hostname {
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    echo "@${(%):-%m}"
+    echo "%F{blue}@${(%):-%m}%f"
   fi
 }
 
@@ -156,7 +156,7 @@ function zle-line-init zle-keymap-select {
   case ${KEYMAP} in
     (vicmd) root='%F{red}%#%f';;
   esac
-  PROMPT="${work_dir}${vcs}%F{blue}$(print_hostname)%f$(check_git_ahead_behind) ${root} "
+  PROMPT="${work_dir}$(print_hostname)${vcs}$(check_git_ahead_behind) ${root} "
   zle reset-prompt
 }
 
