@@ -1,3 +1,4 @@
+{{- if eq (env "SHELL") "/bin/zsh" -}}
 {{ template "shell" }}
 
 {{- if eq (env "SHELL") "/bin/zsh" }}
@@ -17,6 +18,8 @@ autoload -U colors && colors
 autoload -Uz vcs_info
 autoload -Uz select-bracketed select-quoted
 autoload -Uz surround
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd set_hostname_title
 _comp_options+=(globdots) # With hidden files
 
 setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
@@ -32,6 +35,10 @@ setopt EXTENDED_GLOB        # Use extended globbing syntax.
 setopt PROMPT_SUBST
 
 precmd() { vcs_info }
+
+set_hostname_title() {
+  print -Pn '\e]0;%m\a'
+}
 
 # Ztyle pattern
 # :completion:<function>:<completer>:<command>:<argument>:<tag>
@@ -173,4 +180,5 @@ source ~/.local/share/atuin/atuin.zsh
 eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(mise activate zsh)"
 
+{{- end }}
 {{- end }}

@@ -9,3 +9,6 @@ alias rsync='rsync -avxHAX --progress'
 for f in "$XDG_CONFIG_HOME/conf.d/"*.conf; do
   source "$f"
 done 2> /dev/null
+{{ if ne (env "SHELL") "/bin/zsh" -}}
+PS1='\[\e]0;\h\a\]'"$PS1"
+{{- end -}}
