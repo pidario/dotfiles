@@ -48,16 +48,18 @@ button {
 	margin-left: 5px;
 }
 
-#taskbar button.active {
+.niri-taskbar button {
+	border-bottom: solid 3px transparent;
+}
+
+.niri-taskbar button.focused {
 	background-color: #5294e2;
+	border-bottom: solid 3px #eceff4;
 }
-/*#taskbar button
-#taskbar button.minimized
-#taskbar button.maximized*/
-#taskbar button.fullscreen {
-	background-color: #26a65b;
+
+.niri-taskbar button.urgent {
+	background-color: #ff8846;
 }
-/*#taskbar.empty*/
 
 #battery.charging,
 #battery.plugged {

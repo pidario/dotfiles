@@ -11,6 +11,9 @@
 			"default": ""
 		}
 	},
+	"cffi/niri-taskbar": {
+		"module_path": "/usr/lib/waybar/libniri_taskbar.so"
+	},
 	"niri/window": {
 		"format": "{}"
 	},
@@ -21,7 +24,7 @@
 	},
 	"modules-left": [
 		"niri/workspaces",
-		"wlr/taskbar",
+		"cffi/niri-taskbar",
 		"niri/window"
 	],
 	"modules-center": [
