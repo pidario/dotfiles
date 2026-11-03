@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Commits of <branch> not yet in HEAD, skipping those already cherry-picked with -x.
+# Relies on the global aliases: chr = "cherry -v HEAD" (patch-id match).
+[ -n "$1" ] || {
+	echo "usage: git pending <branch>" >&2
+	exit 1
+}
+
+git cherry -v HEAD "$1" | while read -r sign full _; do
+	[ "$sign" = "+" ] || continue
+	git log HEAD -1 --grep="$full" --format=%h | grep -q . && continue
+	git show -s --oneline "$full"
+done

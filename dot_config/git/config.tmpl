@@ -18,9 +18,10 @@
 	# with parameter: changed files in a particular $COMMIT
 	changed = show --pretty="format:" --name-only
 	# prettier log
-	lg1 = log --graph --pretty=format:'%Cred%H%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset'
-	# like log but with shortened hash
-	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n'' %C(white)%s%C(reset)%n'' %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+	pretty-log = log --graph --oneline --all --decorate
+	# cherry-pick list
+	chr = cherry -v HEAD
+	cpl = log --cherry-pick --right-only --no-merges --reverse --oneline HEAD...
 	# list commit where $FILE has been modified
 	file = log --follow
 	# shows files changed from a $COMMIT until now
