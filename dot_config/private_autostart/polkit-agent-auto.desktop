@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=Polkit Agent Auto
+Exec=sh -c "~/.local/bin/polkit-agent"

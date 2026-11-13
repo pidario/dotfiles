@@ -1,0 +1,12 @@
+#!/bin/sh
+
+set -eu
+
+bus="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/bus"
+i=0
+while [ ! -S "$bus" ] && [ "$i" -lt 60 ]; do
+	sleep 0.5
+	i=$((i + 1))
+done
+
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
