@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Gammastep Indicator
+Exec=gammastep-indicator
+Icon=gammastep
+Terminal=false
+Type=Application
+StartupNotify=true
+NotShowIn=XFCE;
