@@ -22,6 +22,7 @@ confirm() {
 }
 
 lock() {
+	niri msg action power-off-monitors
 	kill -USR1 "$(pidof swayidle)"
 }
 
@@ -35,9 +36,9 @@ menu() {
 
 main() {
 	case "$1" in
-		"$LOCK_CMD") lock;;
-		"$QUIT_CMD") quit;;
-		"$POWEROFF_CMD"|"$REBOOT_CMD") confirm "$1";;
+	"$LOCK_CMD") lock ;;
+	"$QUIT_CMD") quit ;;
+	"$POWEROFF_CMD" | "$REBOOT_CMD") confirm "$1" ;;
 	esac
 }
 
