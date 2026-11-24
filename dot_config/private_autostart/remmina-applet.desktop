@@ -1,5 +1,5 @@
 [Desktop Entry]
-Type=Application
-Name=Remmina
+Version=1.0
+Name=Remmina Applet
 Exec=remmina -i
 Hidden=true
